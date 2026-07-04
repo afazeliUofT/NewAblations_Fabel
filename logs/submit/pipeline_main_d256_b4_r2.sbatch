@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
-#SBATCH --job-name=upairP-no_raw_y_d256
+#SBATCH --job-name=upairP-main_d256_b4_
 #SBATCH --time=12:00:00
 #SBATCH --cpus-per-task=8
 #SBATCH --mem=32G
-#SBATCH --output=/home/rsadve1/scratch/NewAblations_Fabel/logs/pipeline/pipeline_no_raw_y_d256_b4_r2_%j.out
+#SBATCH --output=/home/rsadve1/scratch/NewAblations_Fabel/logs/pipeline/pipeline_main_d256_b4_r2_%j.out
 #SBATCH --gres=gpu:h100:1
 set -euo pipefail
 cd "/home/rsadve1/scratch/NewAblations_Fabel"
@@ -30,7 +30,7 @@ export UPAIR_PIPELINE_MICRO="8"
 export UPAIR_PIPELINE_TARGET_BLOCK_ERRORS=""
 export UPAIR_PIPELINE_MAX_BATCHES=""
 export UPAIR_PIPELINE_MIN_BATCHES=""
-export UPAIR_EVAL_ONLY="0"
+export UPAIR_EVAL_ONLY="1"
 export UPAIR_EVAL_CHUNK_ROOT="_isolated_eval_chunks"
 
-bash "/home/rsadve1/scratch/NewAblations_Fabel/upair_variant_pipeline_worker.sh" "no_raw_y_d256_b4_r2"
+bash "/home/rsadve1/scratch/NewAblations_Fabel/upair_variant_pipeline_worker.sh" "main_d256_b4_r2"

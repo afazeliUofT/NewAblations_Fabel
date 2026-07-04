@@ -27,8 +27,9 @@ EVAL_ONLY_ARMS="${UPAIR_ABLATION_EVAL_ONLY_ARMS:-${EVAL_ONLY_ARMS_DEFAULT}}"
 export UPAIR_OPTUNA_STAGEB_PREFIX="${UPAIR_OPTUNA_STAGEB_PREFIX:-clean_b32_prb8_d256_40k_smart_trueDMRS_u34610_1dmrs_stageB}"
 # The headline comparison point: 3 scheduled users, full Eb/N0 grid, all four receivers.
 export UPAIR_PIPELINE_USERS="${UPAIR_PIPELINE_USERS:-3}"
-export UPAIR_PIPELINE_RECEIVERS="${UPAIR_PIPELINE_RECEIVERS:-upair5g_lmmse,baseline_ls_lmmse,baseline_ls_2dlmmse_lmmse,perfect_csi_lmmse}"
-export UPAIR_PIPELINE_EBNOS="${UPAIR_PIPELINE_EBNOS:--4,-3,-2,-1,0,1,2,3,4}"
+export UPAIR_PIPELINE_RECEIVERS="${UPAIR_PIPELINE_RECEIVERS:-upair5g_lmmse}"
+export UPAIR_PIPELINE_EBNOS="${UPAIR_PIPELINE_EBNOS:--4,-3,-2,-1,0,1}"
+export UPAIR_TIME_PIPELINE="${UPAIR_TIME_PIPELINE:-20:00:00}"
 
 # Sanity: shared-recipe JSONs must exist before submitting anything.
 missing=0
