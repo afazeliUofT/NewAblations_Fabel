@@ -20,8 +20,8 @@ EVAL_ONLY_ARMS_DEFAULT="errvar_eval_swap_d256_b4_r2"
 # A3-dagger is conditional: submit it explicitly once A3 shows a gap, e.g.
 #   UPAIR_ABLATION_ARMS="global_pool_prompt_d256_b4_r2" UPAIR_ABLATION_EVAL_ONLY_ARMS="" bash upair_submit_ablation_arms.sh
 
-ARMS="${UPAIR_ABLATION_ARMS:-${TRAINABLE_ARMS_DEFAULT}}"
-EVAL_ONLY_ARMS="${UPAIR_ABLATION_EVAL_ONLY_ARMS:-${EVAL_ONLY_ARMS_DEFAULT}}"
+ARMS="${UPAIR_ABLATION_ARMS-${TRAINABLE_ARMS_DEFAULT}}"
+EVAL_ONLY_ARMS="${UPAIR_ABLATION_EVAL_ONLY_ARMS-${EVAL_ONLY_ARMS_DEFAULT}}"
 
 # The shared-recipe prefix (arms' JSONs are seeded by scripts/seed_ablation_recipes.py).
 export UPAIR_OPTUNA_STAGEB_PREFIX="${UPAIR_OPTUNA_STAGEB_PREFIX:-clean_b32_prb8_d256_40k_smart_trueDMRS_u34610_1dmrs_stageB}"
