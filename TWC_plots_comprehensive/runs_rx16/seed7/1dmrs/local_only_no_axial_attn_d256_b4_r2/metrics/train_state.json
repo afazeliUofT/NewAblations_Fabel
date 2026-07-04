@@ -1,0 +1,55 @@
+{
+  "best_val": 0.049801737506641075,
+  "best_weights_path": "/scratch/rsadve1/NewAblations_Fabel/TWC_plots_comprehensive/runs_rx16/seed7/1dmrs/local_only_no_axial_attn_d256_b4_r2/checkpoints/best.weights.h5",
+  "checkpoint_metrics": {
+    "last_loss": -2.4660844802856445,
+    "last_nmse_ls": 0.05124471336603165,
+    "last_nmse_prop": 0.03300099819898605
+  },
+  "last_metrics": {
+    "ebno_db": 2.5835886001586914,
+    "learning_rate": 0.0005663445917889476,
+    "loss": -2.4660844802856445,
+    "loss_nll": -2.4818854331970215,
+    "nmse_ls": 0.05124471336603165,
+    "nmse_prop": 0.03300099819898605,
+    "num_users": 4,
+    "step": 3000,
+    "step_elapsed_s": 0.4956437509972602,
+    "steps_per_s": 2.1276470927501396,
+    "training_elapsed_s": 1410.0082716830075
+  },
+  "latest_step": 3000,
+  "latest_training_state_checkpoint": "/scratch/rsadve1/NewAblations_Fabel/TWC_plots_comprehensive/runs_rx16/seed7/1dmrs/local_only_no_axial_attn_d256_b4_r2/checkpoints/training_state/ckpt-3000",
+  "resume_enabled": true,
+  "save_reason": "periodic",
+  "total_steps": 40000,
+  "training_complete": false,
+  "training_parameters": {
+    "batch_size_eval": 32,
+    "batch_size_train": 32,
+    "current_learning_rate": 0.0005663445917889476,
+    "eval_every": 2000,
+    "evaluation_seed": 1007,
+    "grad_clip_norm": 0.5,
+    "learning_rate": 0.0005712916127949584,
+    "learning_rate_schedule": {
+      "decay_rate": 0.96,
+      "decay_steps": 50000.0,
+      "final_fraction": 0.02159904793462117,
+      "learning_rate": 0.0005712916127949584,
+      "polynomial_power": 1.0,
+      "restart_first_decay_steps": 2500.0,
+      "restart_m_mul": 0.8,
+      "restart_t_mul": 2.0,
+      "schedule": "cosine_decay"
+    },
+    "memory_cleanup_every_steps": 100,
+    "nmse_loss_weight": 0.4788048920718949,
+    "seed": 7,
+    "training_seed": 7,
+    "val_microbatch_size": 16,
+    "val_steps": 96,
+    "weight_decay": 9.654662480652895e-06
+  }
+}

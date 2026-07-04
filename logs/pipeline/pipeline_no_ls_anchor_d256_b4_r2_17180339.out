@@ -1,0 +1,84 @@
+[ENV] Reusing portable venv: /home/rsadve1/scratch/.vevn_upair_potable
+[ENV] Checking installed package metadata only; TensorFlow/Sionna are not imported here.
+[ENV] Python 3.11.5
+[ENV] numpy 1.26.4+computecanada
+[ENV] pandas 2.2.3+computecanada
+[ENV] matplotlib 3.10.0+computecanada
+[ENV] PyYAML 6.0.2+computecanada
+[ENV] scipy 1.15.1+computecanada
+[ENV] tensorflow 2.15.1+computecanada
+[ENV] sionna-no-rt 1.2.1
+[ENV] optuna 4.8.0+computecanada
+[ENV] Skipping TensorFlow/Sionna import check on this node. Set UPAIR_DEEP_IMPORT_CHECK=1 to test imports explicitly.
+[ENV] Ready: REPO=/home/rsadve1/scratch/NewAblations_Fabel
+[ENV] Ready: VENV=/home/rsadve1/scratch/.vevn_upair_potable
+[ENV] Reusing portable venv: /home/rsadve1/scratch/.vevn_upair_potable
+[ENV] Checking installed package metadata only; TensorFlow/Sionna are not imported here.
+[ENV] Python 3.11.5
+[ENV] numpy 1.26.4+computecanada
+[ENV] pandas 2.2.3+computecanada
+[ENV] matplotlib 3.10.0+computecanada
+[ENV] PyYAML 6.0.2+computecanada
+[ENV] scipy 1.15.1+computecanada
+[ENV] tensorflow 2.15.1+computecanada
+[ENV] sionna-no-rt 1.2.1
+[ENV] optuna 4.8.0+computecanada
+[ENV] Skipping TensorFlow/Sionna import check on this node. Set UPAIR_DEEP_IMPORT_CHECK=1 to test imports explicitly.
+[ENV] Ready: REPO=/home/rsadve1/scratch/NewAblations_Fabel
+[ENV] Ready: VENV=/home/rsadve1/scratch/.vevn_upair_potable
+================================================================================
+[PIPELINE] variant=no_ls_anchor_d256_b4_r2
+[PIPELINE] root=/home/rsadve1/scratch/NewAblations_Fabel
+[PIPELINE] stageB_prefix=clean_b32_prb8_d256_40k_smart_trueDMRS_u34610_1dmrs_stageB
+[PIPELINE] receivers=upair5g_lmmse
+[PIPELINE] users=3
+[PIPELINE] ebnos=-4,-3,-2,-1,0,1
+[PIPELINE] chunk_batches=20 micro=8
+================================================================================
+[PIPELINE] training missing/incomplete for no_ls_anchor_d256_b4_r2; running training-only resume.
+2026-07-04 12:35:11.275463: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2026-07-04 12:35:11.275556: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2026-07-04 12:35:11.458928: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+[COMPREHENSIVE] loaded Optuna best JSON for no_ls_anchor_d256_b4_r2 from /home/rsadve1/scratch/NewAblations_Fabel/optuna/clean_b32_prb8_d256_40k_smart_trueDMRS_u34610_1dmrs_stageB_no_ls_anchor_d256_b4_r2_best_params.json
+[TRAIN] loss_mode=nll_nmse (use_nll_loss=True)
+[TRAIN] optimizer lr_schedule=cosine_decay learning_rate=0.000571292 weight_decay=9.65466e-06
+[TRAIN] seeds active_seed=7 training_seed=7 evaluation_seed=1007
+[TRAIN] starting from scratch
+2026-07-04 12:35:58.430549: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:961] layout failed: INVALID_ARGUMENT: Size of values 0 does not match size of permutation 4 @ fanin shape inaxial_block_0/dropout/dropout_2/SelectV2-2-TransposeNHWCToNCHW-LayoutOptimizer
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1783182960.603390 1144937 device_compiler.h:186] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+[TRAIN] step=00001 loss=38.90172 nmse_prop=6.45361 nmse_ls=0.14844 lr=5.713e-04 step_time=16.804s steps_per_s=0.060 gpu_mem=0.09GiB peak=7.05GiB
+[TRAIN] step=00100 loss=-0.32703 nmse_prop=0.22920 nmse_ls=0.09529 lr=5.713e-04 step_time=0.607s steps_per_s=1.194 gpu_mem=0.15GiB peak=7.18GiB
+[TRAIN] step=00200 loss=-0.86821 nmse_prop=0.14060 nmse_ls=0.11593 lr=5.713e-04 step_time=0.569s steps_per_s=1.505 gpu_mem=0.15GiB peak=7.18GiB
+[TRAIN] step=00300 loss=-1.28299 nmse_prop=0.09759 nmse_ls=0.09306 lr=5.712e-04 step_time=0.575s steps_per_s=1.638 gpu_mem=0.15GiB peak=7.18GiB
+[TRAIN] step=00400 loss=-1.51928 nmse_prop=0.07692 nmse_ls=0.09613 lr=5.712e-04 step_time=0.601s steps_per_s=1.709 gpu_mem=0.15GiB peak=7.18GiB
+[TRAIN] step=00500 loss=-1.44041 nmse_prop=0.08387 nmse_ls=0.13364 lr=5.712e-04 step_time=0.482s steps_per_s=1.751 gpu_mem=0.15GiB peak=7.18GiB
+[TRAIN] step=00600 loss=-2.05369 nmse_prop=0.04492 nmse_ls=0.04529 lr=5.711e-04 step_time=0.489s steps_per_s=1.792 gpu_mem=0.15GiB peak=7.18GiB
+[TRAIN] step=00700 loss=-1.94545 nmse_prop=0.05086 nmse_ls=0.08123 lr=5.710e-04 step_time=0.472s steps_per_s=1.820 gpu_mem=0.15GiB peak=7.18GiB
+[TRAIN] step=00800 loss=-2.16190 nmse_prop=0.04160 nmse_ls=0.05339 lr=5.709e-04 step_time=0.463s steps_per_s=1.834 gpu_mem=0.15GiB peak=7.18GiB
+[TRAIN] step=00900 loss=-2.10452 nmse_prop=0.03819 nmse_ls=0.03625 lr=5.708e-04 step_time=0.583s steps_per_s=1.849 gpu_mem=0.15GiB peak=7.18GiB
+[TRAIN] step=01000 loss=-1.83064 nmse_prop=0.05697 nmse_ls=0.11516 lr=5.707e-04 step_time=0.256s steps_per_s=1.857 gpu_mem=0.15GiB peak=7.18GiB
+[TRAIN] saved resumable state at step=1000 reason=periodic: /scratch/rsadve1/NewAblations_Fabel/TWC_plots_comprehensive/runs_rx16/seed7/1dmrs/no_ls_anchor_d256_b4_r2/checkpoints/training_state/ckpt-1000
+[TRAIN] step=01100 loss=-2.16786 nmse_prop=0.04146 nmse_ls=0.07499 lr=5.706e-04 step_time=0.481s steps_per_s=1.862 gpu_mem=0.15GiB peak=7.18GiB
+[TRAIN] step=01200 loss=-1.48426 nmse_prop=0.08088 nmse_ls=0.18522 lr=5.705e-04 step_time=0.548s steps_per_s=1.875 gpu_mem=0.15GiB peak=7.18GiB
+[TRAIN] step=01300 loss=-1.93392 nmse_prop=0.05235 nmse_ls=0.09274 lr=5.704e-04 step_time=0.578s steps_per_s=1.885 gpu_mem=0.15GiB peak=7.18GiB
+[TRAIN] step=01400 loss=-2.33912 nmse_prop=0.03584 nmse_ls=0.05836 lr=5.702e-04 step_time=0.359s steps_per_s=1.893 gpu_mem=0.15GiB peak=7.18GiB
+[TRAIN] step=01500 loss=-1.72512 nmse_prop=0.06413 nmse_ls=0.14053 lr=5.701e-04 step_time=0.564s steps_per_s=1.902 gpu_mem=0.15GiB peak=7.18GiB
+[TRAIN] step=01600 loss=-2.48765 nmse_prop=0.03129 nmse_ls=0.04206 lr=5.699e-04 step_time=0.481s steps_per_s=1.904 gpu_mem=0.15GiB peak=7.18GiB
+[TRAIN] step=01700 loss=-2.39192 nmse_prop=0.03392 nmse_ls=0.06540 lr=5.697e-04 step_time=0.359s steps_per_s=1.910 gpu_mem=0.15GiB peak=7.18GiB
+[TRAIN] step=01800 loss=-1.95323 nmse_prop=0.05215 nmse_ls=0.12168 lr=5.695e-04 step_time=0.481s steps_per_s=1.916 gpu_mem=0.15GiB peak=7.18GiB
+[TRAIN] step=01900 loss=-1.97426 nmse_prop=0.05125 nmse_ls=0.12984 lr=5.693e-04 step_time=0.467s steps_per_s=1.916 gpu_mem=0.15GiB peak=7.18GiB
+WARNING:tensorflow:Model's `__init__()` arguments contain non-serializable objects. Please implement a `get_config()` method in the subclassed Model for proper saving and loading. Defaulting to empty config.
+WARNING:tensorflow:Model's `__init__()` arguments contain non-serializable objects. Please implement a `get_config()` method in the subclassed Model for proper saving and loading. Defaulting to empty config.
+[TRAIN] saved new best weights at step=2000 val_nmse=0.0418842
+[TRAIN] step=02000 loss=-1.65813 nmse_prop=0.06901 nmse_ls=0.17498 lr=5.691e-04 step_time=199.019s steps_per_s=1.615 gpu_mem=0.16GiB peak=7.18GiB
+[TRAIN] saved resumable state at step=2000 reason=periodic: /scratch/rsadve1/NewAblations_Fabel/TWC_plots_comprehensive/runs_rx16/seed7/1dmrs/no_ls_anchor_d256_b4_r2/checkpoints/training_state/ckpt-2000
+[TRAIN] step=02100 loss=-2.42571 nmse_prop=0.03310 nmse_ls=0.05519 lr=5.689e-04 step_time=0.235s steps_per_s=1.631 gpu_mem=0.16GiB peak=7.20GiB
+[TRAIN] step=02200 loss=-1.98017 nmse_prop=0.05121 nmse_ls=0.11218 lr=5.686e-04 step_time=0.565s steps_per_s=1.643 gpu_mem=0.16GiB peak=7.20GiB
+[TRAIN] step=02300 loss=-2.39932 nmse_prop=0.03442 nmse_ls=0.05099 lr=5.684e-04 step_time=0.581s steps_per_s=1.655 gpu_mem=0.16GiB peak=7.20GiB
+[TRAIN] step=02400 loss=-2.61841 nmse_prop=0.02716 nmse_ls=0.03856 lr=5.681e-04 step_time=0.468s steps_per_s=1.666 gpu_mem=0.16GiB peak=7.20GiB
+[TRAIN] step=02500 loss=-2.38908 nmse_prop=0.03473 nmse_ls=0.06462 lr=5.679e-04 step_time=0.246s steps_per_s=1.676 gpu_mem=0.16GiB peak=7.20GiB
+[TRAIN] step=02600 loss=-1.59745 nmse_prop=0.07371 nmse_ls=0.23573 lr=5.676e-04 step_time=0.487s steps_per_s=1.686 gpu_mem=0.16GiB peak=7.20GiB
+[TRAIN] step=02700 loss=-2.32304 nmse_prop=0.03711 nmse_ls=0.06391 lr=5.673e-04 step_time=0.567s steps_per_s=1.695 gpu_mem=0.16GiB peak=7.20GiB
+[TRAIN] step=02800 loss=-1.92607 nmse_prop=0.05403 nmse_ls=0.14597 lr=5.670e-04 step_time=0.570s steps_per_s=1.701 gpu_mem=0.16GiB peak=7.20GiB
+[TRAIN] step=02900 loss=-1.70207 nmse_prop=0.06718 nmse_ls=0.20676 lr=5.667e-04 step_time=0.355s steps_per_s=1.711 gpu_mem=0.16GiB peak=7.20GiB
