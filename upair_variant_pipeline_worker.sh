@@ -80,7 +80,9 @@ if [[ ! -s "${best_json}" && ! -s "${best_db}" ]]; then
   exit 2
 fi
 
-if training_complete; then
+if [[ "${UPAIR_EVAL_ONLY:-0}" == "1" ]]; then
+  echo "[PIPELINE] UPAIR_EVAL_ONLY=1 -> skipping training for ${VARIANT} (eval-only arm reusing aliased checkpoint)."
+elif training_complete; then
   echo "[PIPELINE] training already complete for ${VARIANT}; skipping training."
 else
   echo "[PIPELINE] training missing/incomplete for ${VARIANT}; running training-only resume."

@@ -21,6 +21,7 @@ if str(SRC_ROOT) not in sys.path:
 from upair5g.config import get_cfg, load_config, set_cfg  # noqa: E402
 from upair5g.evaluation import evaluate_model  # noqa: E402
 from scripts.run_comprehensive_mu32_ablation import (  # noqa: E402
+    CHECKPOINT_ALIAS,
     _apply_optuna_best_1dmrs,
     _eval_cfg,
     _variant_cfg,
@@ -85,16 +86,23 @@ def main() -> None:
         require_external=True,
     )
 
-    checkpoint = Path(args.checkpoint) if args.checkpoint else (
-        PROJECT_ROOT
-        / "TWC_plots_comprehensive"
-        / "runs_rx16"
-        / f"seed{args.seed}"
-        / args.dmrs_case
-        / args.variant
-        / "checkpoints"
-        / str(get_cfg(train_cfg, "training.checkpoint_name", "best.weights.h5"))
-    )
+    def _default_checkpoint(variant: str) -> Path:
+        return (
+            PROJECT_ROOT
+            / "TWC_plots_comprehensive"
+            / "runs_rx16"
+            / f"seed{args.seed}"
+            / args.dmrs_case
+            / variant
+            / "checkpoints"
+            / str(get_cfg(train_cfg, "training.checkpoint_name", "best.weights.h5"))
+        )
+
+    checkpoint = Path(args.checkpoint) if args.checkpoint else _default_checkpoint(args.variant)
+    if not checkpoint.exists() and args.checkpoint is None and args.variant in CHECKPOINT_ALIAS:
+        # Eval-only arms (e.g. errvar_eval_swap) reuse the source variant's weights.
+        checkpoint = _default_checkpoint(CHECKPOINT_ALIAS[args.variant])
+        print(f"[ISO-CHUNK] {args.variant}: using aliased checkpoint from {CHECKPOINT_ALIAS[args.variant]}")
     if not checkpoint.exists():
         raise FileNotFoundError(f"Missing checkpoint for isolated eval: {checkpoint}")
 

@@ -237,6 +237,7 @@ def _train_step(
     grad_clip_norm: float,
     ls_estimator: Any | None = None,
     pilot_mask: tf.Tensor | None = None,
+    use_nll_loss: bool = True,
 ) -> dict[str, tf.Tensor]:
     with tf.GradientTape() as tape:
         h_hat, err_hat, h_ls, _ = estimator.estimate_with_ls(
@@ -256,7 +257,14 @@ def _train_step(
         loss_nll = tf.reduce_mean(sq_err / (err_hat + 1e-6) + tf.math.log(err_hat + 1e-6))
         nmse_prop = tf.reduce_mean(sq_err) / power
         nmse_ls = tf.reduce_mean(complex_sq_abs(residual_ls)) / power
-        loss = loss_nll + float(nmse_loss_weight) * nmse_prop
+        if use_nll_loss:
+            loss = loss_nll + float(nmse_loss_weight) * nmse_prop
+        else:
+            # A8 (no learned error variance): pure NMSE objective. The
+            # nmse_loss_weight from the shared recipe is intentionally NOT
+            # applied here so the objective is exactly NMSE (a constant loss
+            # scale is a no-op for Adam up to epsilon anyway).
+            loss = nmse_prop
 
     grads = tape.gradient(loss, estimator.trainable_variables)
     grad_var_pairs = [(g, v) for g, v in zip(grads, estimator.trainable_variables) if g is not None]
@@ -535,6 +543,16 @@ def train_model(
     eval_every = int(cfg["training"]["eval_every"])
     checkpoint_every = int(get_cfg(cfg, "training.checkpoint_every", log_every))
     nmse_loss_weight = float(cfg["training"]["nmse_loss_weight"])
+    loss_mode = str(get_cfg(cfg, "training.loss_mode", "nll_nmse")).lower()
+    if loss_mode not in {"nll_nmse", "nmse"}:
+        raise ValueError(f"training.loss_mode must be 'nll_nmse' or 'nmse', got {loss_mode!r}.")
+    use_nll_loss = loss_mode != "nmse"
+    if not bool(get_cfg(cfg, "model.use_err_head", True)) and use_nll_loss:
+        raise ValueError(
+            "model.use_err_head=false (A8) requires training.loss_mode='nmse': "
+            "the Gaussian NLL is not a valid objective against the frozen LS error variance."
+        )
+    print(f"[TRAIN] loss_mode={loss_mode} (use_nll_loss={use_nll_loss})")
     grad_clip_norm = float(cfg["training"]["grad_clip_norm"])
     memory_cleanup_every_steps = int(get_cfg(cfg, "training.memory_cleanup_every_steps", 0))
     resume_enabled = bool(get_cfg(cfg, "training.resume", True))
@@ -666,6 +684,7 @@ def train_model(
                 grad_clip_norm=grad_clip_norm,
                 ls_estimator=system["ls_estimator"],
                 pilot_mask=system["pilot_mask"],
+                use_nll_loss=use_nll_loss,
             )
             row = {
                 "step": step,

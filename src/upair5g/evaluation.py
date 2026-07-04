@@ -22,7 +22,7 @@ from .baselines import (
 from .builders import build_channel, build_ls_estimator, build_pusch_transmitter, build_receiver, extract_true_dmrs_mask_per_stream, get_resource_grid, max_num_users, multiuser_enabled
 from .compat import safe_call_variants
 from .config import ensure_output_tree, get_cfg
-from .estimator import UPAIRChannelEstimator
+from .estimator import LSErrVarEvalView, UPAIRChannelEstimator
 from .impairments import apply_rf_impairments_to_transmit_grid_if_enabled, apply_symbol_phase_impairment
 from .utils import (
     call_channel,
@@ -632,9 +632,19 @@ def evaluate_model(cfg: dict[str, Any], checkpoint_path: str | None = None, num_
         paths=paths,
     )
 
+    errvar_source = str(get_cfg(cfg, "evaluation.errvar_source", "model")).lower()
+    if errvar_source not in {"model", "ls"}:
+        raise ValueError(f"evaluation.errvar_source must be 'model' or 'ls', got {errvar_source!r}.")
+    proposed_estimator: Any = estimator
+    if errvar_source == "ls":
+        # A8-dagger (errvar_eval_swap): keep UPAIR's h_hat, feed the detector
+        # the classical LS error variance. Weights are untouched.
+        proposed_estimator = LSErrVarEvalView(estimator)
+        print("[EVAL] errvar_source=ls -> detector receives UPAIR h_hat with LS err_var (A8-dagger swap)")
+
     proposed_rx = None
     if wants_receiver(cfg, PROPOSED_RECEIVER):
-        proposed_rx = build_receiver(tx, cfg, channel_estimator=estimator, perfect_csi=False)
+        proposed_rx = build_receiver(tx, cfg, channel_estimator=proposed_estimator, perfect_csi=False)
 
     perfect_rx = None
     if wants_receiver(cfg, PERFECT_RECEIVER):

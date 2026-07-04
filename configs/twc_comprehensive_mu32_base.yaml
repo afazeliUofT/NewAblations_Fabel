@@ -143,6 +143,14 @@ model:
   pilot_mask_mode: per_stream
   error_feature_mode: per_user
   error_variance_update: multiplicative
+  # Mechanism-ablation switches; the defaults below define the full M0 model.
+  use_prompt_film: true      # A3: false -> delete prompt_mlp + per-block prompt_proj
+  prompt_pool: pilot         # A3+: global -> global mean pooling instead of pilot-masked
+  use_freq_attn: true        # A4: false (with use_time_attn false) -> local conv/MLP only
+  use_time_attn: true        # A5: false -> frequency attention only
+  use_raw_y: true            # A6: false -> zero the raw-Y channels (arch untouched)
+  use_ls_anchor: true        # A7: false -> direct prediction, Glorot head init
+  use_err_head: true         # A8: false -> delete err_head, LS err_var to detector
 training:
   steps: 40000
   resume: true
@@ -167,6 +175,7 @@ training:
   learning_rate_restart_m_mul: 0.8
   weight_decay: 1.0e-05
   nmse_loss_weight: 0.1
+  loss_mode: nll_nmse        # A8 arm uses 'nmse' (pure NMSE objective)
   grad_clip_norm: 1.0
   checkpoint_name: best.weights.h5
   memory_cleanup_every_steps: 100
@@ -189,6 +198,7 @@ training:
   val_snr_sampling_mode: sampled_grid
 evaluation:
   resume: true
+  errvar_source: model       # A8+ eval-swap arm uses 'ls' (LS err_var to detector)
   receiver_microbatch_size: 8
   stream_eval_microbatches: true
   compiled_receiver_error_counts: false

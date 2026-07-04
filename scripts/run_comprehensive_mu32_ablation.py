@@ -79,6 +79,110 @@ VARIANTS: dict[str, dict[str, Any]] = {
             "model.mlp_ratio": 4.0,
         },
     },
+    # ------------------------------------------------------------------
+    # Mechanism-ablation arms (single change vs. M0 = main_d256_b4_r2).
+    # All arms are trained with the frozen shared recipe from main's
+    # Stage-B winner (see scripts/seed_ablation_recipes.py and
+    # RECIPE_FALLBACK below); none of them run their own Optuna stages.
+    # ------------------------------------------------------------------
+    "main_full_d256_b4_r2": {  # M0 alias: identical to main_d256_b4_r2
+        "label": "M0 full UPAIR (alias of main)",
+        "overrides": {
+            "model.d_model": 256,
+            "model.num_blocks": 4,
+            "model.mlp_ratio": 2.0,
+        },
+    },
+    "width_light_d192_b4_r2": {  # A1: capacity control (narrow, attention intact)
+        "label": "A1 d=192, L=4 (shared recipe)",
+        "overrides": {
+            "model.d_model": 192,
+            "model.num_blocks": 4,
+            "model.mlp_ratio": 2.0,
+        },
+    },
+    "shallow_light_d256_b2_r2": {  # A2: capacity control (shallow, attention intact)
+        "label": "A2 d=256, L=2 (shared recipe)",
+        "overrides": {
+            "model.d_model": 256,
+            "model.num_blocks": 2,
+            "model.mlp_ratio": 2.0,
+        },
+    },
+    "no_prompt_film_d256_b4_r2": {  # A3: delete prompt_mlp + per-block prompt_proj
+        "label": "A3 no pilot-prompt FiLM",
+        "overrides": {
+            "model.d_model": 256,
+            "model.num_blocks": 4,
+            "model.mlp_ratio": 2.0,
+            "model.use_prompt_film": False,
+        },
+    },
+    "local_only_no_axial_attn_d256_b4_r2": {  # A4: delete both MHAs + their LayerNorms
+        "label": "A4 local conv/MLP only (no axial attention)",
+        "overrides": {
+            "model.d_model": 256,
+            "model.num_blocks": 4,
+            "model.mlp_ratio": 2.0,
+            "model.use_freq_attn": False,
+            "model.use_time_attn": False,
+        },
+    },
+    "freq_attn_only_d256_b4_r2": {  # A5: delete time_attn + its LayerNorm
+        "label": "A5 frequency attention only",
+        "overrides": {
+            "model.d_model": 256,
+            "model.num_blocks": 4,
+            "model.mlp_ratio": 2.0,
+            "model.use_time_attn": False,
+        },
+    },
+    "no_raw_y_d256_b4_r2": {  # A6: zero the 32 raw-Y channels, architecture untouched
+        "label": "A6 no raw Y (LS-only input)",
+        "overrides": {
+            "model.d_model": 256,
+            "model.num_blocks": 4,
+            "model.mlp_ratio": 2.0,
+            "model.use_raw_y": False,
+        },
+    },
+    "no_ls_anchor_d256_b4_r2": {  # A7: direct prediction, Glorot head, no residual_scale
+        "label": "A7 no LS anchor (direct prediction)",
+        "overrides": {
+            "model.d_model": 256,
+            "model.num_blocks": 4,
+            "model.mlp_ratio": 2.0,
+            "model.use_ls_anchor": False,
+        },
+    },
+    "no_learned_errvar_d256_b4_r2": {  # A8: delete err_head, NMSE-only loss, LS err_var to detector
+        "label": "A8 no learned error variance",
+        "overrides": {
+            "model.d_model": 256,
+            "model.num_blocks": 4,
+            "model.mlp_ratio": 2.0,
+            "model.use_err_head": False,
+            "training.loss_mode": "nmse",
+        },
+    },
+    "errvar_eval_swap_d256_b4_r2": {  # A8-dagger: M0 weights, LS err_var at eval only (no training)
+        "label": "A8+ M0 weights, LS err_var at detector",
+        "overrides": {
+            "model.d_model": 256,
+            "model.num_blocks": 4,
+            "model.mlp_ratio": 2.0,
+            "evaluation.errvar_source": "ls",
+        },
+    },
+    "global_pool_prompt_d256_b4_r2": {  # A3-dagger (conditional): global mean pooling prompt
+        "label": "A3+ global-pool prompt",
+        "overrides": {
+            "model.d_model": 256,
+            "model.num_blocks": 4,
+            "model.mlp_ratio": 2.0,
+            "model.prompt_pool": "global",
+        },
+    },
 }
 
 
@@ -164,6 +268,32 @@ OPTUNA_BEST_1DMRS: dict[str, dict[str, Any]] = {
         "model.dropout": 0.0010714912918497743,
         "model.residual_scale": 0.39417978357077454,
     },
+}
+
+
+# Mechanism-ablation arms share M0's frozen Stage-B recipe. When an arm has no
+# Optuna study of its own (by design), the loader falls back to this source
+# variant's best JSON/DB under the same study prefix.
+RECIPE_FALLBACK: dict[str, str] = {
+    "main_full_d256_b4_r2": "main_d256_b4_r2",
+    "width_light_d192_b4_r2": "main_d256_b4_r2",
+    "shallow_light_d256_b2_r2": "main_d256_b4_r2",
+    "no_prompt_film_d256_b4_r2": "main_d256_b4_r2",
+    "local_only_no_axial_attn_d256_b4_r2": "main_d256_b4_r2",
+    "freq_attn_only_d256_b4_r2": "main_d256_b4_r2",
+    "no_raw_y_d256_b4_r2": "main_d256_b4_r2",
+    "no_ls_anchor_d256_b4_r2": "main_d256_b4_r2",
+    "no_learned_errvar_d256_b4_r2": "main_d256_b4_r2",
+    "errvar_eval_swap_d256_b4_r2": "main_d256_b4_r2",
+    "global_pool_prompt_d256_b4_r2": "main_d256_b4_r2",
+}
+
+# Variants that never train: they evaluate an existing checkpoint from the
+# aliased source variant (A8-dagger uses M0's weights verbatim).
+EVAL_ONLY_VARIANTS: set[str] = {"errvar_eval_swap_d256_b4_r2"}
+CHECKPOINT_ALIAS: dict[str, str] = {
+    "errvar_eval_swap_d256_b4_r2": "main_d256_b4_r2",
+    "main_full_d256_b4_r2": "main_d256_b4_r2",
 }
 
 
@@ -311,15 +441,24 @@ def _apply_optuna_best_1dmrs(
     if dmrs_case != "1dmrs":
         raise ValueError("--use-optuna-best-1dmrs is only valid with dmrs_case=1dmrs.")
     overrides = _load_optuna_best_overrides(variant_name, storage_dir, study_prefix)
+    if overrides is None and variant_name in RECIPE_FALLBACK:
+        source_variant = RECIPE_FALLBACK[variant_name]
+        overrides = _load_optuna_best_overrides(source_variant, storage_dir, study_prefix)
+        if overrides is not None:
+            print(
+                f"[COMPREHENSIVE] {variant_name}: frozen shared recipe -> using "
+                f"{source_variant}'s Stage-B best from {storage_dir} (prefix {study_prefix!r})."
+            )
     if overrides is None:
         if require_external:
             raise FileNotFoundError(
                 f"No completed Optuna best study found for {variant_name} in {storage_dir} "
                 f"with prefix {study_prefix!r}. Run Optuna first or unset --require-optuna-best."
             )
-        if variant_name not in OPTUNA_BEST_1DMRS:
+        builtin_key = variant_name if variant_name in OPTUNA_BEST_1DMRS else RECIPE_FALLBACK.get(variant_name)
+        if builtin_key is None or builtin_key not in OPTUNA_BEST_1DMRS:
             raise KeyError(f"No built-in Optuna best parameters recorded for variant {variant_name}.")
-        overrides = dict(OPTUNA_BEST_1DMRS[variant_name])
+        overrides = dict(OPTUNA_BEST_1DMRS[builtin_key])
         if storage_dir is not None:
             print(
                 f"[COMPREHENSIVE] no Optuna DB best found for {variant_name} in {storage_dir}; "
@@ -509,8 +648,12 @@ def main() -> None:
                     )
                 label = str(VARIANTS[variant_name]["label"])
 
-                if args.eval_only:
+                if args.eval_only or variant_name in EVAL_ONLY_VARIANTS:
                     checkpoint_path = _checkpoint_path(train_cfg)
+                    if not checkpoint_path.exists() and variant_name in CHECKPOINT_ALIAS:
+                        alias_cfg = _variant_cfg(base_cfg, CHECKPOINT_ALIAS[variant_name], dmrs_case, seed)
+                        checkpoint_path = _checkpoint_path(alias_cfg)
+                        print(f"[COMPREHENSIVE] {variant_name}: eval-only arm, using {CHECKPOINT_ALIAS[variant_name]} checkpoint {checkpoint_path}")
                     if not checkpoint_path.exists():
                         raise FileNotFoundError(f"--eval-only requested but checkpoint is missing: {checkpoint_path}")
                     train_result = {
