@@ -259,3 +259,16 @@ WARNING:tensorflow:Model's `__init__()` arguments contain non-serializable objec
 [EVAL] skipping explicit NMSE channel-estimator calls for: upair5g_lmmse
 [EVAL] instrumentation log_latency=True log_gpu_memory=True memory_cleanup_every_batches=1 memory_cleanup_every_microbatch=True stream_eval_microbatches=True compiled_receiver_error_counts=False receiver_call_jit_compile=False per_receiver_stopping=False target_bler_floor=1e-05 floor_num_frames=0 gpu_mem=0.09GiB peak=0.29GiB
 [EVAL] receiver_call name=upair5g_lmmse mode=positional_y_no compiled_error_counts=False
+[EVAL] progress num_users=3 Eb/N0=1 dB batches=10/20 frame_err=upair5g_lmmse:784/1920 elapsed=71.2s avg_batch=7.122s gpu_mem=7.40GiB peak=7.60GiB
+[EVAL] progress num_users=3 Eb/N0=1 dB batches=20/20 frame_err=upair5g_lmmse:1552/3840 elapsed=142.5s avg_batch=7.123s gpu_mem=15.34GiB peak=15.53GiB
+[EVAL] receiver=           upair5g_lmmse Eb/N0= 1.0 dB BER=4.41705e-02 BLER=4.04167e-01 NMSE=nan bit_err=504773/11427840 blk_err= 1552/3840   batches=  20 stop=global_stop rx_time=75.17s rx_ms_batch=3758.7 rx_ms_frame=19.576 point_time=142.46s gpu_mem=15.34GiB peak=15.53GiB
+[ISO-CHUNK] wrote: /home/rsadve1/links/scratch/NewAblations_Fabel/_gen_cdlA_chunks/no_prompt_film_d256_b4_r2_u3_upair5g_lmmse_ebno1p0_chunk0000_m8_b20/chunk_result.csv
+[ISO-CHUNK] DONE
+[PIPELINE] status done=1 reason=target_block_errors chunks=1 batches=20 block_errors=1552/100 next_chunk=-1
+[ISO-MERGE] chunks: 1
+[ISO-MERGE] rows: 1
+[ISO-MERGE] wrote: /home/rsadve1/links/scratch/NewAblations_Fabel/_gen_cdlA_chunks/merged_no_prompt_film_d256_b4_r2_u3_upair5g_lmmse_e1.csv
+[ISO-MERGE] wrote: /home/rsadve1/links/scratch/NewAblations_Fabel/_gen_cdlA_chunks/merged_no_prompt_film_d256_b4_r2_u3_upair5g_lmmse_e1.summary.json
+     receiver                   variant dmrs_case  seed  training_seed  num_users  ebno_db  num_chunks chunk_indices  bit_errors  num_bits  block_errors  num_blocks  num_batches_run  point_elapsed_s  data_elapsed_s  receiver_elapsed_s     ber     bler  nmse       mc_stop_reason  target_bler_floor  bler_zero_error_upper_bound  ber_zero_error_upper_bound  receiver_ms_per_batch  receiver_ms_per_frame  reliable_ber  reliable_bler
+upair5g_lmmse no_prompt_film_d256_b4_r2     1dmrs     7              7          3      1.0           1             0      504773  11427840          1552        3840               20       142.460756       46.868865           75.173039 0.04417 0.404167   NaN isolated_chunk_merge                NaN                          NaN                         NaN            3758.651948              19.576312          True           True
+[PIPELINE] COMPLETE variant=no_prompt_film_d256_b4_r2
