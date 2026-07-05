@@ -29,9 +29,13 @@ class FiLMAxialBlock(tf.keras.layers.Layer):
         use_film: bool = True,
         use_freq_attn: bool = True,
         use_time_attn: bool = True,
+        block_type: str = "film_axial",
         **kwargs: Any,
     ) -> None:
         super().__init__(**kwargs)
+        self.block_type = str(block_type).lower()
+        if self.block_type not in {"film_axial", "convnext_axial"}:
+            raise ValueError(f"block_type must be 'film_axial' or 'convnext_axial', got {self.block_type!r}.")
         self.d_model = int(d_model)
         self.num_heads = int(num_heads)
         self.mlp_ratio = float(mlp_ratio)
@@ -41,6 +45,10 @@ class FiLMAxialBlock(tf.keras.layers.Layer):
         self.use_film = bool(use_film)
         self.use_freq_attn = bool(use_freq_attn)
         self.use_time_attn = bool(use_time_attn)
+        if self.block_type == "convnext_axial":
+            # S1: attention is replaced by a large-kernel axial ConvNeXt unit.
+            self.use_freq_attn = False
+            self.use_time_attn = False
 
         # norm0 pairs with freq_attn, norm1 pairs with time_attn (A4/A5 delete
         # each attention together with its LayerNorm).
@@ -73,6 +81,20 @@ class FiLMAxialBlock(tf.keras.layers.Layer):
         self.fc1 = tf.keras.layers.Dense(int(self.d_model * self.mlp_ratio))
         self.fc2 = tf.keras.layers.Dense(self.d_model)
         self.prompt_proj = tf.keras.layers.Dense(2 * self.d_model) if self.use_film else None
+        # S1 (convnext_axial): global mixing via large axial depthwise kernels
+        # (1x15 over frequency, 7x1 over time) + 4x pointwise inverted bottleneck.
+        if self.block_type == "convnext_axial":
+            self.norm_cx = tf.keras.layers.LayerNormalization(epsilon=1e-5)
+            self.dw_f = tf.keras.layers.DepthwiseConv2D(kernel_size=(1, 15), padding="same")
+            self.dw_t = tf.keras.layers.DepthwiseConv2D(kernel_size=(7, 1), padding="same")
+            self.cx_pw1 = tf.keras.layers.Conv2D(4 * self.d_model, kernel_size=1, padding="same")
+            self.cx_pw2 = tf.keras.layers.Conv2D(self.d_model, kernel_size=1, padding="same")
+        else:
+            self.norm_cx = None
+            self.dw_f = None
+            self.dw_t = None
+            self.cx_pw1 = None
+            self.cx_pw2 = None
         self.dropout = tf.keras.layers.Dropout(self.dropout_rate)
         self.activation = tf.keras.layers.Activation("gelu")
 
@@ -89,6 +111,17 @@ class FiLMAxialBlock(tf.keras.layers.Layer):
         t = tf.shape(x)[1]
         f = tf.shape(x)[2]
         d = tf.shape(x)[3]
+
+        if self.block_type == "convnext_axial":
+            z = self._film(self.norm_cx(x), prompt)
+            g = self.dw_f(z)
+            g = self.dw_t(g)
+            g = self.cx_pw1(g)
+            g = self.activation(g)
+            g = self.dropout(g, training=training)
+            g = self.cx_pw2(g)
+            g = self.dropout(g, training=training)
+            x = x + g
 
         if self.use_freq_attn:
             z = self._film(self.norm0(x), prompt)
@@ -161,6 +194,10 @@ class UPAIRChannelEstimator(tf.keras.Model):
         #   A8  use_err_head=False      -> delete err_head; LS err_var to detector
         # ------------------------------------------------------------------
         self.use_prompt_film = bool(model_cfg.get("use_prompt_film", True))
+        self.block_type = str(model_cfg.get("block_type", "film_axial")).lower()
+        self.prompt_source = str(model_cfg.get("prompt_source", "learned")).lower()
+        if self.prompt_source not in {"learned", "oracle", "constant"}:
+            raise ValueError(f"model.prompt_source must be learned|oracle|constant, got {self.prompt_source!r}.")
         self.prompt_pool = str(model_cfg.get("prompt_pool", "pilot")).lower()
         if self.prompt_pool not in {"pilot", "global"}:
             raise ValueError(f"model.prompt_pool must be 'pilot' or 'global', got {self.prompt_pool!r}.")
@@ -182,6 +219,13 @@ class UPAIRChannelEstimator(tf.keras.Model):
             input_channels = 4 * self.num_rx_ant + extra_channels
 
         self.stem = tf.keras.layers.Conv2D(self.d_model, kernel_size=1, padding="same")
+        # P2 oracle: explicit receiver-known context (log10 noise power + user
+        # count one-hot) projected into the same prompt/FiLM pathway.
+        self.oracle_proj = (
+            tf.keras.layers.Dense(self.d_model, name="oracle_proj")
+            if (self.use_prompt_film and self.prompt_source == "oracle")
+            else None
+        )
         self.prompt_mlp = (
             tf.keras.Sequential(
                 [
@@ -201,6 +245,7 @@ class UPAIRChannelEstimator(tf.keras.Model):
                 use_film=self.use_prompt_film,
                 use_freq_attn=self.use_freq_attn,
                 use_time_attn=self.use_time_attn,
+                block_type=self.block_type,
                 name=f"axial_block_{i}",
             )
             for i in range(int(cfg["model"]["num_blocks"]))
@@ -391,9 +436,32 @@ class UPAIRChannelEstimator(tf.keras.Model):
         feat = tf.concat(features, axis=-1)
         return feat, h_ls_btfnu, err_btfnu, y_btfnc
 
-    def _compute_prompt(self, z: tf.Tensor, pilot_mask: tf.Tensor | None = None) -> tf.Tensor | None:
+    def _compute_prompt(
+        self,
+        z: tf.Tensor,
+        pilot_mask: tf.Tensor | None = None,
+        no: tf.Tensor | None = None,
+        actual_users: tf.Tensor | None = None,
+    ) -> tf.Tensor | None:
         if not self.use_prompt_film:
             return None
+        if self.prompt_source == "constant":
+            # P2 floor: context-independent (but learned, iso-parameter) FiLM.
+            b = tf.shape(z)[0]
+            pooled = tf.zeros([b, self.d_model], dtype=z.dtype)
+            return self.prompt_mlp(pooled)
+        if self.prompt_source == "oracle":
+            # P2 oracle: explicit context replaces the learned pooled prompt.
+            b = tf.shape(z)[0]
+            no_vec = tf.reshape(tf.cast(tf.convert_to_tensor(no), tf.float32), [-1])
+            no_b = tf.broadcast_to(no_vec, [b])
+            feat_no = (tf.math.log(no_b + 1e-12) / tf.math.log(10.0) + 3.0) / 3.0
+            u_idx = tf.cast(tf.reshape(actual_users, []), tf.int32) - 1
+            u_onehot = tf.one_hot(u_idx, depth=4, dtype=tf.float32)
+            u_b = tf.broadcast_to(u_onehot[tf.newaxis, :], [b, 4])
+            ctx = tf.concat([feat_no[:, tf.newaxis], u_b], axis=-1)
+            pooled = tf.cast(self.oracle_proj(ctx), z.dtype)
+            return self.prompt_mlp(pooled)
         if self.prompt_pool == "global":
             # A3-dagger: iso-parameter control that replaces pilot-region
             # statistics with an unconditional global mean over the grid.
@@ -419,7 +487,12 @@ class UPAIRChannelEstimator(tf.keras.Model):
         feat, h_ls_btfnu, err_btfnu, _ = self._build_features(y, h_ls, err_ls, no, pilot_mask=pilot_mask)
 
         z = self.stem(feat)
-        prompt = self._compute_prompt(z, pilot_mask=pilot_mask)
+        prompt = self._compute_prompt(
+            z,
+            pilot_mask=pilot_mask,
+            no=no,
+            actual_users=tf.shape(h_ls_btfnu)[-1],
+        )
 
         for block in self.blocks:
             z = block(z, prompt, training=training)

@@ -146,6 +146,33 @@ VARIANTS: dict[str, dict[str, Any]] = {
             "model.use_freq_attn": False,
         },
     },
+    "convnext_axial_d256_b4_r2": {  # S1: attention replaced by large-kernel axial ConvNeXt unit
+        "label": "S1 ConvNeXt-axial mixing (no attention)",
+        "overrides": {
+            "model.d_model": 256,
+            "model.num_blocks": 4,
+            "model.mlp_ratio": 2.0,
+            "model.block_type": "convnext_axial",
+        },
+    },
+    "oracle_prompt_d256_b4_r2": {  # P2 upper bound: explicit (no, U) context into the FiLM path
+        "label": "P2 oracle-context prompt",
+        "overrides": {
+            "model.d_model": 256,
+            "model.num_blocks": 4,
+            "model.mlp_ratio": 2.0,
+            "model.prompt_source": "oracle",
+        },
+    },
+    "constant_prompt_d256_b4_r2": {  # P2 floor: context-independent learned FiLM (iso-parameter)
+        "label": "P2 constant prompt (static FiLM)",
+        "overrides": {
+            "model.d_model": 256,
+            "model.num_blocks": 4,
+            "model.mlp_ratio": 2.0,
+            "model.prompt_source": "constant",
+        },
+    },
     "no_raw_y_d256_b4_r2": {  # A6: zero the 32 raw-Y channels, architecture untouched
         "label": "A6 no raw Y (LS-only input)",
         "overrides": {
@@ -291,6 +318,9 @@ RECIPE_FALLBACK: dict[str, str] = {
     "local_only_no_axial_attn_d256_b4_r2": "main_d256_b4_r2",
     "freq_attn_only_d256_b4_r2": "main_d256_b4_r2",
     "time_attn_only_d256_b4_r2": "main_d256_b4_r2",
+    "convnext_axial_d256_b4_r2": "main_d256_b4_r2",
+    "oracle_prompt_d256_b4_r2": "main_d256_b4_r2",
+    "constant_prompt_d256_b4_r2": "main_d256_b4_r2",
     "no_raw_y_d256_b4_r2": "main_d256_b4_r2",
     "no_ls_anchor_d256_b4_r2": "main_d256_b4_r2",
     "no_learned_errvar_d256_b4_r2": "main_d256_b4_r2",
