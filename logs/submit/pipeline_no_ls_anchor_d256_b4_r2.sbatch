@@ -3,11 +3,11 @@
 #SBATCH --time=10:00:00
 #SBATCH --cpus-per-task=8
 #SBATCH --mem=32G
-#SBATCH --output=/home/rsadve1/scratch/NewAblations_Fabel/logs/pipeline/pipeline_no_ls_anchor_d256_b4_r2_%j.out
+#SBATCH --output=/home/rsadve1/links/scratch/NewAblations_Fabel/logs/pipeline/pipeline_no_ls_anchor_d256_b4_r2_%j.out
 #SBATCH --gres=gpu:h100:1
 set -euo pipefail
-cd "/home/rsadve1/scratch/NewAblations_Fabel"
-source "/home/rsadve1/scratch/NewAblations_Fabel/upair_portable_env.sh"
+cd "/home/rsadve1/links/scratch/NewAblations_Fabel"
+source "/home/rsadve1/links/scratch/NewAblations_Fabel/upair_portable_env.sh"
 upair_activate
 
 export PYTHONUNBUFFERED=1
@@ -33,4 +33,4 @@ export UPAIR_PIPELINE_MIN_BATCHES=""
 export UPAIR_EVAL_ONLY="0"
 export UPAIR_EVAL_CHUNK_ROOT="_isolated_eval_chunks"
 
-bash "/home/rsadve1/scratch/NewAblations_Fabel/upair_variant_pipeline_worker.sh" "no_ls_anchor_d256_b4_r2"
+bash "/home/rsadve1/links/scratch/NewAblations_Fabel/upair_variant_pipeline_worker.sh" "no_ls_anchor_d256_b4_r2"

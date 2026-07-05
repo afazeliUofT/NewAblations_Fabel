@@ -1,0 +1,77 @@
+[ENV] Reusing portable venv: /home/rsadve1/links/scratch/.vevn_upair_potable
+[ENV] Checking installed package metadata only; TensorFlow/Sionna are not imported here.
+[ENV] Python 3.11.5
+[ENV] numpy 1.26.4+computecanada
+[ENV] pandas 2.2.3+computecanada
+[ENV] matplotlib 3.10.0+computecanada
+[ENV] PyYAML 6.0.2+computecanada
+[ENV] scipy 1.15.1+computecanada
+[ENV] tensorflow 2.15.1+computecanada
+[ENV] sionna-no-rt 1.2.1
+[ENV] optuna 4.8.0+computecanada
+[ENV] Skipping TensorFlow/Sionna import check on this node. Set UPAIR_DEEP_IMPORT_CHECK=1 to test imports explicitly.
+[ENV] Ready: REPO=/home/rsadve1/links/scratch/NewAblations_Fabel
+[ENV] Ready: VENV=/home/rsadve1/links/scratch/.vevn_upair_potable
+[ENV] Reusing portable venv: /home/rsadve1/links/scratch/.vevn_upair_potable
+[ENV] Checking installed package metadata only; TensorFlow/Sionna are not imported here.
+[ENV] Python 3.11.5
+[ENV] numpy 1.26.4+computecanada
+[ENV] pandas 2.2.3+computecanada
+[ENV] matplotlib 3.10.0+computecanada
+[ENV] PyYAML 6.0.2+computecanada
+[ENV] scipy 1.15.1+computecanada
+[ENV] tensorflow 2.15.1+computecanada
+[ENV] sionna-no-rt 1.2.1
+[ENV] optuna 4.8.0+computecanada
+[ENV] Skipping TensorFlow/Sionna import check on this node. Set UPAIR_DEEP_IMPORT_CHECK=1 to test imports explicitly.
+[ENV] Ready: REPO=/home/rsadve1/links/scratch/NewAblations_Fabel
+[ENV] Ready: VENV=/home/rsadve1/links/scratch/.vevn_upair_potable
+================================================================================
+[PIPELINE] variant=no_learned_errvar_d256_b4_r2
+[PIPELINE] root=/home/rsadve1/links/scratch/NewAblations_Fabel
+[PIPELINE] stageB_prefix=clean_b32_prb8_d256_40k_smart_trueDMRS_u34610_1dmrs_stageB
+[PIPELINE] receivers=upair5g_lmmse
+[PIPELINE] users=3
+[PIPELINE] ebnos=-4,-3,-2,-1,0,1
+[PIPELINE] chunk_batches=20 micro=8
+================================================================================
+[PIPELINE] training missing/incomplete for no_learned_errvar_d256_b4_r2; running training-only resume.
+2026-07-05 11:34:24.407121: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2026-07-05 11:34:24.407718: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2026-07-05 11:34:24.484106: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+[COMPREHENSIVE] loaded Optuna best JSON for no_learned_errvar_d256_b4_r2 from /home/rsadve1/links/scratch/NewAblations_Fabel/optuna/clean_b32_prb8_d256_40k_smart_trueDMRS_u34610_1dmrs_stageB_no_learned_errvar_d256_b4_r2_best_params.json
+[TRAIN] loss_mode=nmse (use_nll_loss=False)
+[TRAIN] optimizer lr_schedule=cosine_decay learning_rate=0.000571292 weight_decay=9.65466e-06
+[TRAIN] seeds active_seed=7 training_seed=7 evaluation_seed=1007
+[TRAIN] resumed from /lustre10/scratch/rsadve1/NewAblations_Fabel/TWC_plots_comprehensive/runs_rx16/seed7/1dmrs/no_learned_errvar_d256_b4_r2/checkpoints/training_state/ckpt-32114 at completed_step=32114 best_val=0.0215048
+2026-07-05 11:35:00.220595: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:961] layout failed: INVALID_ARGUMENT: Size of values 0 does not match size of permutation 4 @ fanin shape inaxial_block_0/dropout/dropout_2/SelectV2-2-TransposeNHWCToNCHW-LayoutOptimizer
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1783265702.861947 1756324 device_compiler.h:186] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+[TRAIN] step=32200 loss=0.01879 nmse_prop=0.01879 nmse_ls=0.05451 lr=1.697e-04 step_time=0.497s steps_per_s=1.066 gpu_mem=0.10GiB peak=7.31GiB
+[TRAIN] step=32300 loss=0.01997 nmse_prop=0.01997 nmse_ls=0.08552 lr=1.681e-04 step_time=0.400s steps_per_s=1.518 gpu_mem=0.10GiB peak=7.31GiB
+[TRAIN] step=32400 loss=0.02768 nmse_prop=0.02768 nmse_ls=0.15231 lr=1.665e-04 step_time=0.403s steps_per_s=1.720 gpu_mem=0.10GiB peak=7.31GiB
+[TRAIN] step=32500 loss=0.02631 nmse_prop=0.02631 nmse_ls=0.12708 lr=1.650e-04 step_time=0.498s steps_per_s=1.850 gpu_mem=0.10GiB peak=7.31GiB
+[TRAIN] step=32600 loss=0.02481 nmse_prop=0.02481 nmse_ls=0.09624 lr=1.634e-04 step_time=0.498s steps_per_s=1.922 gpu_mem=0.10GiB peak=7.32GiB
+[TRAIN] step=32700 loss=0.02463 nmse_prop=0.02463 nmse_ls=0.10354 lr=1.618e-04 step_time=0.498s steps_per_s=1.986 gpu_mem=0.10GiB peak=7.32GiB
+[TRAIN] step=32800 loss=0.01748 nmse_prop=0.01748 nmse_ls=0.03998 lr=1.603e-04 step_time=0.498s steps_per_s=2.032 gpu_mem=0.10GiB peak=7.32GiB
+[TRAIN] step=32900 loss=0.02477 nmse_prop=0.02477 nmse_ls=0.10013 lr=1.587e-04 step_time=0.498s steps_per_s=2.059 gpu_mem=0.10GiB peak=7.32GiB
+[TRAIN] step=33000 loss=0.04009 nmse_prop=0.04009 nmse_ls=0.24992 lr=1.572e-04 step_time=0.497s steps_per_s=2.085 gpu_mem=0.10GiB peak=7.32GiB
+[TRAIN] saved resumable state at step=33000 reason=periodic: /lustre10/scratch/rsadve1/NewAblations_Fabel/TWC_plots_comprehensive/runs_rx16/seed7/1dmrs/no_learned_errvar_d256_b4_r2/checkpoints/training_state/ckpt-33000
+[TRAIN] step=33100 loss=0.02109 nmse_prop=0.02109 nmse_ls=0.09399 lr=1.557e-04 step_time=0.500s steps_per_s=2.085 gpu_mem=0.10GiB peak=7.32GiB
+[TRAIN] step=33200 loss=0.03721 nmse_prop=0.03721 nmse_ls=0.25228 lr=1.541e-04 step_time=0.402s steps_per_s=2.106 gpu_mem=0.10GiB peak=7.32GiB
+[TRAIN] step=33300 loss=0.01646 nmse_prop=0.01646 nmse_ls=0.04243 lr=1.526e-04 step_time=0.499s steps_per_s=2.124 gpu_mem=0.10GiB peak=7.32GiB
+[TRAIN] step=33400 loss=0.01366 nmse_prop=0.01366 nmse_ls=0.06532 lr=1.511e-04 step_time=0.209s steps_per_s=2.135 gpu_mem=0.10GiB peak=7.32GiB
+[TRAIN] step=33500 loss=0.01666 nmse_prop=0.01666 nmse_ls=0.04348 lr=1.496e-04 step_time=0.402s steps_per_s=2.150 gpu_mem=0.10GiB peak=7.32GiB
+[TRAIN] step=33600 loss=0.04089 nmse_prop=0.04089 nmse_ls=0.24049 lr=1.481e-04 step_time=0.501s steps_per_s=2.159 gpu_mem=0.10GiB peak=7.32GiB
+[TRAIN] step=33700 loss=0.01762 nmse_prop=0.01762 nmse_ls=0.05193 lr=1.466e-04 step_time=0.504s steps_per_s=2.166 gpu_mem=0.10GiB peak=7.32GiB
+[TRAIN] step=33800 loss=0.02024 nmse_prop=0.02024 nmse_ls=0.11494 lr=1.451e-04 step_time=0.305s steps_per_s=2.174 gpu_mem=0.10GiB peak=7.32GiB
+[TRAIN] step=33900 loss=0.03752 nmse_prop=0.03752 nmse_ls=0.20207 lr=1.436e-04 step_time=0.498s steps_per_s=2.184 gpu_mem=0.10GiB peak=7.34GiB
+WARNING:tensorflow:Model's `__init__()` arguments contain non-serializable objects. Please implement a `get_config()` method in the subclassed Model for proper saving and loading. Defaulting to empty config.
+WARNING:tensorflow:Model's `__init__()` arguments contain non-serializable objects. Please implement a `get_config()` method in the subclassed Model for proper saving and loading. Defaulting to empty config.
+[TRAIN] saved new best weights at step=34000 val_nmse=0.0204956
+[TRAIN] step=34000 loss=0.01748 nmse_prop=0.01748 nmse_ls=0.05277 lr=1.421e-04 step_time=195.804s steps_per_s=1.783 gpu_mem=0.12GiB peak=7.34GiB
+[TRAIN] saved resumable state at step=34000 reason=periodic: /lustre10/scratch/rsadve1/NewAblations_Fabel/TWC_plots_comprehensive/runs_rx16/seed7/1dmrs/no_learned_errvar_d256_b4_r2/checkpoints/training_state/ckpt-34000
+[TRAIN] step=34100 loss=0.02941 nmse_prop=0.02941 nmse_ls=0.14045 lr=1.406e-04 step_time=0.497s steps_per_s=1.797 gpu_mem=0.12GiB peak=7.34GiB
+[TRAIN] step=34200 loss=0.02037 nmse_prop=0.02037 nmse_ls=0.10664 lr=1.391e-04 step_time=0.304s steps_per_s=1.820 gpu_mem=0.12GiB peak=7.34GiB
+[TRAIN] step=34300 loss=0.01463 nmse_prop=0.01463 nmse_ls=0.03728 lr=1.377e-04 step_time=0.402s steps_per_s=1.837 gpu_mem=0.12GiB peak=7.34GiB
+[TRAIN] step=34400 loss=0.02781 nmse_prop=0.02781 nmse_ls=0.12871 lr=1.362e-04 step_time=0.499s steps_per_s=1.854 gpu_mem=0.12GiB peak=7.34GiB
