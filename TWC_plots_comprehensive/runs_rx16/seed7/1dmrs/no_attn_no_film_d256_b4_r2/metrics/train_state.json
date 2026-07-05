@@ -1,26 +1,51 @@
 {
-  "best_val": Infinity,
+  "best_val": 0.03992872237965154,
   "best_weights_path": "/lustre10/scratch/rsadve1/Ablations_S1P2/TWC_plots_comprehensive/runs_rx16/seed7/1dmrs/no_attn_no_film_d256_b4_r2/checkpoints/best.weights.h5",
   "checkpoint_metrics": {
-    "last_loss": -1.5844814777374268,
-    "last_nmse_ls": 0.11902651190757751,
-    "last_nmse_prop": 0.07495434582233429
+    "last_loss": -1.4156150817871094,
+    "last_nmse_ls": 0.22767487168312073,
+    "last_nmse_prop": 0.08766677230596542
   },
   "last_metrics": {
-    "ebno_db": -2.1212663650512695,
-    "learning_rate": 0.0005707412492483854,
-    "loss": -1.5844814777374268,
-    "loss_nll": -1.6203700304031372,
-    "nmse_ls": 0.11902651190757751,
-    "nmse_prop": 0.07495434582233429,
-    "num_users": 1,
-    "step": 1000,
-    "step_elapsed_s": 0.14211975201033056,
-    "steps_per_s": 2.7188867620114867,
-    "training_elapsed_s": 367.7975905330386
+    "ebno_db": -5.307448863983154,
+    "learning_rate": 0.0002394641051068902,
+    "loss": -1.4156150817871094,
+    "loss_nll": -1.4575903415679932,
+    "nmse_ls": 0.22767487168312073,
+    "nmse_prop": 0.08766677230596542,
+    "num_users": 4,
+    "step": 28000,
+    "step_elapsed_s": 119.14048675098456,
+    "steps_per_s": 2.433851501511419,
+    "training_elapsed_s": 11504.399501207052,
+    "val_batch_size": 32,
+    "val_ebno_db": "multi",
+    "val_ebno_db_values": [
+      -4.0,
+      -2.0,
+      0.0,
+      2.0,
+      4.0
+    ],
+    "val_microbatch_size": 16,
+    "val_nmse_ls": 0.10021981148747727,
+    "val_nmse_prop": 0.04326742154080421,
+    "val_snr_hist": {
+      "-2.0": 27,
+      "-4.0": 21,
+      "0.0": 21,
+      "2.0": 12,
+      "4.0": 15
+    },
+    "val_user_count_hist": {
+      "1": 8,
+      "2": 12,
+      "3": 31,
+      "4": 45
+    }
   },
-  "latest_step": 1000,
-  "latest_training_state_checkpoint": "/lustre10/scratch/rsadve1/Ablations_S1P2/TWC_plots_comprehensive/runs_rx16/seed7/1dmrs/no_attn_no_film_d256_b4_r2/checkpoints/training_state/ckpt-1000",
+  "latest_step": 28000,
+  "latest_training_state_checkpoint": "/lustre10/scratch/rsadve1/Ablations_S1P2/TWC_plots_comprehensive/runs_rx16/seed7/1dmrs/no_attn_no_film_d256_b4_r2/checkpoints/training_state/ckpt-28000",
   "resume_enabled": true,
   "save_reason": "periodic",
   "total_steps": 40000,
@@ -28,7 +53,7 @@
   "training_parameters": {
     "batch_size_eval": 32,
     "batch_size_train": 32,
-    "current_learning_rate": 0.0005707412492483854,
+    "current_learning_rate": 0.0002394641051068902,
     "eval_every": 2000,
     "evaluation_seed": 1007,
     "grad_clip_norm": 0.5,

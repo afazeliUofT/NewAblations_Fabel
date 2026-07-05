@@ -1,26 +1,26 @@
 {
-  "best_val": Infinity,
+  "best_val": 0.02412533809062249,
   "best_weights_path": "/lustre10/scratch/rsadve1/Ablations_S1P2/TWC_plots_comprehensive/runs_rx16/seed7/1dmrs/constant_prompt_d256_b4_r2/checkpoints/best.weights.h5",
   "checkpoint_metrics": {
-    "last_loss": -2.141685724258423,
-    "last_nmse_ls": 0.11446968466043472,
-    "last_nmse_prop": 0.04374595358967781
+    "last_loss": -3.0654401779174805,
+    "last_nmse_ls": 0.058579422533512115,
+    "last_nmse_prop": 0.019913338124752045
   },
   "last_metrics": {
-    "ebno_db": -2.1212663650512695,
-    "learning_rate": 0.0005707412492483854,
-    "loss": -2.141685724258423,
-    "loss_nll": -2.1626315116882324,
-    "nmse_ls": 0.11446968466043472,
-    "nmse_prop": 0.04374595358967781,
-    "num_users": 1,
-    "step": 1000,
-    "step_elapsed_s": 0.20150681800441816,
-    "steps_per_s": 2.2145481029678273,
-    "training_elapsed_s": 451.5593942889973
+    "ebno_db": 1.6293988227844238,
+    "learning_rate": 0.00032686052145436406,
+    "loss": -3.0654401779174805,
+    "loss_nll": -3.074974775314331,
+    "nmse_ls": 0.058579422533512115,
+    "nmse_prop": 0.019913338124752045,
+    "num_users": 3,
+    "step": 23000,
+    "step_elapsed_s": 0.37838782400649507,
+    "steps_per_s": 2.0116951777877583,
+    "training_elapsed_s": 11433.143676017993
   },
-  "latest_step": 1000,
-  "latest_training_state_checkpoint": "/lustre10/scratch/rsadve1/Ablations_S1P2/TWC_plots_comprehensive/runs_rx16/seed7/1dmrs/constant_prompt_d256_b4_r2/checkpoints/training_state/ckpt-1000",
+  "latest_step": 23000,
+  "latest_training_state_checkpoint": "/lustre10/scratch/rsadve1/Ablations_S1P2/TWC_plots_comprehensive/runs_rx16/seed7/1dmrs/constant_prompt_d256_b4_r2/checkpoints/training_state/ckpt-23000",
   "resume_enabled": true,
   "save_reason": "periodic",
   "total_steps": 40000,
@@ -28,7 +28,7 @@
   "training_parameters": {
     "batch_size_eval": 32,
     "batch_size_train": 32,
-    "current_learning_rate": 0.0005707412492483854,
+    "current_learning_rate": 0.00032686052145436406,
     "eval_every": 2000,
     "evaluation_seed": 1007,
     "grad_clip_norm": 0.5,
