@@ -46,6 +46,7 @@ EXPECTED: dict[str, tuple[str, int]] = {
     "convnext_axial_d256_b4_r2": ("S1", 4_208_832),
     "oracle_prompt_d256_b4_r2": ("P2o", 4_190_912),
     "constant_prompt_d256_b4_r2": ("P2c", 4_189_376),
+    "no_attn_no_film_d256_b4_r2": ("C1", 1_422_016),
     "no_raw_y_d256_b4_r2": ("A6", 4_189_376),
     "no_ls_anchor_d256_b4_r2": ("A7", 4_189_376),
     "no_learned_errvar_d256_b4_r2": ("A8", 4_172_928),

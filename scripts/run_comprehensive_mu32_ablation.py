@@ -173,6 +173,17 @@ VARIANTS: dict[str, dict[str, Any]] = {
             "model.prompt_source": "constant",
         },
     },
+    "no_attn_no_film_d256_b4_r2": {  # C1: compound removal -- skeleton conv/MLP trunk only
+        "label": "C1 skeleton trunk (no attention, no prompt-FiLM)",
+        "overrides": {
+            "model.d_model": 256,
+            "model.num_blocks": 4,
+            "model.mlp_ratio": 2.0,
+            "model.use_freq_attn": False,
+            "model.use_time_attn": False,
+            "model.use_prompt_film": False,
+        },
+    },
     "no_raw_y_d256_b4_r2": {  # A6: zero the 32 raw-Y channels, architecture untouched
         "label": "A6 no raw Y (LS-only input)",
         "overrides": {
@@ -321,6 +332,7 @@ RECIPE_FALLBACK: dict[str, str] = {
     "convnext_axial_d256_b4_r2": "main_d256_b4_r2",
     "oracle_prompt_d256_b4_r2": "main_d256_b4_r2",
     "constant_prompt_d256_b4_r2": "main_d256_b4_r2",
+    "no_attn_no_film_d256_b4_r2": "main_d256_b4_r2",
     "no_raw_y_d256_b4_r2": "main_d256_b4_r2",
     "no_ls_anchor_d256_b4_r2": "main_d256_b4_r2",
     "no_learned_errvar_d256_b4_r2": "main_d256_b4_r2",
