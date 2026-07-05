@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #SBATCH --job-name=upairP-no_learned_er
-#SBATCH --time=20:00:00
+#SBATCH --time=10:00:00
 #SBATCH --cpus-per-task=8
 #SBATCH --mem=32G
 #SBATCH --output=/home/rsadve1/scratch/NewAblations_Fabel/logs/pipeline/pipeline_no_learned_errvar_d256_b4_r2_%j.out
@@ -28,7 +28,7 @@ export UPAIR_PIPELINE_EBNOS="-4,-3,-2,-1,0,1"
 export UPAIR_PIPELINE_CHUNK_BATCHES="20"
 export UPAIR_PIPELINE_MICRO="8"
 export UPAIR_PIPELINE_TARGET_BLOCK_ERRORS=""
-export UPAIR_PIPELINE_MAX_BATCHES=""
+export UPAIR_PIPELINE_MAX_BATCHES="600"
 export UPAIR_PIPELINE_MIN_BATCHES=""
 export UPAIR_EVAL_ONLY="0"
 export UPAIR_EVAL_CHUNK_ROOT="_isolated_eval_chunks"
