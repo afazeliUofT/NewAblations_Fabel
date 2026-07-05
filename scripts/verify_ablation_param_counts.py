@@ -42,6 +42,7 @@ EXPECTED: dict[str, tuple[str, int]] = {
     "no_prompt_film_d256_b4_r2": ("A3", 3_531_456),
     "local_only_no_axial_attn_d256_b4_r2": ("A4", 2_079_936),
     "freq_attn_only_d256_b4_r2": ("A5", 3_134_656),
+    "time_attn_only_d256_b4_r2": ("A5b", 3_134_656),
     "no_raw_y_d256_b4_r2": ("A6", 4_189_376),
     "no_ls_anchor_d256_b4_r2": ("A7", 4_189_376),
     "no_learned_errvar_d256_b4_r2": ("A8", 4_172_928),

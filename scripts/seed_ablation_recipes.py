@@ -35,6 +35,7 @@ if str(PROJECT_ROOT) not in sys.path:
 DEFAULT_ARMS = [
     "errvar_eval_swap_d256_b4_r2",
     "freq_attn_only_d256_b4_r2",
+    "time_attn_only_d256_b4_r2",
     "global_pool_prompt_d256_b4_r2",
     "local_only_no_axial_attn_d256_b4_r2",
     "main_full_d256_b4_r2",
