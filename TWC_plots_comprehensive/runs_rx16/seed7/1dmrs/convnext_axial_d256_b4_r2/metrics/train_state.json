@@ -1,23 +1,23 @@
 {
-  "best_val": 0.024964577232215863,
+  "best_val": 0.024006358202314004,
   "best_weights_path": "/lustre10/scratch/rsadve1/Ablations_S1P2/TWC_plots_comprehensive/runs_rx16/seed7/1dmrs/convnext_axial_d256_b4_r2/checkpoints/best.weights.h5",
   "checkpoint_metrics": {
-    "last_loss": -3.1635332107543945,
-    "last_nmse_ls": 0.04929042607545853,
-    "last_nmse_prop": 0.01923206076025963
+    "last_loss": -2.6897354125976562,
+    "last_nmse_ls": 0.09952610731124878,
+    "last_nmse_prop": 0.0277800802141428
   },
   "last_metrics": {
-    "ebno_db": 2.8039464950561523,
-    "learning_rate": 0.000113684254756663,
-    "loss": -3.1635332107543945,
-    "loss_nll": -3.172741651535034,
-    "nmse_ls": 0.04929042607545853,
-    "nmse_prop": 0.01923206076025963,
+    "ebno_db": -1.2238612174987793,
+    "learning_rate": 6.572486745426431e-05,
+    "loss": -2.6897354125976562,
+    "loss_nll": -2.7030365467071533,
+    "nmse_ls": 0.09952610731124878,
+    "nmse_prop": 0.0277800802141428,
     "num_users": 3,
-    "step": 36000,
-    "step_elapsed_s": 149.44623720797244,
-    "steps_per_s": 2.10902855743479,
-    "training_elapsed_s": 17069.470146856038,
+    "step": 40000,
+    "step_elapsed_s": 166.88841352507006,
+    "steps_per_s": 2.106504627833677,
+    "training_elapsed_s": 18988.802337042987,
     "val_batch_size": 32,
     "val_ebno_db": "multi",
     "val_ebno_db_values": [
@@ -28,32 +28,32 @@
       4.0
     ],
     "val_microbatch_size": 16,
-    "val_nmse_ls": 0.09080916734334703,
-    "val_nmse_prop": 0.024964577232215863,
+    "val_nmse_ls": 0.08708481901946168,
+    "val_nmse_prop": 0.024006358202314004,
     "val_snr_hist": {
-      "-2.0": 13,
-      "-4.0": 22,
-      "0.0": 18,
-      "2.0": 18,
-      "4.0": 25
+      "-2.0": 17,
+      "-4.0": 16,
+      "0.0": 23,
+      "2.0": 17,
+      "4.0": 23
     },
     "val_user_count_hist": {
-      "1": 6,
-      "2": 11,
-      "3": 28,
-      "4": 51
+      "1": 3,
+      "2": 10,
+      "3": 29,
+      "4": 54
     }
   },
-  "latest_step": 36000,
-  "latest_training_state_checkpoint": "/lustre10/scratch/rsadve1/Ablations_S1P2/TWC_plots_comprehensive/runs_rx16/seed7/1dmrs/convnext_axial_d256_b4_r2/checkpoints/training_state/ckpt-36000",
+  "latest_step": 40000,
+  "latest_training_state_checkpoint": "/lustre10/scratch/rsadve1/Ablations_S1P2/TWC_plots_comprehensive/runs_rx16/seed7/1dmrs/convnext_axial_d256_b4_r2/checkpoints/training_state/ckpt-40000",
   "resume_enabled": true,
-  "save_reason": "periodic",
+  "save_reason": "final",
   "total_steps": 40000,
-  "training_complete": false,
+  "training_complete": true,
   "training_parameters": {
     "batch_size_eval": 32,
     "batch_size_train": 32,
-    "current_learning_rate": 0.000113684254756663,
+    "current_learning_rate": 6.572486745426431e-05,
     "eval_every": 2000,
     "evaluation_seed": 1007,
     "grad_clip_norm": 0.5,
