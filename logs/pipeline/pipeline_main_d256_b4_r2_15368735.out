@@ -1,0 +1,409 @@
+[ENV] Reusing portable venv: /home/rsadve1/links/scratch/.vevn_upair_potable
+[ENV] Checking installed package metadata only; TensorFlow/Sionna are not imported here.
+[ENV] Python 3.11.5
+[ENV] numpy 1.26.4+computecanada
+[ENV] pandas 2.2.3+computecanada
+[ENV] matplotlib 3.10.0+computecanada
+[ENV] PyYAML 6.0.2+computecanada
+[ENV] scipy 1.15.1+computecanada
+[ENV] tensorflow 2.15.1+computecanada
+[ENV] sionna-no-rt 1.2.1
+[ENV] optuna 4.8.0+computecanada
+[ENV] Skipping TensorFlow/Sionna import check on this node. Set UPAIR_DEEP_IMPORT_CHECK=1 to test imports explicitly.
+[ENV] Ready: REPO=/home/rsadve1/links/scratch/NewAblations_Fabel
+[ENV] Ready: VENV=/home/rsadve1/links/scratch/.vevn_upair_potable
+[ENV] Reusing portable venv: /home/rsadve1/links/scratch/.vevn_upair_potable
+[ENV] Checking installed package metadata only; TensorFlow/Sionna are not imported here.
+[ENV] Python 3.11.5
+[ENV] numpy 1.26.4+computecanada
+[ENV] pandas 2.2.3+computecanada
+[ENV] matplotlib 3.10.0+computecanada
+[ENV] PyYAML 6.0.2+computecanada
+[ENV] scipy 1.15.1+computecanada
+[ENV] tensorflow 2.15.1+computecanada
+[ENV] sionna-no-rt 1.2.1
+[ENV] optuna 4.8.0+computecanada
+[ENV] Skipping TensorFlow/Sionna import check on this node. Set UPAIR_DEEP_IMPORT_CHECK=1 to test imports explicitly.
+[ENV] Ready: REPO=/home/rsadve1/links/scratch/NewAblations_Fabel
+[ENV] Ready: VENV=/home/rsadve1/links/scratch/.vevn_upair_potable
+================================================================================
+[PIPELINE] variant=main_d256_b4_r2
+[PIPELINE] root=/home/rsadve1/links/scratch/NewAblations_Fabel
+[PIPELINE] stageB_prefix=clean_b32_prb8_d256_40k_smart_trueDMRS_u34610_1dmrs_stageB
+[PIPELINE] receivers=upair5g_lmmse
+[PIPELINE] users=3
+[PIPELINE] ebnos=4,5,6
+[PIPELINE] chunk_batches=20 micro=8
+================================================================================
+[PIPELINE] UPAIR_EVAL_ONLY=1 -> skipping training for main_d256_b4_r2 (eval-only arm reusing aliased checkpoint).
+[PIPELINE] starting/resuming isolated evaluation for main_d256_b4_r2.
+
+--------------------------------------------------------------------------------
+[PIPELINE] eval point variant=main_d256_b4_r2 receiver=upair5g_lmmse U=3 Eb/N0=4
+--------------------------------------------------------------------------------
+[PIPELINE] status done=0 reason=continue chunks=0 batches=0 block_errors=0/100 next_chunk=0
+2026-07-05 18:30:50.682909: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2026-07-05 18:30:50.687100: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2026-07-05 18:30:50.772147: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+[COMPREHENSIVE] loaded Optuna best JSON for main_d256_b4_r2 from /home/rsadve1/links/scratch/NewAblations_Fabel/optuna/clean_b32_prb8_d256_40k_smart_trueDMRS_u34610_1dmrs_stageB_main_d256_b4_r2_best_params.json
+[ISO-CHUNK] variant: main_d256_b4_r2
+[ISO-CHUNK] receiver: upair5g_lmmse
+[ISO-CHUNK] num_users: 3
+[ISO-CHUNK] ebno_db: 4.0
+[ISO-CHUNK] chunk_idx: 0
+[ISO-CHUNK] chunk_batches: 20
+[ISO-CHUNK] receiver_microbatch_size: 8
+[ISO-CHUNK] chunk_seed: 1772034
+[ISO-CHUNK] checkpoint: /lustre10/scratch/rsadve1/NewAblations_Fabel/TWC_plots_comprehensive/runs_rx16/seed7/1dmrs/main_d256_b4_r2/checkpoints/best.weights.h5
+[ISO-CHUNK] TF_GPU_ALLOCATOR: bfc
+[ISO-CHUNK] output tag: main_d256_b4_r2_u3_upair5g_lmmse_ebno4p0_chunk0000_m8_b20
+[EVAL] receiver microbatching enabled: batch_size_eval=64 receiver_microbatch_size=8
+WARNING:tensorflow:Model's `__init__()` arguments contain non-serializable objects. Please implement a `get_config()` method in the subclassed Model for proper saving and loading. Defaulting to empty config.
+WARNING:tensorflow:Model's `__init__()` arguments contain non-serializable objects. Please implement a `get_config()` method in the subclassed Model for proper saving and loading. Defaulting to empty config.
+[EVAL] loaded UPAIR checkpoint: /lustre10/scratch/rsadve1/NewAblations_Fabel/TWC_plots_comprehensive/runs_rx16/seed7/1dmrs/main_d256_b4_r2/checkpoints/best.weights.h5
+[EVAL] skipping explicit NMSE channel-estimator calls for: upair5g_lmmse
+[EVAL] instrumentation log_latency=True log_gpu_memory=True memory_cleanup_every_batches=1 memory_cleanup_every_microbatch=True stream_eval_microbatches=True compiled_receiver_error_counts=False receiver_call_jit_compile=False per_receiver_stopping=False target_bler_floor=1e-05 floor_num_frames=0 gpu_mem=0.09GiB peak=0.29GiB
+[EVAL] receiver_call name=upair5g_lmmse mode=positional_y_no compiled_error_counts=False
+[EVAL] progress num_users=3 Eb/N0=4 dB batches=10/20 frame_err=upair5g_lmmse:7/1920 elapsed=71.3s avg_batch=7.125s gpu_mem=7.18GiB peak=7.38GiB
+[EVAL] progress num_users=3 Eb/N0=4 dB batches=20/20 frame_err=upair5g_lmmse:23/3840 elapsed=142.4s avg_batch=7.118s gpu_mem=14.46GiB peak=14.66GiB
+[EVAL] receiver=           upair5g_lmmse Eb/N0= 4.0 dB BER=3.90012e-04 BLER=5.98958e-03 NMSE=nan bit_err=  4457/11427840 blk_err=   23/3840   batches=  20 stop=global_stop rx_time=76.86s rx_ms_batch=3843.2 rx_ms_frame=20.017 point_time=142.35s gpu_mem=14.46GiB peak=14.66GiB
+[ISO-CHUNK] wrote: /home/rsadve1/links/scratch/NewAblations_Fabel/_gen_ds3x_chunks/main_d256_b4_r2_u3_upair5g_lmmse_ebno4p0_chunk0000_m8_b20/chunk_result.csv
+[ISO-CHUNK] DONE
+[PIPELINE] status done=0 reason=continue chunks=1 batches=20 block_errors=23/100 next_chunk=1
+2026-07-05 18:33:43.869599: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2026-07-05 18:33:43.869649: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2026-07-05 18:33:43.870983: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+[COMPREHENSIVE] loaded Optuna best JSON for main_d256_b4_r2 from /home/rsadve1/links/scratch/NewAblations_Fabel/optuna/clean_b32_prb8_d256_40k_smart_trueDMRS_u34610_1dmrs_stageB_main_d256_b4_r2_best_params.json
+[ISO-CHUNK] variant: main_d256_b4_r2
+[ISO-CHUNK] receiver: upair5g_lmmse
+[ISO-CHUNK] num_users: 3
+[ISO-CHUNK] ebno_db: 4.0
+[ISO-CHUNK] chunk_idx: 1
+[ISO-CHUNK] chunk_batches: 20
+[ISO-CHUNK] receiver_microbatch_size: 8
+[ISO-CHUNK] chunk_seed: 1872037
+[ISO-CHUNK] checkpoint: /lustre10/scratch/rsadve1/NewAblations_Fabel/TWC_plots_comprehensive/runs_rx16/seed7/1dmrs/main_d256_b4_r2/checkpoints/best.weights.h5
+[ISO-CHUNK] TF_GPU_ALLOCATOR: bfc
+[ISO-CHUNK] output tag: main_d256_b4_r2_u3_upair5g_lmmse_ebno4p0_chunk0001_m8_b20
+[EVAL] receiver microbatching enabled: batch_size_eval=64 receiver_microbatch_size=8
+WARNING:tensorflow:Model's `__init__()` arguments contain non-serializable objects. Please implement a `get_config()` method in the subclassed Model for proper saving and loading. Defaulting to empty config.
+WARNING:tensorflow:Model's `__init__()` arguments contain non-serializable objects. Please implement a `get_config()` method in the subclassed Model for proper saving and loading. Defaulting to empty config.
+[EVAL] loaded UPAIR checkpoint: /lustre10/scratch/rsadve1/NewAblations_Fabel/TWC_plots_comprehensive/runs_rx16/seed7/1dmrs/main_d256_b4_r2/checkpoints/best.weights.h5
+[EVAL] skipping explicit NMSE channel-estimator calls for: upair5g_lmmse
+[EVAL] instrumentation log_latency=True log_gpu_memory=True memory_cleanup_every_batches=1 memory_cleanup_every_microbatch=True stream_eval_microbatches=True compiled_receiver_error_counts=False receiver_call_jit_compile=False per_receiver_stopping=False target_bler_floor=1e-05 floor_num_frames=0 gpu_mem=0.09GiB peak=0.29GiB
+[EVAL] receiver_call name=upair5g_lmmse mode=positional_y_no compiled_error_counts=False
+[EVAL] progress num_users=3 Eb/N0=4 dB batches=10/20 frame_err=upair5g_lmmse:10/1920 elapsed=71.3s avg_batch=7.126s gpu_mem=7.18GiB peak=7.38GiB
+[EVAL] progress num_users=3 Eb/N0=4 dB batches=20/20 frame_err=upair5g_lmmse:19/3840 elapsed=142.6s avg_batch=7.130s gpu_mem=14.46GiB peak=14.66GiB
+[EVAL] receiver=           upair5g_lmmse Eb/N0= 4.0 dB BER=1.47709e-04 BLER=4.94792e-03 NMSE=nan bit_err=  1688/11427840 blk_err=   19/3840   batches=  20 stop=global_stop rx_time=76.86s rx_ms_batch=3842.8 rx_ms_frame=20.015 point_time=142.61s gpu_mem=14.46GiB peak=14.66GiB
+[ISO-CHUNK] wrote: /home/rsadve1/links/scratch/NewAblations_Fabel/_gen_ds3x_chunks/main_d256_b4_r2_u3_upair5g_lmmse_ebno4p0_chunk0001_m8_b20/chunk_result.csv
+[ISO-CHUNK] DONE
+[PIPELINE] status done=0 reason=continue chunks=2 batches=40 block_errors=42/100 next_chunk=2
+2026-07-05 18:36:21.120984: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2026-07-05 18:36:21.121036: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2026-07-05 18:36:21.122400: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+[COMPREHENSIVE] loaded Optuna best JSON for main_d256_b4_r2 from /home/rsadve1/links/scratch/NewAblations_Fabel/optuna/clean_b32_prb8_d256_40k_smart_trueDMRS_u34610_1dmrs_stageB_main_d256_b4_r2_best_params.json
+[ISO-CHUNK] variant: main_d256_b4_r2
+[ISO-CHUNK] receiver: upair5g_lmmse
+[ISO-CHUNK] num_users: 3
+[ISO-CHUNK] ebno_db: 4.0
+[ISO-CHUNK] chunk_idx: 2
+[ISO-CHUNK] chunk_batches: 20
+[ISO-CHUNK] receiver_microbatch_size: 8
+[ISO-CHUNK] chunk_seed: 1972040
+[ISO-CHUNK] checkpoint: /lustre10/scratch/rsadve1/NewAblations_Fabel/TWC_plots_comprehensive/runs_rx16/seed7/1dmrs/main_d256_b4_r2/checkpoints/best.weights.h5
+[ISO-CHUNK] TF_GPU_ALLOCATOR: bfc
+[ISO-CHUNK] output tag: main_d256_b4_r2_u3_upair5g_lmmse_ebno4p0_chunk0002_m8_b20
+[EVAL] receiver microbatching enabled: batch_size_eval=64 receiver_microbatch_size=8
+WARNING:tensorflow:Model's `__init__()` arguments contain non-serializable objects. Please implement a `get_config()` method in the subclassed Model for proper saving and loading. Defaulting to empty config.
+WARNING:tensorflow:Model's `__init__()` arguments contain non-serializable objects. Please implement a `get_config()` method in the subclassed Model for proper saving and loading. Defaulting to empty config.
+[EVAL] loaded UPAIR checkpoint: /lustre10/scratch/rsadve1/NewAblations_Fabel/TWC_plots_comprehensive/runs_rx16/seed7/1dmrs/main_d256_b4_r2/checkpoints/best.weights.h5
+[EVAL] skipping explicit NMSE channel-estimator calls for: upair5g_lmmse
+[EVAL] instrumentation log_latency=True log_gpu_memory=True memory_cleanup_every_batches=1 memory_cleanup_every_microbatch=True stream_eval_microbatches=True compiled_receiver_error_counts=False receiver_call_jit_compile=False per_receiver_stopping=False target_bler_floor=1e-05 floor_num_frames=0 gpu_mem=0.09GiB peak=0.29GiB
+[EVAL] receiver_call name=upair5g_lmmse mode=positional_y_no compiled_error_counts=False
+[EVAL] progress num_users=3 Eb/N0=4 dB batches=10/20 frame_err=upair5g_lmmse:15/1920 elapsed=72.3s avg_batch=7.228s gpu_mem=7.18GiB peak=7.38GiB
+[EVAL] progress num_users=3 Eb/N0=4 dB batches=20/20 frame_err=upair5g_lmmse:32/3840 elapsed=144.5s avg_batch=7.224s gpu_mem=14.46GiB peak=14.66GiB
+[EVAL] receiver=           upair5g_lmmse Eb/N0= 4.0 dB BER=5.55923e-04 BLER=8.33333e-03 NMSE=nan bit_err=  6353/11427840 blk_err=   32/3840   batches=  20 stop=global_stop rx_time=78.06s rx_ms_batch=3902.8 rx_ms_frame=20.327 point_time=144.48s gpu_mem=14.46GiB peak=14.66GiB
+[ISO-CHUNK] wrote: /home/rsadve1/links/scratch/NewAblations_Fabel/_gen_ds3x_chunks/main_d256_b4_r2_u3_upair5g_lmmse_ebno4p0_chunk0002_m8_b20/chunk_result.csv
+[ISO-CHUNK] DONE
+[PIPELINE] status done=0 reason=continue chunks=3 batches=60 block_errors=74/100 next_chunk=3
+2026-07-05 18:39:00.812039: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2026-07-05 18:39:00.812089: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2026-07-05 18:39:00.813443: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+[COMPREHENSIVE] loaded Optuna best JSON for main_d256_b4_r2 from /home/rsadve1/links/scratch/NewAblations_Fabel/optuna/clean_b32_prb8_d256_40k_smart_trueDMRS_u34610_1dmrs_stageB_main_d256_b4_r2_best_params.json
+[ISO-CHUNK] variant: main_d256_b4_r2
+[ISO-CHUNK] receiver: upair5g_lmmse
+[ISO-CHUNK] num_users: 3
+[ISO-CHUNK] ebno_db: 4.0
+[ISO-CHUNK] chunk_idx: 3
+[ISO-CHUNK] chunk_batches: 20
+[ISO-CHUNK] receiver_microbatch_size: 8
+[ISO-CHUNK] chunk_seed: 2072043
+[ISO-CHUNK] checkpoint: /lustre10/scratch/rsadve1/NewAblations_Fabel/TWC_plots_comprehensive/runs_rx16/seed7/1dmrs/main_d256_b4_r2/checkpoints/best.weights.h5
+[ISO-CHUNK] TF_GPU_ALLOCATOR: bfc
+[ISO-CHUNK] output tag: main_d256_b4_r2_u3_upair5g_lmmse_ebno4p0_chunk0003_m8_b20
+[EVAL] receiver microbatching enabled: batch_size_eval=64 receiver_microbatch_size=8
+WARNING:tensorflow:Model's `__init__()` arguments contain non-serializable objects. Please implement a `get_config()` method in the subclassed Model for proper saving and loading. Defaulting to empty config.
+WARNING:tensorflow:Model's `__init__()` arguments contain non-serializable objects. Please implement a `get_config()` method in the subclassed Model for proper saving and loading. Defaulting to empty config.
+[EVAL] loaded UPAIR checkpoint: /lustre10/scratch/rsadve1/NewAblations_Fabel/TWC_plots_comprehensive/runs_rx16/seed7/1dmrs/main_d256_b4_r2/checkpoints/best.weights.h5
+[EVAL] skipping explicit NMSE channel-estimator calls for: upair5g_lmmse
+[EVAL] instrumentation log_latency=True log_gpu_memory=True memory_cleanup_every_batches=1 memory_cleanup_every_microbatch=True stream_eval_microbatches=True compiled_receiver_error_counts=False receiver_call_jit_compile=False per_receiver_stopping=False target_bler_floor=1e-05 floor_num_frames=0 gpu_mem=0.09GiB peak=0.29GiB
+[EVAL] receiver_call name=upair5g_lmmse mode=positional_y_no compiled_error_counts=False
+[EVAL] progress num_users=3 Eb/N0=4 dB batches=10/20 frame_err=upair5g_lmmse:18/1920 elapsed=71.4s avg_batch=7.144s gpu_mem=7.18GiB peak=7.38GiB
+[EVAL] progress num_users=3 Eb/N0=4 dB batches=20/20 frame_err=upair5g_lmmse:30/3840 elapsed=143.0s avg_batch=7.152s gpu_mem=14.46GiB peak=14.66GiB
+[EVAL] receiver=           upair5g_lmmse Eb/N0= 4.0 dB BER=3.96925e-04 BLER=7.81250e-03 NMSE=nan bit_err=  4536/11427840 blk_err=   30/3840   batches=  20 stop=global_stop rx_time=77.15s rx_ms_batch=3857.3 rx_ms_frame=20.090 point_time=143.05s gpu_mem=14.46GiB peak=14.66GiB
+[ISO-CHUNK] wrote: /home/rsadve1/links/scratch/NewAblations_Fabel/_gen_ds3x_chunks/main_d256_b4_r2_u3_upair5g_lmmse_ebno4p0_chunk0003_m8_b20/chunk_result.csv
+[ISO-CHUNK] DONE
+[PIPELINE] status done=1 reason=target_block_errors chunks=4 batches=80 block_errors=104/100 next_chunk=-1
+[ISO-MERGE] chunks: 4
+[ISO-MERGE] rows: 1
+[ISO-MERGE] wrote: /home/rsadve1/links/scratch/NewAblations_Fabel/_gen_ds3x_chunks/merged_main_d256_b4_r2_u3_upair5g_lmmse_e4.csv
+[ISO-MERGE] wrote: /home/rsadve1/links/scratch/NewAblations_Fabel/_gen_ds3x_chunks/merged_main_d256_b4_r2_u3_upair5g_lmmse_e4.summary.json
+     receiver         variant dmrs_case  seed  training_seed  num_users  ebno_db  num_chunks chunk_indices  bit_errors  num_bits  block_errors  num_blocks  num_batches_run  point_elapsed_s  data_elapsed_s  receiver_elapsed_s      ber     bler  nmse       mc_stop_reason  target_bler_floor  bler_zero_error_upper_bound  ber_zero_error_upper_bound  receiver_ms_per_batch  receiver_ms_per_frame  reliable_ber  reliable_bler
+upair5g_lmmse main_d256_b4_r2     1dmrs     7              7          3      4.0           4       0,1,2,3       17034  45711360           104       15360               80       572.488513       185.65964          308.921448 0.000373 0.006771   NaN isolated_chunk_merge                NaN                          NaN                         NaN            3861.518095              20.112073          True           True
+
+--------------------------------------------------------------------------------
+[PIPELINE] eval point variant=main_d256_b4_r2 receiver=upair5g_lmmse U=3 Eb/N0=5
+--------------------------------------------------------------------------------
+[PIPELINE] status done=0 reason=continue chunks=0 batches=0 block_errors=0/100 next_chunk=0
+2026-07-05 18:41:39.193069: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2026-07-05 18:41:39.193122: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2026-07-05 18:41:39.194484: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+[COMPREHENSIVE] loaded Optuna best JSON for main_d256_b4_r2 from /home/rsadve1/links/scratch/NewAblations_Fabel/optuna/clean_b32_prb8_d256_40k_smart_trueDMRS_u34610_1dmrs_stageB_main_d256_b4_r2_best_params.json
+[ISO-CHUNK] variant: main_d256_b4_r2
+[ISO-CHUNK] receiver: upair5g_lmmse
+[ISO-CHUNK] num_users: 3
+[ISO-CHUNK] ebno_db: 5.0
+[ISO-CHUNK] chunk_idx: 0
+[ISO-CHUNK] chunk_batches: 20
+[ISO-CHUNK] receiver_microbatch_size: 8
+[ISO-CHUNK] chunk_seed: 1789034
+[ISO-CHUNK] checkpoint: /lustre10/scratch/rsadve1/NewAblations_Fabel/TWC_plots_comprehensive/runs_rx16/seed7/1dmrs/main_d256_b4_r2/checkpoints/best.weights.h5
+[ISO-CHUNK] TF_GPU_ALLOCATOR: bfc
+[ISO-CHUNK] output tag: main_d256_b4_r2_u3_upair5g_lmmse_ebno5p0_chunk0000_m8_b20
+[EVAL] receiver microbatching enabled: batch_size_eval=64 receiver_microbatch_size=8
+WARNING:tensorflow:Model's `__init__()` arguments contain non-serializable objects. Please implement a `get_config()` method in the subclassed Model for proper saving and loading. Defaulting to empty config.
+WARNING:tensorflow:Model's `__init__()` arguments contain non-serializable objects. Please implement a `get_config()` method in the subclassed Model for proper saving and loading. Defaulting to empty config.
+[EVAL] loaded UPAIR checkpoint: /lustre10/scratch/rsadve1/NewAblations_Fabel/TWC_plots_comprehensive/runs_rx16/seed7/1dmrs/main_d256_b4_r2/checkpoints/best.weights.h5
+[EVAL] skipping explicit NMSE channel-estimator calls for: upair5g_lmmse
+[EVAL] instrumentation log_latency=True log_gpu_memory=True memory_cleanup_every_batches=1 memory_cleanup_every_microbatch=True stream_eval_microbatches=True compiled_receiver_error_counts=False receiver_call_jit_compile=False per_receiver_stopping=False target_bler_floor=1e-05 floor_num_frames=0 gpu_mem=0.09GiB peak=0.29GiB
+[EVAL] receiver_call name=upair5g_lmmse mode=positional_y_no compiled_error_counts=False
+[EVAL] progress num_users=3 Eb/N0=5 dB batches=10/20 frame_err=upair5g_lmmse:10/1920 elapsed=71.5s avg_batch=7.152s gpu_mem=7.18GiB peak=7.38GiB
+[EVAL] progress num_users=3 Eb/N0=5 dB batches=20/20 frame_err=upair5g_lmmse:22/3840 elapsed=142.9s avg_batch=7.147s gpu_mem=14.46GiB peak=14.66GiB
+[EVAL] receiver=           upair5g_lmmse Eb/N0= 5.0 dB BER=2.71092e-04 BLER=5.72917e-03 NMSE=nan bit_err=  3098/11427840 blk_err=   22/3840   batches=  20 stop=global_stop rx_time=77.06s rx_ms_batch=3853.0 rx_ms_frame=20.068 point_time=142.94s gpu_mem=14.46GiB peak=14.66GiB
+[ISO-CHUNK] wrote: /home/rsadve1/links/scratch/NewAblations_Fabel/_gen_ds3x_chunks/main_d256_b4_r2_u3_upair5g_lmmse_ebno5p0_chunk0000_m8_b20/chunk_result.csv
+[ISO-CHUNK] DONE
+[PIPELINE] status done=0 reason=continue chunks=1 batches=20 block_errors=22/100 next_chunk=1
+2026-07-05 18:44:16.829933: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2026-07-05 18:44:16.829986: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2026-07-05 18:44:16.831350: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+[COMPREHENSIVE] loaded Optuna best JSON for main_d256_b4_r2 from /home/rsadve1/links/scratch/NewAblations_Fabel/optuna/clean_b32_prb8_d256_40k_smart_trueDMRS_u34610_1dmrs_stageB_main_d256_b4_r2_best_params.json
+[ISO-CHUNK] variant: main_d256_b4_r2
+[ISO-CHUNK] receiver: upair5g_lmmse
+[ISO-CHUNK] num_users: 3
+[ISO-CHUNK] ebno_db: 5.0
+[ISO-CHUNK] chunk_idx: 1
+[ISO-CHUNK] chunk_batches: 20
+[ISO-CHUNK] receiver_microbatch_size: 8
+[ISO-CHUNK] chunk_seed: 1889037
+[ISO-CHUNK] checkpoint: /lustre10/scratch/rsadve1/NewAblations_Fabel/TWC_plots_comprehensive/runs_rx16/seed7/1dmrs/main_d256_b4_r2/checkpoints/best.weights.h5
+[ISO-CHUNK] TF_GPU_ALLOCATOR: bfc
+[ISO-CHUNK] output tag: main_d256_b4_r2_u3_upair5g_lmmse_ebno5p0_chunk0001_m8_b20
+[EVAL] receiver microbatching enabled: batch_size_eval=64 receiver_microbatch_size=8
+WARNING:tensorflow:Model's `__init__()` arguments contain non-serializable objects. Please implement a `get_config()` method in the subclassed Model for proper saving and loading. Defaulting to empty config.
+WARNING:tensorflow:Model's `__init__()` arguments contain non-serializable objects. Please implement a `get_config()` method in the subclassed Model for proper saving and loading. Defaulting to empty config.
+[EVAL] loaded UPAIR checkpoint: /lustre10/scratch/rsadve1/NewAblations_Fabel/TWC_plots_comprehensive/runs_rx16/seed7/1dmrs/main_d256_b4_r2/checkpoints/best.weights.h5
+[EVAL] skipping explicit NMSE channel-estimator calls for: upair5g_lmmse
+[EVAL] instrumentation log_latency=True log_gpu_memory=True memory_cleanup_every_batches=1 memory_cleanup_every_microbatch=True stream_eval_microbatches=True compiled_receiver_error_counts=False receiver_call_jit_compile=False per_receiver_stopping=False target_bler_floor=1e-05 floor_num_frames=0 gpu_mem=0.09GiB peak=0.29GiB
+[EVAL] receiver_call name=upair5g_lmmse mode=positional_y_no compiled_error_counts=False
+[EVAL] progress num_users=3 Eb/N0=5 dB batches=10/20 frame_err=upair5g_lmmse:15/1920 elapsed=71.7s avg_batch=7.166s gpu_mem=7.18GiB peak=7.38GiB
+[EVAL] progress num_users=3 Eb/N0=5 dB batches=20/20 frame_err=upair5g_lmmse:33/3840 elapsed=143.1s avg_batch=7.155s gpu_mem=14.46GiB peak=14.66GiB
+[EVAL] receiver=           upair5g_lmmse Eb/N0= 5.0 dB BER=5.03770e-04 BLER=8.59375e-03 NMSE=nan bit_err=  5757/11427840 blk_err=   33/3840   batches=  20 stop=global_stop rx_time=77.23s rx_ms_batch=3861.5 rx_ms_frame=20.112 point_time=143.10s gpu_mem=14.46GiB peak=14.66GiB
+[ISO-CHUNK] wrote: /home/rsadve1/links/scratch/NewAblations_Fabel/_gen_ds3x_chunks/main_d256_b4_r2_u3_upair5g_lmmse_ebno5p0_chunk0001_m8_b20/chunk_result.csv
+[ISO-CHUNK] DONE
+[PIPELINE] status done=0 reason=continue chunks=2 batches=40 block_errors=55/100 next_chunk=2
+2026-07-05 18:46:54.655132: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2026-07-05 18:46:54.655185: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2026-07-05 18:46:54.656576: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+[COMPREHENSIVE] loaded Optuna best JSON for main_d256_b4_r2 from /home/rsadve1/links/scratch/NewAblations_Fabel/optuna/clean_b32_prb8_d256_40k_smart_trueDMRS_u34610_1dmrs_stageB_main_d256_b4_r2_best_params.json
+[ISO-CHUNK] variant: main_d256_b4_r2
+[ISO-CHUNK] receiver: upair5g_lmmse
+[ISO-CHUNK] num_users: 3
+[ISO-CHUNK] ebno_db: 5.0
+[ISO-CHUNK] chunk_idx: 2
+[ISO-CHUNK] chunk_batches: 20
+[ISO-CHUNK] receiver_microbatch_size: 8
+[ISO-CHUNK] chunk_seed: 1989040
+[ISO-CHUNK] checkpoint: /lustre10/scratch/rsadve1/NewAblations_Fabel/TWC_plots_comprehensive/runs_rx16/seed7/1dmrs/main_d256_b4_r2/checkpoints/best.weights.h5
+[ISO-CHUNK] TF_GPU_ALLOCATOR: bfc
+[ISO-CHUNK] output tag: main_d256_b4_r2_u3_upair5g_lmmse_ebno5p0_chunk0002_m8_b20
+[EVAL] receiver microbatching enabled: batch_size_eval=64 receiver_microbatch_size=8
+WARNING:tensorflow:Model's `__init__()` arguments contain non-serializable objects. Please implement a `get_config()` method in the subclassed Model for proper saving and loading. Defaulting to empty config.
+WARNING:tensorflow:Model's `__init__()` arguments contain non-serializable objects. Please implement a `get_config()` method in the subclassed Model for proper saving and loading. Defaulting to empty config.
+[EVAL] loaded UPAIR checkpoint: /lustre10/scratch/rsadve1/NewAblations_Fabel/TWC_plots_comprehensive/runs_rx16/seed7/1dmrs/main_d256_b4_r2/checkpoints/best.weights.h5
+[EVAL] skipping explicit NMSE channel-estimator calls for: upair5g_lmmse
+[EVAL] instrumentation log_latency=True log_gpu_memory=True memory_cleanup_every_batches=1 memory_cleanup_every_microbatch=True stream_eval_microbatches=True compiled_receiver_error_counts=False receiver_call_jit_compile=False per_receiver_stopping=False target_bler_floor=1e-05 floor_num_frames=0 gpu_mem=0.09GiB peak=0.29GiB
+[EVAL] receiver_call name=upair5g_lmmse mode=positional_y_no compiled_error_counts=False
+[EVAL] progress num_users=3 Eb/N0=5 dB batches=10/20 frame_err=upair5g_lmmse:6/1920 elapsed=71.6s avg_batch=7.159s gpu_mem=7.18GiB peak=7.38GiB
+[EVAL] progress num_users=3 Eb/N0=5 dB batches=20/20 frame_err=upair5g_lmmse:21/3840 elapsed=143.2s avg_batch=7.160s gpu_mem=14.46GiB peak=14.66GiB
+[EVAL] receiver=           upair5g_lmmse Eb/N0= 5.0 dB BER=2.02138e-04 BLER=5.46875e-03 NMSE=nan bit_err=  2310/11427840 blk_err=   21/3840   batches=  20 stop=global_stop rx_time=77.21s rx_ms_batch=3860.4 rx_ms_frame=20.106 point_time=143.21s gpu_mem=14.46GiB peak=14.66GiB
+[ISO-CHUNK] wrote: /home/rsadve1/links/scratch/NewAblations_Fabel/_gen_ds3x_chunks/main_d256_b4_r2_u3_upair5g_lmmse_ebno5p0_chunk0002_m8_b20/chunk_result.csv
+[ISO-CHUNK] DONE
+[PIPELINE] status done=0 reason=continue chunks=3 batches=60 block_errors=76/100 next_chunk=3
+2026-07-05 18:49:32.566840: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2026-07-05 18:49:32.566892: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2026-07-05 18:49:32.568268: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+[COMPREHENSIVE] loaded Optuna best JSON for main_d256_b4_r2 from /home/rsadve1/links/scratch/NewAblations_Fabel/optuna/clean_b32_prb8_d256_40k_smart_trueDMRS_u34610_1dmrs_stageB_main_d256_b4_r2_best_params.json
+[ISO-CHUNK] variant: main_d256_b4_r2
+[ISO-CHUNK] receiver: upair5g_lmmse
+[ISO-CHUNK] num_users: 3
+[ISO-CHUNK] ebno_db: 5.0
+[ISO-CHUNK] chunk_idx: 3
+[ISO-CHUNK] chunk_batches: 20
+[ISO-CHUNK] receiver_microbatch_size: 8
+[ISO-CHUNK] chunk_seed: 2089043
+[ISO-CHUNK] checkpoint: /lustre10/scratch/rsadve1/NewAblations_Fabel/TWC_plots_comprehensive/runs_rx16/seed7/1dmrs/main_d256_b4_r2/checkpoints/best.weights.h5
+[ISO-CHUNK] TF_GPU_ALLOCATOR: bfc
+[ISO-CHUNK] output tag: main_d256_b4_r2_u3_upair5g_lmmse_ebno5p0_chunk0003_m8_b20
+[EVAL] receiver microbatching enabled: batch_size_eval=64 receiver_microbatch_size=8
+WARNING:tensorflow:Model's `__init__()` arguments contain non-serializable objects. Please implement a `get_config()` method in the subclassed Model for proper saving and loading. Defaulting to empty config.
+WARNING:tensorflow:Model's `__init__()` arguments contain non-serializable objects. Please implement a `get_config()` method in the subclassed Model for proper saving and loading. Defaulting to empty config.
+[EVAL] loaded UPAIR checkpoint: /lustre10/scratch/rsadve1/NewAblations_Fabel/TWC_plots_comprehensive/runs_rx16/seed7/1dmrs/main_d256_b4_r2/checkpoints/best.weights.h5
+[EVAL] skipping explicit NMSE channel-estimator calls for: upair5g_lmmse
+[EVAL] instrumentation log_latency=True log_gpu_memory=True memory_cleanup_every_batches=1 memory_cleanup_every_microbatch=True stream_eval_microbatches=True compiled_receiver_error_counts=False receiver_call_jit_compile=False per_receiver_stopping=False target_bler_floor=1e-05 floor_num_frames=0 gpu_mem=0.09GiB peak=0.29GiB
+[EVAL] receiver_call name=upair5g_lmmse mode=positional_y_no compiled_error_counts=False
+[EVAL] progress num_users=3 Eb/N0=5 dB batches=10/20 frame_err=upair5g_lmmse:11/1920 elapsed=71.6s avg_batch=7.159s gpu_mem=7.18GiB peak=7.38GiB
+[EVAL] progress num_users=3 Eb/N0=5 dB batches=20/20 frame_err=upair5g_lmmse:24/3840 elapsed=143.0s avg_batch=7.149s gpu_mem=14.46GiB peak=14.66GiB
+[EVAL] receiver=           upair5g_lmmse Eb/N0= 5.0 dB BER=1.04832e-04 BLER=6.25000e-03 NMSE=nan bit_err=  1198/11427840 blk_err=   24/3840   batches=  20 stop=global_stop rx_time=77.19s rx_ms_batch=3859.7 rx_ms_frame=20.103 point_time=142.98s gpu_mem=14.46GiB peak=14.66GiB
+[ISO-CHUNK] wrote: /home/rsadve1/links/scratch/NewAblations_Fabel/_gen_ds3x_chunks/main_d256_b4_r2_u3_upair5g_lmmse_ebno5p0_chunk0003_m8_b20/chunk_result.csv
+[ISO-CHUNK] DONE
+[PIPELINE] status done=1 reason=target_block_errors chunks=4 batches=80 block_errors=100/100 next_chunk=-1
+[ISO-MERGE] chunks: 4
+[ISO-MERGE] rows: 1
+[ISO-MERGE] wrote: /home/rsadve1/links/scratch/NewAblations_Fabel/_gen_ds3x_chunks/merged_main_d256_b4_r2_u3_upair5g_lmmse_e5.csv
+[ISO-MERGE] wrote: /home/rsadve1/links/scratch/NewAblations_Fabel/_gen_ds3x_chunks/merged_main_d256_b4_r2_u3_upair5g_lmmse_e5.summary.json
+     receiver         variant dmrs_case  seed  training_seed  num_users  ebno_db  num_chunks chunk_indices  bit_errors  num_bits  block_errors  num_blocks  num_batches_run  point_elapsed_s  data_elapsed_s  receiver_elapsed_s     ber    bler  nmse       mc_stop_reason  target_bler_floor  bler_zero_error_upper_bound  ber_zero_error_upper_bound  receiver_ms_per_batch  receiver_ms_per_frame  reliable_ber  reliable_bler
+upair5g_lmmse main_d256_b4_r2     1dmrs     7              7          3      5.0           4       0,1,2,3       12363  45711360           100       15360               80       572.226497      185.608912          308.690107 0.00027 0.00651   NaN isolated_chunk_merge                NaN                          NaN                         NaN            3858.626336              20.097012          True           True
+
+--------------------------------------------------------------------------------
+[PIPELINE] eval point variant=main_d256_b4_r2 receiver=upair5g_lmmse U=3 Eb/N0=6
+--------------------------------------------------------------------------------
+[PIPELINE] status done=0 reason=continue chunks=0 batches=0 block_errors=0/100 next_chunk=0
+2026-07-05 18:52:11.039520: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2026-07-05 18:52:11.039572: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2026-07-05 18:52:11.040966: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+[COMPREHENSIVE] loaded Optuna best JSON for main_d256_b4_r2 from /home/rsadve1/links/scratch/NewAblations_Fabel/optuna/clean_b32_prb8_d256_40k_smart_trueDMRS_u34610_1dmrs_stageB_main_d256_b4_r2_best_params.json
+[ISO-CHUNK] variant: main_d256_b4_r2
+[ISO-CHUNK] receiver: upair5g_lmmse
+[ISO-CHUNK] num_users: 3
+[ISO-CHUNK] ebno_db: 6.0
+[ISO-CHUNK] chunk_idx: 0
+[ISO-CHUNK] chunk_batches: 20
+[ISO-CHUNK] receiver_microbatch_size: 8
+[ISO-CHUNK] chunk_seed: 1806034
+[ISO-CHUNK] checkpoint: /lustre10/scratch/rsadve1/NewAblations_Fabel/TWC_plots_comprehensive/runs_rx16/seed7/1dmrs/main_d256_b4_r2/checkpoints/best.weights.h5
+[ISO-CHUNK] TF_GPU_ALLOCATOR: bfc
+[ISO-CHUNK] output tag: main_d256_b4_r2_u3_upair5g_lmmse_ebno6p0_chunk0000_m8_b20
+[EVAL] receiver microbatching enabled: batch_size_eval=64 receiver_microbatch_size=8
+WARNING:tensorflow:Model's `__init__()` arguments contain non-serializable objects. Please implement a `get_config()` method in the subclassed Model for proper saving and loading. Defaulting to empty config.
+WARNING:tensorflow:Model's `__init__()` arguments contain non-serializable objects. Please implement a `get_config()` method in the subclassed Model for proper saving and loading. Defaulting to empty config.
+[EVAL] loaded UPAIR checkpoint: /lustre10/scratch/rsadve1/NewAblations_Fabel/TWC_plots_comprehensive/runs_rx16/seed7/1dmrs/main_d256_b4_r2/checkpoints/best.weights.h5
+[EVAL] skipping explicit NMSE channel-estimator calls for: upair5g_lmmse
+[EVAL] instrumentation log_latency=True log_gpu_memory=True memory_cleanup_every_batches=1 memory_cleanup_every_microbatch=True stream_eval_microbatches=True compiled_receiver_error_counts=False receiver_call_jit_compile=False per_receiver_stopping=False target_bler_floor=1e-05 floor_num_frames=0 gpu_mem=0.09GiB peak=0.29GiB
+[EVAL] receiver_call name=upair5g_lmmse mode=positional_y_no compiled_error_counts=False
+[EVAL] progress num_users=3 Eb/N0=6 dB batches=10/20 frame_err=upair5g_lmmse:6/1920 elapsed=71.7s avg_batch=7.167s gpu_mem=7.18GiB peak=7.38GiB
+[EVAL] progress num_users=3 Eb/N0=6 dB batches=20/20 frame_err=upair5g_lmmse:18/3840 elapsed=143.2s avg_batch=7.159s gpu_mem=14.46GiB peak=14.66GiB
+[EVAL] receiver=           upair5g_lmmse Eb/N0= 6.0 dB BER=4.62905e-05 BLER=4.68750e-03 NMSE=nan bit_err=   529/11427840 blk_err=   18/3840   batches=  20 stop=global_stop rx_time=77.21s rx_ms_batch=3860.6 rx_ms_frame=20.107 point_time=143.19s gpu_mem=14.46GiB peak=14.66GiB
+[ISO-CHUNK] wrote: /home/rsadve1/links/scratch/NewAblations_Fabel/_gen_ds3x_chunks/main_d256_b4_r2_u3_upair5g_lmmse_ebno6p0_chunk0000_m8_b20/chunk_result.csv
+[ISO-CHUNK] DONE
+[PIPELINE] status done=0 reason=continue chunks=1 batches=20 block_errors=18/100 next_chunk=1
+2026-07-05 18:54:48.984178: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2026-07-05 18:54:48.984236: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2026-07-05 18:54:48.985619: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+[COMPREHENSIVE] loaded Optuna best JSON for main_d256_b4_r2 from /home/rsadve1/links/scratch/NewAblations_Fabel/optuna/clean_b32_prb8_d256_40k_smart_trueDMRS_u34610_1dmrs_stageB_main_d256_b4_r2_best_params.json
+[ISO-CHUNK] variant: main_d256_b4_r2
+[ISO-CHUNK] receiver: upair5g_lmmse
+[ISO-CHUNK] num_users: 3
+[ISO-CHUNK] ebno_db: 6.0
+[ISO-CHUNK] chunk_idx: 1
+[ISO-CHUNK] chunk_batches: 20
+[ISO-CHUNK] receiver_microbatch_size: 8
+[ISO-CHUNK] chunk_seed: 1906037
+[ISO-CHUNK] checkpoint: /lustre10/scratch/rsadve1/NewAblations_Fabel/TWC_plots_comprehensive/runs_rx16/seed7/1dmrs/main_d256_b4_r2/checkpoints/best.weights.h5
+[ISO-CHUNK] TF_GPU_ALLOCATOR: bfc
+[ISO-CHUNK] output tag: main_d256_b4_r2_u3_upair5g_lmmse_ebno6p0_chunk0001_m8_b20
+[EVAL] receiver microbatching enabled: batch_size_eval=64 receiver_microbatch_size=8
+WARNING:tensorflow:Model's `__init__()` arguments contain non-serializable objects. Please implement a `get_config()` method in the subclassed Model for proper saving and loading. Defaulting to empty config.
+WARNING:tensorflow:Model's `__init__()` arguments contain non-serializable objects. Please implement a `get_config()` method in the subclassed Model for proper saving and loading. Defaulting to empty config.
+[EVAL] loaded UPAIR checkpoint: /lustre10/scratch/rsadve1/NewAblations_Fabel/TWC_plots_comprehensive/runs_rx16/seed7/1dmrs/main_d256_b4_r2/checkpoints/best.weights.h5
+[EVAL] skipping explicit NMSE channel-estimator calls for: upair5g_lmmse
+[EVAL] instrumentation log_latency=True log_gpu_memory=True memory_cleanup_every_batches=1 memory_cleanup_every_microbatch=True stream_eval_microbatches=True compiled_receiver_error_counts=False receiver_call_jit_compile=False per_receiver_stopping=False target_bler_floor=1e-05 floor_num_frames=0 gpu_mem=0.09GiB peak=0.29GiB
+[EVAL] receiver_call name=upair5g_lmmse mode=positional_y_no compiled_error_counts=False
+[EVAL] progress num_users=3 Eb/N0=6 dB batches=10/20 frame_err=upair5g_lmmse:25/1920 elapsed=71.8s avg_batch=7.183s gpu_mem=7.18GiB peak=7.38GiB
+[EVAL] progress num_users=3 Eb/N0=6 dB batches=20/20 frame_err=upair5g_lmmse:46/3840 elapsed=143.5s avg_batch=7.174s gpu_mem=14.46GiB peak=14.66GiB
+[EVAL] receiver=           upair5g_lmmse Eb/N0= 6.0 dB BER=3.23508e-04 BLER=1.19792e-02 NMSE=nan bit_err=  3697/11427840 blk_err=   46/3840   batches=  20 stop=global_stop rx_time=77.52s rx_ms_batch=3876.0 rx_ms_frame=20.188 point_time=143.47s gpu_mem=14.46GiB peak=14.66GiB
+[ISO-CHUNK] wrote: /home/rsadve1/links/scratch/NewAblations_Fabel/_gen_ds3x_chunks/main_d256_b4_r2_u3_upair5g_lmmse_ebno6p0_chunk0001_m8_b20/chunk_result.csv
+[ISO-CHUNK] DONE
+[PIPELINE] status done=0 reason=continue chunks=2 batches=40 block_errors=64/100 next_chunk=2
+2026-07-05 18:57:27.299368: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2026-07-05 18:57:27.299440: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2026-07-05 18:57:27.300815: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+[COMPREHENSIVE] loaded Optuna best JSON for main_d256_b4_r2 from /home/rsadve1/links/scratch/NewAblations_Fabel/optuna/clean_b32_prb8_d256_40k_smart_trueDMRS_u34610_1dmrs_stageB_main_d256_b4_r2_best_params.json
+[ISO-CHUNK] variant: main_d256_b4_r2
+[ISO-CHUNK] receiver: upair5g_lmmse
+[ISO-CHUNK] num_users: 3
+[ISO-CHUNK] ebno_db: 6.0
+[ISO-CHUNK] chunk_idx: 2
+[ISO-CHUNK] chunk_batches: 20
+[ISO-CHUNK] receiver_microbatch_size: 8
+[ISO-CHUNK] chunk_seed: 2006040
+[ISO-CHUNK] checkpoint: /lustre10/scratch/rsadve1/NewAblations_Fabel/TWC_plots_comprehensive/runs_rx16/seed7/1dmrs/main_d256_b4_r2/checkpoints/best.weights.h5
+[ISO-CHUNK] TF_GPU_ALLOCATOR: bfc
+[ISO-CHUNK] output tag: main_d256_b4_r2_u3_upair5g_lmmse_ebno6p0_chunk0002_m8_b20
+[EVAL] receiver microbatching enabled: batch_size_eval=64 receiver_microbatch_size=8
+WARNING:tensorflow:Model's `__init__()` arguments contain non-serializable objects. Please implement a `get_config()` method in the subclassed Model for proper saving and loading. Defaulting to empty config.
+WARNING:tensorflow:Model's `__init__()` arguments contain non-serializable objects. Please implement a `get_config()` method in the subclassed Model for proper saving and loading. Defaulting to empty config.
+[EVAL] loaded UPAIR checkpoint: /lustre10/scratch/rsadve1/NewAblations_Fabel/TWC_plots_comprehensive/runs_rx16/seed7/1dmrs/main_d256_b4_r2/checkpoints/best.weights.h5
+[EVAL] skipping explicit NMSE channel-estimator calls for: upair5g_lmmse
+[EVAL] instrumentation log_latency=True log_gpu_memory=True memory_cleanup_every_batches=1 memory_cleanup_every_microbatch=True stream_eval_microbatches=True compiled_receiver_error_counts=False receiver_call_jit_compile=False per_receiver_stopping=False target_bler_floor=1e-05 floor_num_frames=0 gpu_mem=0.09GiB peak=0.29GiB
+[EVAL] receiver_call name=upair5g_lmmse mode=positional_y_no compiled_error_counts=False
+[EVAL] progress num_users=3 Eb/N0=6 dB batches=10/20 frame_err=upair5g_lmmse:10/1920 elapsed=72.2s avg_batch=7.222s gpu_mem=7.18GiB peak=7.38GiB
+[EVAL] progress num_users=3 Eb/N0=6 dB batches=20/20 frame_err=upair5g_lmmse:19/3840 elapsed=144.2s avg_batch=7.212s gpu_mem=14.46GiB peak=14.66GiB
+[EVAL] receiver=           upair5g_lmmse Eb/N0= 6.0 dB BER=2.69517e-04 BLER=4.94792e-03 NMSE=nan bit_err=  3080/11427840 blk_err=   19/3840   batches=  20 stop=global_stop rx_time=77.90s rx_ms_batch=3894.9 rx_ms_frame=20.286 point_time=144.24s gpu_mem=14.46GiB peak=14.66GiB
+[ISO-CHUNK] wrote: /home/rsadve1/links/scratch/NewAblations_Fabel/_gen_ds3x_chunks/main_d256_b4_r2_u3_upair5g_lmmse_ebno6p0_chunk0002_m8_b20/chunk_result.csv
+[ISO-CHUNK] DONE
+[PIPELINE] status done=0 reason=continue chunks=3 batches=60 block_errors=83/100 next_chunk=3
+2026-07-05 19:00:06.373105: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2026-07-05 19:00:06.373156: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2026-07-05 19:00:06.374553: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+[COMPREHENSIVE] loaded Optuna best JSON for main_d256_b4_r2 from /home/rsadve1/links/scratch/NewAblations_Fabel/optuna/clean_b32_prb8_d256_40k_smart_trueDMRS_u34610_1dmrs_stageB_main_d256_b4_r2_best_params.json
+[ISO-CHUNK] variant: main_d256_b4_r2
+[ISO-CHUNK] receiver: upair5g_lmmse
+[ISO-CHUNK] num_users: 3
+[ISO-CHUNK] ebno_db: 6.0
+[ISO-CHUNK] chunk_idx: 3
+[ISO-CHUNK] chunk_batches: 20
+[ISO-CHUNK] receiver_microbatch_size: 8
+[ISO-CHUNK] chunk_seed: 2106043
+[ISO-CHUNK] checkpoint: /lustre10/scratch/rsadve1/NewAblations_Fabel/TWC_plots_comprehensive/runs_rx16/seed7/1dmrs/main_d256_b4_r2/checkpoints/best.weights.h5
+[ISO-CHUNK] TF_GPU_ALLOCATOR: bfc
+[ISO-CHUNK] output tag: main_d256_b4_r2_u3_upair5g_lmmse_ebno6p0_chunk0003_m8_b20
+[EVAL] receiver microbatching enabled: batch_size_eval=64 receiver_microbatch_size=8
+WARNING:tensorflow:Model's `__init__()` arguments contain non-serializable objects. Please implement a `get_config()` method in the subclassed Model for proper saving and loading. Defaulting to empty config.
+WARNING:tensorflow:Model's `__init__()` arguments contain non-serializable objects. Please implement a `get_config()` method in the subclassed Model for proper saving and loading. Defaulting to empty config.
+[EVAL] loaded UPAIR checkpoint: /lustre10/scratch/rsadve1/NewAblations_Fabel/TWC_plots_comprehensive/runs_rx16/seed7/1dmrs/main_d256_b4_r2/checkpoints/best.weights.h5
+[EVAL] skipping explicit NMSE channel-estimator calls for: upair5g_lmmse
+[EVAL] instrumentation log_latency=True log_gpu_memory=True memory_cleanup_every_batches=1 memory_cleanup_every_microbatch=True stream_eval_microbatches=True compiled_receiver_error_counts=False receiver_call_jit_compile=False per_receiver_stopping=False target_bler_floor=1e-05 floor_num_frames=0 gpu_mem=0.09GiB peak=0.29GiB
+[EVAL] receiver_call name=upair5g_lmmse mode=positional_y_no compiled_error_counts=False
+[EVAL] progress num_users=3 Eb/N0=6 dB batches=10/20 frame_err=upair5g_lmmse:13/1920 elapsed=71.6s avg_batch=7.159s gpu_mem=7.18GiB peak=7.38GiB
+[EVAL] progress num_users=3 Eb/N0=6 dB batches=20/20 frame_err=upair5g_lmmse:35/3840 elapsed=143.2s avg_batch=7.160s gpu_mem=14.46GiB peak=14.66GiB
+[EVAL] receiver=           upair5g_lmmse Eb/N0= 6.0 dB BER=3.08107e-04 BLER=9.11458e-03 NMSE=nan bit_err=  3521/11427840 blk_err=   35/3840   batches=  20 stop=global_stop rx_time=77.18s rx_ms_batch=3859.1 rx_ms_frame=20.099 point_time=143.21s gpu_mem=14.46GiB peak=14.66GiB
+[ISO-CHUNK] wrote: /home/rsadve1/links/scratch/NewAblations_Fabel/_gen_ds3x_chunks/main_d256_b4_r2_u3_upair5g_lmmse_ebno6p0_chunk0003_m8_b20/chunk_result.csv
+[ISO-CHUNK] DONE
+[PIPELINE] status done=1 reason=target_block_errors chunks=4 batches=80 block_errors=118/100 next_chunk=-1
+[ISO-MERGE] chunks: 4
+[ISO-MERGE] rows: 1
+[ISO-MERGE] wrote: /home/rsadve1/links/scratch/NewAblations_Fabel/_gen_ds3x_chunks/merged_main_d256_b4_r2_u3_upair5g_lmmse_e6.csv
+[ISO-MERGE] wrote: /home/rsadve1/links/scratch/NewAblations_Fabel/_gen_ds3x_chunks/merged_main_d256_b4_r2_u3_upair5g_lmmse_e6.summary.json
+     receiver         variant dmrs_case  seed  training_seed  num_users  ebno_db  num_chunks chunk_indices  bit_errors  num_bits  block_errors  num_blocks  num_batches_run  point_elapsed_s  data_elapsed_s  receiver_elapsed_s      ber     bler  nmse       mc_stop_reason  target_bler_floor  bler_zero_error_upper_bound  ber_zero_error_upper_bound  receiver_ms_per_batch  receiver_ms_per_frame  reliable_ber  reliable_bler
+upair5g_lmmse main_d256_b4_r2     1dmrs     7              7          3      6.0           4       0,1,2,3       10827  45711360           118       15360               80       574.103564      186.300857          309.812824 0.000237 0.007682   NaN isolated_chunk_merge                NaN                          NaN                         NaN            3872.660304              20.170106          True           True
+[PIPELINE] COMPLETE variant=main_d256_b4_r2
