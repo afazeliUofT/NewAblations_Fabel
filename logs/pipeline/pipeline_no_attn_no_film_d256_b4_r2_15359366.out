@@ -485,3 +485,168 @@ WARNING:tensorflow:Model's `__init__()` arguments contain non-serializable objec
 [TRAIN] step=37700 loss=-2.27188 nmse_prop=0.03970 nmse_ls=0.08472 lr=9.174e-05 step_time=0.327s steps_per_s=2.452 gpu_mem=0.16GiB peak=3.70GiB
 [TRAIN] step=37800 loss=-1.69809 nmse_prop=0.06762 nmse_ls=0.18122 lr=9.052e-05 step_time=0.229s steps_per_s=2.453 gpu_mem=0.16GiB peak=3.70GiB
 [TRAIN] step=37900 loss=-2.86553 nmse_prop=0.02313 nmse_ls=0.04337 lr=8.930e-05 step_time=0.318s steps_per_s=2.454 gpu_mem=0.16GiB peak=3.70GiB
+[TRAIN] step=38000 loss=-1.60745 nmse_prop=0.07336 nmse_ls=0.19889 lr=8.810e-05 step_time=121.567s steps_per_s=2.436 gpu_mem=0.16GiB peak=3.70GiB
+[TRAIN] saved resumable state at step=38000 reason=periodic: /lustre10/scratch/rsadve1/Ablations_S1P2/TWC_plots_comprehensive/runs_rx16/seed7/1dmrs/no_attn_no_film_d256_b4_r2/checkpoints/training_state/ckpt-38000
+[TRAIN] step=38100 loss=-2.89285 nmse_prop=0.02321 nmse_ls=0.04063 lr=8.690e-05 step_time=0.405s steps_per_s=2.436 gpu_mem=0.16GiB peak=3.70GiB
+[TRAIN] step=38200 loss=-1.69468 nmse_prop=0.06732 nmse_ls=0.17295 lr=8.571e-05 step_time=0.403s steps_per_s=2.437 gpu_mem=0.16GiB peak=3.70GiB
+[TRAIN] step=38300 loss=-2.85825 nmse_prop=0.02408 nmse_ls=0.04233 lr=8.453e-05 step_time=0.316s steps_per_s=2.438 gpu_mem=0.16GiB peak=3.70GiB
+[TRAIN] step=38400 loss=-1.94170 nmse_prop=0.05345 nmse_ls=0.12582 lr=8.335e-05 step_time=0.403s steps_per_s=2.440 gpu_mem=0.16GiB peak=3.70GiB
+[TRAIN] step=38500 loss=-2.62058 nmse_prop=0.02899 nmse_ls=0.05911 lr=8.219e-05 step_time=0.228s steps_per_s=2.441 gpu_mem=0.16GiB peak=3.70GiB
+[TRAIN] step=38600 loss=-2.61145 nmse_prop=0.02908 nmse_ls=0.05666 lr=8.103e-05 step_time=0.403s steps_per_s=2.441 gpu_mem=0.16GiB peak=3.70GiB
+[TRAIN] step=38700 loss=-1.48076 nmse_prop=0.08250 nmse_ls=0.21846 lr=7.988e-05 step_time=0.409s steps_per_s=2.443 gpu_mem=0.16GiB peak=3.70GiB
+[TRAIN] step=38800 loss=-2.30365 nmse_prop=0.03854 nmse_ls=0.08350 lr=7.874e-05 step_time=0.231s steps_per_s=2.443 gpu_mem=0.16GiB peak=3.70GiB
+[TRAIN] step=38900 loss=-1.88559 nmse_prop=0.05614 nmse_ls=0.13641 lr=7.761e-05 step_time=0.406s steps_per_s=2.444 gpu_mem=0.16GiB peak=3.70GiB
+[TRAIN] step=39000 loss=-1.90285 nmse_prop=0.05538 nmse_ls=0.13690 lr=7.649e-05 step_time=0.315s steps_per_s=2.445 gpu_mem=0.16GiB peak=3.70GiB
+[TRAIN] saved resumable state at step=39000 reason=periodic: /lustre10/scratch/rsadve1/Ablations_S1P2/TWC_plots_comprehensive/runs_rx16/seed7/1dmrs/no_attn_no_film_d256_b4_r2/checkpoints/training_state/ckpt-39000
+[TRAIN] step=39100 loss=-2.10839 nmse_prop=0.04594 nmse_ls=0.10229 lr=7.537e-05 step_time=0.403s steps_per_s=2.446 gpu_mem=0.16GiB peak=3.70GiB
+[TRAIN] step=39200 loss=-2.13443 nmse_prop=0.04448 nmse_ls=0.10223 lr=7.426e-05 step_time=0.320s steps_per_s=2.447 gpu_mem=0.16GiB peak=3.70GiB
+[TRAIN] step=39300 loss=-1.49647 nmse_prop=0.08160 nmse_ls=0.22777 lr=7.317e-05 step_time=0.144s steps_per_s=2.447 gpu_mem=0.16GiB peak=3.70GiB
+[TRAIN] step=39400 loss=-2.72550 nmse_prop=0.02663 nmse_ls=0.05126 lr=7.208e-05 step_time=0.231s steps_per_s=2.448 gpu_mem=0.16GiB peak=3.70GiB
+[TRAIN] step=39500 loss=-2.19654 nmse_prop=0.04229 nmse_ls=0.09144 lr=7.100e-05 step_time=0.407s steps_per_s=2.449 gpu_mem=0.16GiB peak=3.70GiB
+[TRAIN] step=39600 loss=-1.57561 nmse_prop=0.07577 nmse_ls=0.20859 lr=6.992e-05 step_time=0.228s steps_per_s=2.450 gpu_mem=0.16GiB peak=3.70GiB
+[TRAIN] step=39700 loss=-2.75829 nmse_prop=0.02594 nmse_ls=0.05057 lr=6.886e-05 step_time=0.228s steps_per_s=2.451 gpu_mem=0.16GiB peak=3.70GiB
+[TRAIN] step=39800 loss=-1.51569 nmse_prop=0.08008 nmse_ls=0.22639 lr=6.781e-05 step_time=0.229s steps_per_s=2.452 gpu_mem=0.16GiB peak=3.70GiB
+[TRAIN] step=39900 loss=-1.33174 nmse_prop=0.09498 nmse_ls=0.25897 lr=6.676e-05 step_time=0.406s steps_per_s=2.453 gpu_mem=0.16GiB peak=3.70GiB
+WARNING:tensorflow:Model's `__init__()` arguments contain non-serializable objects. Please implement a `get_config()` method in the subclassed Model for proper saving and loading. Defaulting to empty config.
+WARNING:tensorflow:Model's `__init__()` arguments contain non-serializable objects. Please implement a `get_config()` method in the subclassed Model for proper saving and loading. Defaulting to empty config.
+[TRAIN] saved new best weights at step=40000 val_nmse=0.0383527
+[TRAIN] step=40000 loss=-2.16890 nmse_prop=0.04339 nmse_ls=0.09868 lr=6.572e-05 step_time=123.135s steps_per_s=2.435 gpu_mem=0.16GiB peak=3.70GiB
+[TRAIN] saved resumable state at step=40000 reason=periodic: /lustre10/scratch/rsadve1/Ablations_S1P2/TWC_plots_comprehensive/runs_rx16/seed7/1dmrs/no_attn_no_film_d256_b4_r2/checkpoints/training_state/ckpt-40000
+[TRAIN] saved resumable state at step=40000 reason=final: /lustre10/scratch/rsadve1/Ablations_S1P2/TWC_plots_comprehensive/runs_rx16/seed7/1dmrs/no_attn_no_film_d256_b4_r2/checkpoints/training_state/ckpt-40000
+[COMPREHENSIVE] skipping final evaluation by request UPAIR_COMPREHENSIVE_SKIP_FINAL_EVAL=1 for seed=7 1dmrs/no_attn_no_film_d256_b4_r2. Use the by-Eb/N0 eval phase after training completes.
+[COMPREHENSIVE] skipped shared combined CSV/manifest writes for parallel worker mode
+[PIPELINE] starting/resuming isolated evaluation for no_attn_no_film_d256_b4_r2.
+
+--------------------------------------------------------------------------------
+[PIPELINE] eval point variant=no_attn_no_film_d256_b4_r2 receiver=upair5g_lmmse U=3 Eb/N0=-4
+--------------------------------------------------------------------------------
+[PIPELINE] status done=0 reason=continue chunks=0 batches=0 block_errors=0/100 next_chunk=0
+2026-07-05 17:40:06.375316: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2026-07-05 17:40:06.375386: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2026-07-05 17:40:06.376707: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+[COMPREHENSIVE] loaded Optuna best JSON for no_attn_no_film_d256_b4_r2 from /home/rsadve1/links/scratch/Ablations_S1P2/optuna/clean_b32_prb8_d256_40k_smart_trueDMRS_u34610_1dmrs_stageB_no_attn_no_film_d256_b4_r2_best_params.json
+[ISO-CHUNK] variant: no_attn_no_film_d256_b4_r2
+[ISO-CHUNK] receiver: upair5g_lmmse
+[ISO-CHUNK] num_users: 3
+[ISO-CHUNK] ebno_db: -4.0
+[ISO-CHUNK] chunk_idx: 0
+[ISO-CHUNK] chunk_batches: 20
+[ISO-CHUNK] receiver_microbatch_size: 8
+[ISO-CHUNK] chunk_seed: 1636034
+[ISO-CHUNK] checkpoint: /lustre10/scratch/rsadve1/Ablations_S1P2/TWC_plots_comprehensive/runs_rx16/seed7/1dmrs/no_attn_no_film_d256_b4_r2/checkpoints/best.weights.h5
+[ISO-CHUNK] TF_GPU_ALLOCATOR: bfc
+[ISO-CHUNK] output tag: no_attn_no_film_d256_b4_r2_u3_upair5g_lmmse_ebnom4p0_chunk0000_m8_b20
+[EVAL] receiver microbatching enabled: batch_size_eval=64 receiver_microbatch_size=8
+WARNING:tensorflow:Model's `__init__()` arguments contain non-serializable objects. Please implement a `get_config()` method in the subclassed Model for proper saving and loading. Defaulting to empty config.
+WARNING:tensorflow:Model's `__init__()` arguments contain non-serializable objects. Please implement a `get_config()` method in the subclassed Model for proper saving and loading. Defaulting to empty config.
+[EVAL] loaded UPAIR checkpoint: /lustre10/scratch/rsadve1/Ablations_S1P2/TWC_plots_comprehensive/runs_rx16/seed7/1dmrs/no_attn_no_film_d256_b4_r2/checkpoints/best.weights.h5
+[EVAL] skipping explicit NMSE channel-estimator calls for: upair5g_lmmse
+[EVAL] instrumentation log_latency=True log_gpu_memory=True memory_cleanup_every_batches=1 memory_cleanup_every_microbatch=True stream_eval_microbatches=True compiled_receiver_error_counts=False receiver_call_jit_compile=False per_receiver_stopping=False target_bler_floor=1e-05 floor_num_frames=0 gpu_mem=0.01GiB peak=0.15GiB
+[EVAL] receiver_call name=upair5g_lmmse mode=positional_y_no compiled_error_counts=False
+[EVAL] progress num_users=3 Eb/N0=-4 dB batches=10/20 frame_err=upair5g_lmmse:525/1920 elapsed=68.1s avg_batch=6.813s gpu_mem=0.01GiB peak=0.16GiB
+[EVAL] progress num_users=3 Eb/N0=-4 dB batches=20/20 frame_err=upair5g_lmmse:1063/3840 elapsed=136.1s avg_batch=6.805s gpu_mem=0.01GiB peak=0.16GiB
+[EVAL] receiver=           upair5g_lmmse Eb/N0=-4.0 dB BER=1.99877e-02 BLER=2.76823e-01 NMSE=nan bit_err=228416/11427840 blk_err= 1063/3840   batches=  20 stop=global_stop rx_time=70.66s rx_ms_batch=3533.2 rx_ms_frame=18.402 point_time=136.10s gpu_mem=0.01GiB peak=0.16GiB
+[ISO-CHUNK] wrote: /lustre10/scratch/rsadve1/Ablations_S1P2/_isolated_eval_chunks/no_attn_no_film_d256_b4_r2_u3_upair5g_lmmse_ebnom4p0_chunk0000_m8_b20/chunk_result.csv
+[ISO-CHUNK] DONE
+[PIPELINE] status done=1 reason=target_block_errors chunks=1 batches=20 block_errors=1063/100 next_chunk=-1
+[ISO-MERGE] chunks: 1
+[ISO-MERGE] rows: 1
+[ISO-MERGE] wrote: _isolated_eval_chunks/merged_no_attn_no_film_d256_b4_r2_u3_upair5g_lmmse_em4.csv
+[ISO-MERGE] wrote: _isolated_eval_chunks/merged_no_attn_no_film_d256_b4_r2_u3_upair5g_lmmse_em4.summary.json
+     receiver                    variant dmrs_case  seed  training_seed  num_users  ebno_db  num_chunks chunk_indices  bit_errors  num_bits  block_errors  num_blocks  num_batches_run  point_elapsed_s  data_elapsed_s  receiver_elapsed_s      ber     bler  nmse       mc_stop_reason  target_bler_floor  bler_zero_error_upper_bound  ber_zero_error_upper_bound  receiver_ms_per_batch  receiver_ms_per_frame  reliable_ber  reliable_bler
+upair5g_lmmse no_attn_no_film_d256_b4_r2     1dmrs     7              7          3     -4.0           1             0      228416  11427840          1063        3840               20       136.099938       46.512022           70.664243 0.019988 0.276823   NaN isolated_chunk_merge                NaN                          NaN                         NaN            3533.212161              18.402147          True           True
+
+--------------------------------------------------------------------------------
+[PIPELINE] eval point variant=no_attn_no_film_d256_b4_r2 receiver=upair5g_lmmse U=3 Eb/N0=-3
+--------------------------------------------------------------------------------
+[PIPELINE] status done=0 reason=continue chunks=0 batches=0 block_errors=0/100 next_chunk=0
+2026-07-05 17:42:37.318226: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2026-07-05 17:42:37.318281: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2026-07-05 17:42:37.319597: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+[COMPREHENSIVE] loaded Optuna best JSON for no_attn_no_film_d256_b4_r2 from /home/rsadve1/links/scratch/Ablations_S1P2/optuna/clean_b32_prb8_d256_40k_smart_trueDMRS_u34610_1dmrs_stageB_no_attn_no_film_d256_b4_r2_best_params.json
+[ISO-CHUNK] variant: no_attn_no_film_d256_b4_r2
+[ISO-CHUNK] receiver: upair5g_lmmse
+[ISO-CHUNK] num_users: 3
+[ISO-CHUNK] ebno_db: -3.0
+[ISO-CHUNK] chunk_idx: 0
+[ISO-CHUNK] chunk_batches: 20
+[ISO-CHUNK] receiver_microbatch_size: 8
+[ISO-CHUNK] chunk_seed: 1653034
+[ISO-CHUNK] checkpoint: /lustre10/scratch/rsadve1/Ablations_S1P2/TWC_plots_comprehensive/runs_rx16/seed7/1dmrs/no_attn_no_film_d256_b4_r2/checkpoints/best.weights.h5
+[ISO-CHUNK] TF_GPU_ALLOCATOR: bfc
+[ISO-CHUNK] output tag: no_attn_no_film_d256_b4_r2_u3_upair5g_lmmse_ebnom3p0_chunk0000_m8_b20
+[EVAL] receiver microbatching enabled: batch_size_eval=64 receiver_microbatch_size=8
+WARNING:tensorflow:Model's `__init__()` arguments contain non-serializable objects. Please implement a `get_config()` method in the subclassed Model for proper saving and loading. Defaulting to empty config.
+WARNING:tensorflow:Model's `__init__()` arguments contain non-serializable objects. Please implement a `get_config()` method in the subclassed Model for proper saving and loading. Defaulting to empty config.
+[EVAL] loaded UPAIR checkpoint: /lustre10/scratch/rsadve1/Ablations_S1P2/TWC_plots_comprehensive/runs_rx16/seed7/1dmrs/no_attn_no_film_d256_b4_r2/checkpoints/best.weights.h5
+[EVAL] skipping explicit NMSE channel-estimator calls for: upair5g_lmmse
+[EVAL] instrumentation log_latency=True log_gpu_memory=True memory_cleanup_every_batches=1 memory_cleanup_every_microbatch=True stream_eval_microbatches=True compiled_receiver_error_counts=False receiver_call_jit_compile=False per_receiver_stopping=False target_bler_floor=1e-05 floor_num_frames=0 gpu_mem=0.01GiB peak=0.15GiB
+[EVAL] receiver_call name=upair5g_lmmse mode=positional_y_no compiled_error_counts=False
+[EVAL] progress num_users=3 Eb/N0=-3 dB batches=10/20 frame_err=upair5g_lmmse:165/1920 elapsed=69.3s avg_batch=6.934s gpu_mem=0.01GiB peak=0.16GiB
+[EVAL] progress num_users=3 Eb/N0=-3 dB batches=20/20 frame_err=upair5g_lmmse:311/3840 elapsed=138.5s avg_batch=6.924s gpu_mem=0.01GiB peak=0.16GiB
+[EVAL] receiver=           upair5g_lmmse Eb/N0=-3.0 dB BER=4.94783e-03 BLER=8.09896e-02 NMSE=nan bit_err= 56543/11427840 blk_err=  311/3840   batches=  20 stop=global_stop rx_time=72.14s rx_ms_batch=3607.2 rx_ms_frame=18.787 point_time=138.47s gpu_mem=0.01GiB peak=0.16GiB
+[ISO-CHUNK] wrote: /lustre10/scratch/rsadve1/Ablations_S1P2/_isolated_eval_chunks/no_attn_no_film_d256_b4_r2_u3_upair5g_lmmse_ebnom3p0_chunk0000_m8_b20/chunk_result.csv
+[ISO-CHUNK] DONE
+[PIPELINE] status done=1 reason=target_block_errors chunks=1 batches=20 block_errors=311/100 next_chunk=-1
+[ISO-MERGE] chunks: 1
+[ISO-MERGE] rows: 1
+[ISO-MERGE] wrote: _isolated_eval_chunks/merged_no_attn_no_film_d256_b4_r2_u3_upair5g_lmmse_em3.csv
+[ISO-MERGE] wrote: _isolated_eval_chunks/merged_no_attn_no_film_d256_b4_r2_u3_upair5g_lmmse_em3.summary.json
+     receiver                    variant dmrs_case  seed  training_seed  num_users  ebno_db  num_chunks chunk_indices  bit_errors  num_bits  block_errors  num_blocks  num_batches_run  point_elapsed_s  data_elapsed_s  receiver_elapsed_s      ber    bler  nmse       mc_stop_reason  target_bler_floor  bler_zero_error_upper_bound  ber_zero_error_upper_bound  receiver_ms_per_batch  receiver_ms_per_frame  reliable_ber  reliable_bler
+upair5g_lmmse no_attn_no_film_d256_b4_r2     1dmrs     7              7          3     -3.0           1             0       56543  11427840           311        3840               20       138.470411       47.515425           72.143017 0.004948 0.08099   NaN isolated_chunk_merge                NaN                          NaN                         NaN            3607.150844              18.787244          True           True
+
+--------------------------------------------------------------------------------
+[PIPELINE] eval point variant=no_attn_no_film_d256_b4_r2 receiver=upair5g_lmmse U=3 Eb/N0=-2
+--------------------------------------------------------------------------------
+[PIPELINE] status done=0 reason=continue chunks=0 batches=0 block_errors=0/100 next_chunk=0
+2026-07-05 17:45:10.625803: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2026-07-05 17:45:10.625853: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2026-07-05 17:45:10.627195: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+[COMPREHENSIVE] loaded Optuna best JSON for no_attn_no_film_d256_b4_r2 from /home/rsadve1/links/scratch/Ablations_S1P2/optuna/clean_b32_prb8_d256_40k_smart_trueDMRS_u34610_1dmrs_stageB_no_attn_no_film_d256_b4_r2_best_params.json
+[ISO-CHUNK] variant: no_attn_no_film_d256_b4_r2
+[ISO-CHUNK] receiver: upair5g_lmmse
+[ISO-CHUNK] num_users: 3
+[ISO-CHUNK] ebno_db: -2.0
+[ISO-CHUNK] chunk_idx: 0
+[ISO-CHUNK] chunk_batches: 20
+[ISO-CHUNK] receiver_microbatch_size: 8
+[ISO-CHUNK] chunk_seed: 1670034
+[ISO-CHUNK] checkpoint: /lustre10/scratch/rsadve1/Ablations_S1P2/TWC_plots_comprehensive/runs_rx16/seed7/1dmrs/no_attn_no_film_d256_b4_r2/checkpoints/best.weights.h5
+[ISO-CHUNK] TF_GPU_ALLOCATOR: bfc
+[ISO-CHUNK] output tag: no_attn_no_film_d256_b4_r2_u3_upair5g_lmmse_ebnom2p0_chunk0000_m8_b20
+[EVAL] receiver microbatching enabled: batch_size_eval=64 receiver_microbatch_size=8
+WARNING:tensorflow:Model's `__init__()` arguments contain non-serializable objects. Please implement a `get_config()` method in the subclassed Model for proper saving and loading. Defaulting to empty config.
+WARNING:tensorflow:Model's `__init__()` arguments contain non-serializable objects. Please implement a `get_config()` method in the subclassed Model for proper saving and loading. Defaulting to empty config.
+[EVAL] loaded UPAIR checkpoint: /lustre10/scratch/rsadve1/Ablations_S1P2/TWC_plots_comprehensive/runs_rx16/seed7/1dmrs/no_attn_no_film_d256_b4_r2/checkpoints/best.weights.h5
+[EVAL] skipping explicit NMSE channel-estimator calls for: upair5g_lmmse
+[EVAL] instrumentation log_latency=True log_gpu_memory=True memory_cleanup_every_batches=1 memory_cleanup_every_microbatch=True stream_eval_microbatches=True compiled_receiver_error_counts=False receiver_call_jit_compile=False per_receiver_stopping=False target_bler_floor=1e-05 floor_num_frames=0 gpu_mem=0.01GiB peak=0.15GiB
+[EVAL] receiver_call name=upair5g_lmmse mode=positional_y_no compiled_error_counts=False
+[EVAL] progress num_users=3 Eb/N0=-2 dB batches=10/20 frame_err=upair5g_lmmse:38/1920 elapsed=67.9s avg_batch=6.787s gpu_mem=0.01GiB peak=0.16GiB
+[EVAL] progress num_users=3 Eb/N0=-2 dB batches=20/20 frame_err=upair5g_lmmse:67/3840 elapsed=135.5s avg_batch=6.774s gpu_mem=0.01GiB peak=0.16GiB
+[EVAL] receiver=           upair5g_lmmse Eb/N0=-2.0 dB BER=7.70487e-04 BLER=1.74479e-02 NMSE=nan bit_err=  8805/11427840 blk_err=   67/3840   batches=  20 stop=global_stop rx_time=70.37s rx_ms_batch=3518.3 rx_ms_frame=18.325 point_time=135.49s gpu_mem=0.01GiB peak=0.16GiB
+[ISO-CHUNK] wrote: /lustre10/scratch/rsadve1/Ablations_S1P2/_isolated_eval_chunks/no_attn_no_film_d256_b4_r2_u3_upair5g_lmmse_ebnom2p0_chunk0000_m8_b20/chunk_result.csv
+[ISO-CHUNK] DONE
+[PIPELINE] status done=0 reason=continue chunks=1 batches=20 block_errors=67/100 next_chunk=1
+2026-07-05 17:47:41.166392: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2026-07-05 17:47:41.166446: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2026-07-05 17:47:41.167768: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+[COMPREHENSIVE] loaded Optuna best JSON for no_attn_no_film_d256_b4_r2 from /home/rsadve1/links/scratch/Ablations_S1P2/optuna/clean_b32_prb8_d256_40k_smart_trueDMRS_u34610_1dmrs_stageB_no_attn_no_film_d256_b4_r2_best_params.json
+[ISO-CHUNK] variant: no_attn_no_film_d256_b4_r2
+[ISO-CHUNK] receiver: upair5g_lmmse
+[ISO-CHUNK] num_users: 3
+[ISO-CHUNK] ebno_db: -2.0
+[ISO-CHUNK] chunk_idx: 1
+[ISO-CHUNK] chunk_batches: 20
+[ISO-CHUNK] receiver_microbatch_size: 8
+[ISO-CHUNK] chunk_seed: 1770037
+[ISO-CHUNK] checkpoint: /lustre10/scratch/rsadve1/Ablations_S1P2/TWC_plots_comprehensive/runs_rx16/seed7/1dmrs/no_attn_no_film_d256_b4_r2/checkpoints/best.weights.h5
+[ISO-CHUNK] TF_GPU_ALLOCATOR: bfc
+[ISO-CHUNK] output tag: no_attn_no_film_d256_b4_r2_u3_upair5g_lmmse_ebnom2p0_chunk0001_m8_b20
+[EVAL] receiver microbatching enabled: batch_size_eval=64 receiver_microbatch_size=8
+WARNING:tensorflow:Model's `__init__()` arguments contain non-serializable objects. Please implement a `get_config()` method in the subclassed Model for proper saving and loading. Defaulting to empty config.
+WARNING:tensorflow:Model's `__init__()` arguments contain non-serializable objects. Please implement a `get_config()` method in the subclassed Model for proper saving and loading. Defaulting to empty config.
+[EVAL] loaded UPAIR checkpoint: /lustre10/scratch/rsadve1/Ablations_S1P2/TWC_plots_comprehensive/runs_rx16/seed7/1dmrs/no_attn_no_film_d256_b4_r2/checkpoints/best.weights.h5
+[EVAL] skipping explicit NMSE channel-estimator calls for: upair5g_lmmse
+[EVAL] instrumentation log_latency=True log_gpu_memory=True memory_cleanup_every_batches=1 memory_cleanup_every_microbatch=True stream_eval_microbatches=True compiled_receiver_error_counts=False receiver_call_jit_compile=False per_receiver_stopping=False target_bler_floor=1e-05 floor_num_frames=0 gpu_mem=0.01GiB peak=0.15GiB
+[EVAL] receiver_call name=upair5g_lmmse mode=positional_y_no compiled_error_counts=False
+[EVAL] progress num_users=3 Eb/N0=-2 dB batches=10/20 frame_err=upair5g_lmmse:38/1920 elapsed=68.2s avg_batch=6.820s gpu_mem=0.01GiB peak=0.16GiB
