@@ -1,0 +1,300 @@
+[ENV] Reusing portable venv: /home/rsadve1/links/scratch/.vevn_upair_potable
+[ENV] Checking installed package metadata only; TensorFlow/Sionna are not imported here.
+[ENV] Python 3.11.5
+[ENV] numpy 1.26.4+computecanada
+[ENV] pandas 2.2.3+computecanada
+[ENV] matplotlib 3.10.0+computecanada
+[ENV] PyYAML 6.0.2+computecanada
+[ENV] scipy 1.15.1+computecanada
+[ENV] tensorflow 2.15.1+computecanada
+[ENV] sionna-no-rt 1.2.1
+[ENV] optuna 4.8.0+computecanada
+[ENV] Skipping TensorFlow/Sionna import check on this node. Set UPAIR_DEEP_IMPORT_CHECK=1 to test imports explicitly.
+[ENV] Ready: REPO=/home/rsadve1/links/scratch/Ablations_Wave3
+[ENV] Ready: VENV=/home/rsadve1/links/scratch/.vevn_upair_potable
+[ENV] Reusing portable venv: /home/rsadve1/links/scratch/.vevn_upair_potable
+[ENV] Checking installed package metadata only; TensorFlow/Sionna are not imported here.
+[ENV] Python 3.11.5
+[ENV] numpy 1.26.4+computecanada
+[ENV] pandas 2.2.3+computecanada
+[ENV] matplotlib 3.10.0+computecanada
+[ENV] PyYAML 6.0.2+computecanada
+[ENV] scipy 1.15.1+computecanada
+[ENV] tensorflow 2.15.1+computecanada
+[ENV] sionna-no-rt 1.2.1
+[ENV] optuna 4.8.0+computecanada
+[ENV] Skipping TensorFlow/Sionna import check on this node. Set UPAIR_DEEP_IMPORT_CHECK=1 to test imports explicitly.
+[ENV] Ready: REPO=/home/rsadve1/links/scratch/Ablations_Wave3
+[ENV] Ready: VENV=/home/rsadve1/links/scratch/.vevn_upair_potable
+================================================================================
+[PIPELINE] variant=main_dr_d256_b4_r2
+[PIPELINE] root=/home/rsadve1/links/scratch/Ablations_Wave3
+[PIPELINE] stageB_prefix=clean_b32_prb8_d256_40k_smart_trueDMRS_u34610_1dmrs_stageB
+[PIPELINE] receivers=upair5g_lmmse
+[PIPELINE] users=3
+[PIPELINE] ebnos=-4,-3,-2,-1,0,1
+[PIPELINE] chunk_batches=20 micro=8
+================================================================================
+[PIPELINE] training missing/incomplete for main_dr_d256_b4_r2; running training-only resume.
+2026-07-05 20:47:39.435183: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2026-07-05 20:47:39.435726: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2026-07-05 20:47:39.488734: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+[COMPREHENSIVE] loaded Optuna best JSON for main_dr_d256_b4_r2 from /home/rsadve1/links/scratch/Ablations_Wave3/optuna/clean_b32_prb8_d256_40k_smart_trueDMRS_u34610_1dmrs_stageB_main_dr_d256_b4_r2_best_params.json
+[TRAIN] delay-spread randomization active: 6 channel instances U=1
+[TRAIN] delay-spread randomization active: 6 channel instances U=2
+[TRAIN] delay-spread randomization active: 6 channel instances U=3
+[TRAIN] delay-spread randomization active: 6 channel instances U=4
+[TRAIN] loss_mode=nll_nmse (use_nll_loss=True)
+[TRAIN] optimizer lr_schedule=cosine_decay learning_rate=0.000571292 weight_decay=9.65466e-06
+[TRAIN] seeds active_seed=7 training_seed=7 evaluation_seed=1007
+[TRAIN] starting from scratch
+2026-07-05 20:48:21.259223: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:961] layout failed: INVALID_ARGUMENT: Size of values 0 does not match size of permutation 4 @ fanin shape inaxial_block_0/dropout/dropout_2/SelectV2-2-TransposeNHWCToNCHW-LayoutOptimizer
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1783298906.150638  962915 device_compiler.h:186] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.
+[TRAIN] step=00001 loss=-0.76960 nmse_prop=0.15745 nmse_ls=0.15745 lr=5.713e-04 step_time=27.727s steps_per_s=0.036 gpu_mem=0.09GiB peak=7.24GiB
+2026-07-05 20:49:22.166924: E tensorflow/core/grappler/optimizers/meta_optimizer.cc:961] layout failed: INVALID_ARGUMENT: Size of values 0 does not match size of permutation 4 @ fanin shape inaxial_block_0/dropout/dropout_2/SelectV2-2-TransposeNHWCToNCHW-LayoutOptimizer
+[TRAIN] step=00100 loss=-0.41113 nmse_prop=0.20943 nmse_ls=0.23451 lr=5.713e-04 step_time=0.290s steps_per_s=1.128 gpu_mem=0.17GiB peak=7.37GiB
+[TRAIN] step=00200 loss=-1.48185 nmse_prop=0.07758 nmse_ls=0.09862 lr=5.713e-04 step_time=0.299s steps_per_s=1.550 gpu_mem=0.17GiB peak=7.44GiB
+[TRAIN] step=00300 loss=-1.99191 nmse_prop=0.04869 nmse_ls=0.06056 lr=5.712e-04 step_time=0.466s steps_per_s=1.757 gpu_mem=0.17GiB peak=7.44GiB
+[TRAIN] step=00400 loss=-1.85030 nmse_prop=0.05642 nmse_ls=0.09030 lr=5.712e-04 step_time=0.300s steps_per_s=1.910 gpu_mem=0.17GiB peak=7.44GiB
+[TRAIN] step=00500 loss=-1.57250 nmse_prop=0.07143 nmse_ls=0.13126 lr=5.712e-04 step_time=0.379s steps_per_s=1.997 gpu_mem=0.17GiB peak=7.44GiB
+[TRAIN] step=00600 loss=-1.00408 nmse_prop=0.13025 nmse_ls=0.24259 lr=5.711e-04 step_time=0.467s steps_per_s=2.055 gpu_mem=0.17GiB peak=7.44GiB
+[TRAIN] step=00700 loss=-1.44742 nmse_prop=0.08477 nmse_ls=0.15217 lr=5.710e-04 step_time=0.467s steps_per_s=2.114 gpu_mem=0.17GiB peak=7.44GiB
+[TRAIN] step=00800 loss=-2.47651 nmse_prop=0.03121 nmse_ls=0.04639 lr=5.709e-04 step_time=0.470s steps_per_s=2.145 gpu_mem=0.17GiB peak=7.44GiB
+[TRAIN] step=00900 loss=-1.95705 nmse_prop=0.05279 nmse_ls=0.09925 lr=5.708e-04 step_time=0.466s steps_per_s=2.170 gpu_mem=0.17GiB peak=7.44GiB
+[TRAIN] step=01000 loss=-1.77632 nmse_prop=0.06188 nmse_ls=0.15786 lr=5.707e-04 step_time=0.378s steps_per_s=2.187 gpu_mem=0.17GiB peak=7.44GiB
+[TRAIN] saved resumable state at step=1000 reason=periodic: /lustre10/scratch/rsadve1/Ablations_Wave3/TWC_plots_comprehensive/runs_rx16/seed7/1dmrs/main_dr_d256_b4_r2/checkpoints/training_state/ckpt-1000
+[TRAIN] step=01100 loss=-1.21284 nmse_prop=0.10672 nmse_ls=0.23752 lr=5.706e-04 step_time=0.491s steps_per_s=2.201 gpu_mem=0.17GiB peak=7.44GiB
+[TRAIN] step=01200 loss=-2.05209 nmse_prop=0.04885 nmse_ls=0.11445 lr=5.705e-04 step_time=0.287s steps_per_s=2.219 gpu_mem=0.17GiB peak=7.44GiB
+[TRAIN] step=01300 loss=-2.44362 nmse_prop=0.03376 nmse_ls=0.07905 lr=5.704e-04 step_time=0.289s steps_per_s=2.238 gpu_mem=0.17GiB peak=7.44GiB
+[TRAIN] step=01400 loss=-2.03587 nmse_prop=0.04910 nmse_ls=0.12933 lr=5.702e-04 step_time=0.378s steps_per_s=2.250 gpu_mem=0.17GiB peak=7.44GiB
+[TRAIN] step=01500 loss=-2.93935 nmse_prop=0.02166 nmse_ls=0.03619 lr=5.701e-04 step_time=0.384s steps_per_s=2.263 gpu_mem=0.17GiB peak=7.44GiB
+[TRAIN] step=01600 loss=-1.81326 nmse_prop=0.04466 nmse_ls=0.10402 lr=5.699e-04 step_time=0.198s steps_per_s=2.272 gpu_mem=0.17GiB peak=7.44GiB
+[TRAIN] step=01700 loss=-1.58349 nmse_prop=0.07568 nmse_ls=0.16187 lr=5.697e-04 step_time=0.467s steps_per_s=2.281 gpu_mem=0.17GiB peak=7.44GiB
+[TRAIN] step=01800 loss=-1.49250 nmse_prop=0.08291 nmse_ls=0.21897 lr=5.695e-04 step_time=0.468s steps_per_s=2.288 gpu_mem=0.17GiB peak=7.44GiB
+[TRAIN] step=01900 loss=-2.76348 nmse_prop=0.02336 nmse_ls=0.06314 lr=5.693e-04 step_time=0.197s steps_per_s=2.295 gpu_mem=0.17GiB peak=7.44GiB
+WARNING:tensorflow:Model's `__init__()` arguments contain non-serializable objects. Please implement a `get_config()` method in the subclassed Model for proper saving and loading. Defaulting to empty config.
+WARNING:tensorflow:Model's `__init__()` arguments contain non-serializable objects. Please implement a `get_config()` method in the subclassed Model for proper saving and loading. Defaulting to empty config.
+[TRAIN] saved new best weights at step=2000 val_nmse=0.0416295
+[TRAIN] step=02000 loss=-1.68906 nmse_prop=0.06804 nmse_ls=0.18103 lr=5.691e-04 step_time=171.457s steps_per_s=1.921 gpu_mem=0.18GiB peak=7.44GiB
+[TRAIN] saved resumable state at step=2000 reason=periodic: /lustre10/scratch/rsadve1/Ablations_Wave3/TWC_plots_comprehensive/runs_rx16/seed7/1dmrs/main_dr_d256_b4_r2/checkpoints/training_state/ckpt-2000
+[TRAIN] step=02100 loss=-1.85073 nmse_prop=0.05877 nmse_ls=0.16367 lr=5.689e-04 step_time=0.378s steps_per_s=1.942 gpu_mem=0.18GiB peak=7.44GiB
+[TRAIN] step=02200 loss=-1.85882 nmse_prop=0.05678 nmse_ls=0.11727 lr=5.686e-04 step_time=0.467s steps_per_s=1.959 gpu_mem=0.18GiB peak=7.44GiB
+[TRAIN] step=02300 loss=-1.96245 nmse_prop=0.05174 nmse_ls=0.15906 lr=5.684e-04 step_time=0.286s steps_per_s=1.978 gpu_mem=0.18GiB peak=7.44GiB
+[TRAIN] step=02400 loss=-2.06246 nmse_prop=0.04746 nmse_ls=0.17442 lr=5.681e-04 step_time=0.197s steps_per_s=1.993 gpu_mem=0.18GiB peak=7.44GiB
+[TRAIN] step=02500 loss=-2.81313 nmse_prop=0.02383 nmse_ls=0.07235 lr=5.679e-04 step_time=0.196s steps_per_s=2.008 gpu_mem=0.18GiB peak=7.44GiB
+[TRAIN] step=02600 loss=-2.39713 nmse_prop=0.03491 nmse_ls=0.12416 lr=5.676e-04 step_time=0.285s steps_per_s=2.022 gpu_mem=0.18GiB peak=7.44GiB
+[TRAIN] step=02700 loss=-2.45604 nmse_prop=0.03379 nmse_ls=0.07967 lr=5.673e-04 step_time=0.461s steps_per_s=2.036 gpu_mem=0.18GiB peak=7.44GiB
+[TRAIN] step=02800 loss=-2.00121 nmse_prop=0.05006 nmse_ls=0.14501 lr=5.670e-04 step_time=0.371s steps_per_s=2.049 gpu_mem=0.18GiB peak=7.44GiB
+[TRAIN] step=02900 loss=-2.20586 nmse_prop=0.04221 nmse_ls=0.12323 lr=5.667e-04 step_time=0.460s steps_per_s=2.062 gpu_mem=0.18GiB peak=7.44GiB
+[TRAIN] step=03000 loss=-2.09538 nmse_prop=0.04591 nmse_ls=0.16693 lr=5.663e-04 step_time=0.372s steps_per_s=2.073 gpu_mem=0.18GiB peak=7.44GiB
+[TRAIN] saved resumable state at step=3000 reason=periodic: /lustre10/scratch/rsadve1/Ablations_Wave3/TWC_plots_comprehensive/runs_rx16/seed7/1dmrs/main_dr_d256_b4_r2/checkpoints/training_state/ckpt-3000
+[TRAIN] step=03100 loss=-2.11643 nmse_prop=0.04613 nmse_ls=0.12215 lr=5.660e-04 step_time=0.461s steps_per_s=2.083 gpu_mem=0.18GiB peak=7.44GiB
+[TRAIN] step=03200 loss=-2.49377 nmse_prop=0.03156 nmse_ls=0.11064 lr=5.657e-04 step_time=0.374s steps_per_s=2.093 gpu_mem=0.18GiB peak=7.44GiB
+[TRAIN] step=03300 loss=-1.47839 nmse_prop=0.08285 nmse_ls=0.26607 lr=5.653e-04 step_time=0.460s steps_per_s=2.102 gpu_mem=0.18GiB peak=7.45GiB
+[TRAIN] step=03400 loss=-1.56567 nmse_prop=0.07718 nmse_ls=0.20212 lr=5.649e-04 step_time=0.460s steps_per_s=2.111 gpu_mem=0.18GiB peak=7.45GiB
+[TRAIN] step=03500 loss=-1.50181 nmse_prop=0.08219 nmse_ls=0.27164 lr=5.646e-04 step_time=0.461s steps_per_s=2.119 gpu_mem=0.18GiB peak=7.45GiB
+[TRAIN] step=03600 loss=-2.14330 nmse_prop=0.04475 nmse_ls=0.11568 lr=5.642e-04 step_time=0.460s steps_per_s=2.128 gpu_mem=0.18GiB peak=7.45GiB
+[TRAIN] step=03700 loss=-3.12284 nmse_prop=0.01821 nmse_ls=0.03759 lr=5.638e-04 step_time=0.373s steps_per_s=2.136 gpu_mem=0.18GiB peak=7.45GiB
+[TRAIN] step=03800 loss=-2.54807 nmse_prop=0.03033 nmse_ls=0.09197 lr=5.634e-04 step_time=0.385s steps_per_s=2.145 gpu_mem=0.18GiB peak=7.45GiB
+[TRAIN] step=03900 loss=-2.00241 nmse_prop=0.05105 nmse_ls=0.16391 lr=5.629e-04 step_time=0.459s steps_per_s=2.154 gpu_mem=0.18GiB peak=7.45GiB
+WARNING:tensorflow:Model's `__init__()` arguments contain non-serializable objects. Please implement a `get_config()` method in the subclassed Model for proper saving and loading. Defaulting to empty config.
+WARNING:tensorflow:Model's `__init__()` arguments contain non-serializable objects. Please implement a `get_config()` method in the subclassed Model for proper saving and loading. Defaulting to empty config.
+[TRAIN] saved new best weights at step=4000 val_nmse=0.0366593
+[TRAIN] step=04000 loss=-2.26511 nmse_prop=0.03976 nmse_ls=0.10655 lr=5.625e-04 step_time=167.757s steps_per_s=1.983 gpu_mem=0.18GiB peak=7.45GiB
+[TRAIN] saved resumable state at step=4000 reason=periodic: /lustre10/scratch/rsadve1/Ablations_Wave3/TWC_plots_comprehensive/runs_rx16/seed7/1dmrs/main_dr_d256_b4_r2/checkpoints/training_state/ckpt-4000
+[TRAIN] step=04100 loss=-1.90348 nmse_prop=0.05440 nmse_ls=0.25053 lr=5.621e-04 step_time=0.284s steps_per_s=1.991 gpu_mem=0.18GiB peak=7.45GiB
+[TRAIN] step=04200 loss=-2.49451 nmse_prop=0.03267 nmse_ls=0.08919 lr=5.616e-04 step_time=0.460s steps_per_s=2.001 gpu_mem=0.18GiB peak=7.45GiB
+[TRAIN] step=04300 loss=-1.89474 nmse_prop=0.05648 nmse_ls=0.18892 lr=5.612e-04 step_time=0.460s steps_per_s=2.010 gpu_mem=0.18GiB peak=7.45GiB
+[TRAIN] step=04400 loss=-3.17574 nmse_prop=0.01770 nmse_ls=0.03876 lr=5.607e-04 step_time=0.285s steps_per_s=2.017 gpu_mem=0.18GiB peak=7.45GiB
+[TRAIN] step=04500 loss=-1.57353 nmse_prop=0.07648 nmse_ls=0.25432 lr=5.602e-04 step_time=0.471s steps_per_s=2.025 gpu_mem=0.18GiB peak=7.45GiB
+[TRAIN] step=04600 loss=-2.35707 nmse_prop=0.03581 nmse_ls=0.12443 lr=5.597e-04 step_time=0.459s steps_per_s=2.034 gpu_mem=0.18GiB peak=7.45GiB
+[TRAIN] step=04700 loss=-2.36212 nmse_prop=0.03654 nmse_ls=0.10059 lr=5.592e-04 step_time=0.459s steps_per_s=2.041 gpu_mem=0.18GiB peak=7.45GiB
+[TRAIN] step=04800 loss=-3.05600 nmse_prop=0.01990 nmse_ls=0.04151 lr=5.587e-04 step_time=0.375s steps_per_s=2.050 gpu_mem=0.18GiB peak=7.45GiB
+[TRAIN] step=04900 loss=-1.95696 nmse_prop=0.05322 nmse_ls=0.16798 lr=5.582e-04 step_time=0.460s steps_per_s=2.057 gpu_mem=0.18GiB peak=7.45GiB
+[TRAIN] step=05000 loss=-2.49553 nmse_prop=0.03228 nmse_ls=0.11731 lr=5.576e-04 step_time=0.371s steps_per_s=2.065 gpu_mem=0.18GiB peak=7.45GiB
+[TRAIN] saved resumable state at step=5000 reason=periodic: /lustre10/scratch/rsadve1/Ablations_Wave3/TWC_plots_comprehensive/runs_rx16/seed7/1dmrs/main_dr_d256_b4_r2/checkpoints/training_state/ckpt-5000
+[TRAIN] step=05100 loss=-2.18561 nmse_prop=0.04300 nmse_ls=0.13090 lr=5.571e-04 step_time=0.460s steps_per_s=2.071 gpu_mem=0.18GiB peak=7.45GiB
+[TRAIN] step=05200 loss=-2.11305 nmse_prop=0.04547 nmse_ls=0.17001 lr=5.565e-04 step_time=0.460s steps_per_s=2.078 gpu_mem=0.18GiB peak=7.45GiB
+[TRAIN] step=05300 loss=-2.48912 nmse_prop=0.03152 nmse_ls=0.13224 lr=5.559e-04 step_time=0.384s steps_per_s=2.084 gpu_mem=0.18GiB peak=7.45GiB
+[TRAIN] step=05400 loss=-2.83753 nmse_prop=0.02357 nmse_ls=0.05400 lr=5.554e-04 step_time=0.459s steps_per_s=2.089 gpu_mem=0.18GiB peak=7.45GiB
+[TRAIN] step=05500 loss=-2.23162 nmse_prop=0.04112 nmse_ls=0.12951 lr=5.548e-04 step_time=0.459s steps_per_s=2.095 gpu_mem=0.18GiB peak=7.45GiB
+[TRAIN] step=05600 loss=-1.64289 nmse_prop=0.07146 nmse_ls=0.23135 lr=5.542e-04 step_time=0.460s steps_per_s=2.102 gpu_mem=0.18GiB peak=7.45GiB
+[TRAIN] step=05700 loss=-2.26356 nmse_prop=0.03992 nmse_ls=0.12407 lr=5.536e-04 step_time=0.458s steps_per_s=2.107 gpu_mem=0.18GiB peak=7.45GiB
+[TRAIN] step=05800 loss=-2.62135 nmse_prop=0.02886 nmse_ls=0.09187 lr=5.529e-04 step_time=0.373s steps_per_s=2.113 gpu_mem=0.18GiB peak=7.45GiB
+[TRAIN] step=05900 loss=-2.49616 nmse_prop=0.03247 nmse_ls=0.12487 lr=5.523e-04 step_time=0.283s steps_per_s=2.118 gpu_mem=0.18GiB peak=7.45GiB
+WARNING:tensorflow:Model's `__init__()` arguments contain non-serializable objects. Please implement a `get_config()` method in the subclassed Model for proper saving and loading. Defaulting to empty config.
+WARNING:tensorflow:Model's `__init__()` arguments contain non-serializable objects. Please implement a `get_config()` method in the subclassed Model for proper saving and loading. Defaulting to empty config.
+[TRAIN] saved new best weights at step=6000 val_nmse=0.0330524
+[TRAIN] step=06000 loss=-3.03171 nmse_prop=0.02070 nmse_ls=0.03385 lr=5.517e-04 step_time=165.547s steps_per_s=2.006 gpu_mem=0.18GiB peak=7.45GiB
+[TRAIN] saved resumable state at step=6000 reason=periodic: /lustre10/scratch/rsadve1/Ablations_Wave3/TWC_plots_comprehensive/runs_rx16/seed7/1dmrs/main_dr_d256_b4_r2/checkpoints/training_state/ckpt-6000
+[TRAIN] step=06100 loss=-1.69808 nmse_prop=0.06704 nmse_ls=0.25778 lr=5.510e-04 step_time=0.459s steps_per_s=2.012 gpu_mem=0.18GiB peak=7.45GiB
+[TRAIN] step=06200 loss=-2.67590 nmse_prop=0.02781 nmse_ls=0.07643 lr=5.504e-04 step_time=0.459s steps_per_s=2.017 gpu_mem=0.18GiB peak=7.45GiB
+[TRAIN] step=06300 loss=-2.17873 nmse_prop=0.04338 nmse_ls=0.12694 lr=5.497e-04 step_time=0.472s steps_per_s=2.024 gpu_mem=0.18GiB peak=7.45GiB
+[TRAIN] step=06400 loss=-2.38990 nmse_prop=0.03539 nmse_ls=0.12405 lr=5.490e-04 step_time=0.370s steps_per_s=2.029 gpu_mem=0.18GiB peak=7.45GiB
+[TRAIN] step=06500 loss=-1.60351 nmse_prop=0.07281 nmse_ls=0.27087 lr=5.483e-04 step_time=0.460s steps_per_s=2.035 gpu_mem=0.18GiB peak=7.45GiB
+[TRAIN] step=06600 loss=-3.01806 nmse_prop=0.02052 nmse_ls=0.05723 lr=5.476e-04 step_time=0.294s steps_per_s=2.041 gpu_mem=0.18GiB peak=7.45GiB
+[TRAIN] step=06700 loss=-2.08015 nmse_prop=0.04722 nmse_ls=0.16114 lr=5.469e-04 step_time=0.461s steps_per_s=2.046 gpu_mem=0.18GiB peak=7.45GiB
+[TRAIN] step=06800 loss=-2.98091 nmse_prop=0.02115 nmse_ls=0.06203 lr=5.462e-04 step_time=0.283s steps_per_s=2.051 gpu_mem=0.18GiB peak=7.45GiB
+[TRAIN] step=06900 loss=-2.41854 nmse_prop=0.03461 nmse_ls=0.10624 lr=5.454e-04 step_time=0.469s steps_per_s=2.056 gpu_mem=0.18GiB peak=7.45GiB
+[TRAIN] step=07000 loss=-1.94869 nmse_prop=0.05374 nmse_ls=0.17191 lr=5.447e-04 step_time=0.459s steps_per_s=2.062 gpu_mem=0.18GiB peak=7.45GiB
+[TRAIN] saved resumable state at step=7000 reason=periodic: /lustre10/scratch/rsadve1/Ablations_Wave3/TWC_plots_comprehensive/runs_rx16/seed7/1dmrs/main_dr_d256_b4_r2/checkpoints/training_state/ckpt-7000
+[TRAIN] step=07100 loss=-2.86344 nmse_prop=0.02355 nmse_ls=0.05168 lr=5.439e-04 step_time=0.459s steps_per_s=2.065 gpu_mem=0.18GiB peak=7.45GiB
+[TRAIN] step=07200 loss=-2.47093 nmse_prop=0.03292 nmse_ls=0.12198 lr=5.432e-04 step_time=0.371s steps_per_s=2.071 gpu_mem=0.18GiB peak=7.45GiB
+[TRAIN] step=07300 loss=-2.56092 nmse_prop=0.03062 nmse_ls=0.08395 lr=5.424e-04 step_time=0.482s steps_per_s=2.076 gpu_mem=0.18GiB peak=7.45GiB
+[TRAIN] step=07400 loss=-2.58459 nmse_prop=0.02891 nmse_ls=0.13439 lr=5.416e-04 step_time=0.283s steps_per_s=2.081 gpu_mem=0.18GiB peak=7.45GiB
+[TRAIN] step=07500 loss=-2.97043 nmse_prop=0.02128 nmse_ls=0.04788 lr=5.408e-04 step_time=0.473s steps_per_s=2.086 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] step=07600 loss=-3.01028 nmse_prop=0.02032 nmse_ls=0.04534 lr=5.400e-04 step_time=0.472s steps_per_s=2.090 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] step=07700 loss=-2.43914 nmse_prop=0.03370 nmse_ls=0.16962 lr=5.392e-04 step_time=0.195s steps_per_s=2.095 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] step=07800 loss=-2.59847 nmse_prop=0.02891 nmse_ls=0.09922 lr=5.384e-04 step_time=0.381s steps_per_s=2.100 gpu_mem=0.18GiB peak=7.45GiB
+[TRAIN] step=07900 loss=-3.15407 nmse_prop=0.01783 nmse_ls=0.03808 lr=5.376e-04 step_time=0.459s steps_per_s=2.105 gpu_mem=0.18GiB peak=7.45GiB
+WARNING:tensorflow:Model's `__init__()` arguments contain non-serializable objects. Please implement a `get_config()` method in the subclassed Model for proper saving and loading. Defaulting to empty config.
+WARNING:tensorflow:Model's `__init__()` arguments contain non-serializable objects. Please implement a `get_config()` method in the subclassed Model for proper saving and loading. Defaulting to empty config.
+[TRAIN] saved new best weights at step=8000 val_nmse=0.0298817
+[TRAIN] step=08000 loss=-2.72489 nmse_prop=0.02705 nmse_ls=0.10964 lr=5.367e-04 step_time=165.368s steps_per_s=2.020 gpu_mem=0.18GiB peak=7.45GiB
+[TRAIN] saved resumable state at step=8000 reason=periodic: /lustre10/scratch/rsadve1/Ablations_Wave3/TWC_plots_comprehensive/runs_rx16/seed7/1dmrs/main_dr_d256_b4_r2/checkpoints/training_state/ckpt-8000
+[TRAIN] step=08100 loss=-2.92537 nmse_prop=0.02139 nmse_ls=0.08271 lr=5.359e-04 step_time=0.283s steps_per_s=2.024 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] step=08200 loss=-2.03901 nmse_prop=0.04831 nmse_ls=0.23755 lr=5.350e-04 step_time=0.369s steps_per_s=2.029 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] step=08300 loss=-2.95024 nmse_prop=0.02163 nmse_ls=0.06915 lr=5.341e-04 step_time=0.382s steps_per_s=2.033 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] step=08400 loss=-2.55464 nmse_prop=0.03025 nmse_ls=0.10345 lr=5.333e-04 step_time=0.459s steps_per_s=2.038 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] step=08500 loss=-2.65749 nmse_prop=0.02794 nmse_ls=0.09929 lr=5.324e-04 step_time=0.372s steps_per_s=2.043 gpu_mem=0.18GiB peak=7.45GiB
+[TRAIN] step=08600 loss=-1.87305 nmse_prop=0.05655 nmse_ls=0.23290 lr=5.315e-04 step_time=0.458s steps_per_s=2.048 gpu_mem=0.18GiB peak=7.45GiB
+[TRAIN] step=08700 loss=-2.63860 nmse_prop=0.02834 nmse_ls=0.08245 lr=5.306e-04 step_time=0.485s steps_per_s=2.052 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] step=08800 loss=-2.69168 nmse_prop=0.02723 nmse_ls=0.07921 lr=5.297e-04 step_time=0.458s steps_per_s=2.056 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] step=08900 loss=-2.89832 nmse_prop=0.02395 nmse_ls=0.04982 lr=5.287e-04 step_time=0.469s steps_per_s=2.060 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] step=09000 loss=-3.19575 nmse_prop=0.01825 nmse_ls=0.03958 lr=5.278e-04 step_time=0.371s steps_per_s=2.065 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] saved resumable state at step=9000 reason=periodic: /lustre10/scratch/rsadve1/Ablations_Wave3/TWC_plots_comprehensive/runs_rx16/seed7/1dmrs/main_dr_d256_b4_r2/checkpoints/training_state/ckpt-9000
+[TRAIN] step=09100 loss=-2.62993 nmse_prop=0.02875 nmse_ls=0.08753 lr=5.268e-04 step_time=0.461s steps_per_s=2.068 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] step=09200 loss=-2.32512 nmse_prop=0.03749 nmse_ls=0.12168 lr=5.259e-04 step_time=0.471s steps_per_s=2.071 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] step=09300 loss=-2.66325 nmse_prop=0.02772 nmse_ls=0.08908 lr=5.249e-04 step_time=0.461s steps_per_s=2.075 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] step=09400 loss=-2.14385 nmse_prop=0.04394 nmse_ls=0.20397 lr=5.240e-04 step_time=0.458s steps_per_s=2.078 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] step=09500 loss=-2.17483 nmse_prop=0.04291 nmse_ls=0.17156 lr=5.230e-04 step_time=0.466s steps_per_s=2.082 gpu_mem=0.18GiB peak=7.45GiB
+[TRAIN] step=09600 loss=-2.51935 nmse_prop=0.03076 nmse_ls=0.11898 lr=5.220e-04 step_time=0.391s steps_per_s=2.085 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] step=09700 loss=-3.36991 nmse_prop=0.01596 nmse_ls=0.03194 lr=5.210e-04 step_time=0.288s steps_per_s=2.088 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] step=09800 loss=-2.53125 nmse_prop=0.03052 nmse_ls=0.10403 lr=5.200e-04 step_time=0.460s steps_per_s=2.091 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] step=09900 loss=-2.98827 nmse_prop=0.02032 nmse_ls=0.07448 lr=5.190e-04 step_time=0.295s steps_per_s=2.094 gpu_mem=0.19GiB peak=7.45GiB
+WARNING:tensorflow:Model's `__init__()` arguments contain non-serializable objects. Please implement a `get_config()` method in the subclassed Model for proper saving and loading. Defaulting to empty config.
+WARNING:tensorflow:Model's `__init__()` arguments contain non-serializable objects. Please implement a `get_config()` method in the subclassed Model for proper saving and loading. Defaulting to empty config.
+[TRAIN] saved new best weights at step=10000 val_nmse=0.0294667
+[TRAIN] step=10000 loss=-1.98463 nmse_prop=0.05147 nmse_ls=0.23153 lr=5.179e-04 step_time=167.020s steps_per_s=2.026 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] saved resumable state at step=10000 reason=periodic: /lustre10/scratch/rsadve1/Ablations_Wave3/TWC_plots_comprehensive/runs_rx16/seed7/1dmrs/main_dr_d256_b4_r2/checkpoints/training_state/ckpt-10000
+[TRAIN] step=10100 loss=-2.45999 nmse_prop=0.03333 nmse_ls=0.12988 lr=5.169e-04 step_time=0.374s steps_per_s=2.028 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] step=10200 loss=-2.94817 nmse_prop=0.02279 nmse_ls=0.07306 lr=5.158e-04 step_time=0.284s steps_per_s=2.032 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] step=10300 loss=-1.84485 nmse_prop=0.05859 nmse_ls=0.24601 lr=5.148e-04 step_time=0.484s steps_per_s=2.036 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] step=10400 loss=-2.41186 nmse_prop=0.03523 nmse_ls=0.11352 lr=5.137e-04 step_time=0.459s steps_per_s=2.040 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] step=10500 loss=-1.94703 nmse_prop=0.05342 nmse_ls=0.27284 lr=5.127e-04 step_time=0.283s steps_per_s=2.043 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] step=10600 loss=-2.48726 nmse_prop=0.03222 nmse_ls=0.10998 lr=5.116e-04 step_time=0.473s steps_per_s=2.047 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] step=10700 loss=-2.25240 nmse_prop=0.04100 nmse_ls=0.13857 lr=5.105e-04 step_time=0.464s steps_per_s=2.050 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] step=10800 loss=-2.26570 nmse_prop=0.03934 nmse_ls=0.14890 lr=5.094e-04 step_time=0.476s steps_per_s=2.053 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] step=10900 loss=-2.74469 nmse_prop=0.02606 nmse_ls=0.08928 lr=5.083e-04 step_time=0.400s steps_per_s=2.056 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] step=11000 loss=-2.33586 nmse_prop=0.03806 nmse_ls=0.12778 lr=5.072e-04 step_time=0.465s steps_per_s=2.058 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] saved resumable state at step=11000 reason=periodic: /lustre10/scratch/rsadve1/Ablations_Wave3/TWC_plots_comprehensive/runs_rx16/seed7/1dmrs/main_dr_d256_b4_r2/checkpoints/training_state/ckpt-11000
+[TRAIN] step=11100 loss=-3.46290 nmse_prop=0.01377 nmse_ls=0.02932 lr=5.060e-04 step_time=0.378s steps_per_s=2.061 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] step=11200 loss=-2.23722 nmse_prop=0.04094 nmse_ls=0.14647 lr=5.049e-04 step_time=0.490s steps_per_s=2.064 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] step=11300 loss=-1.98426 nmse_prop=0.05126 nmse_ls=0.20342 lr=5.038e-04 step_time=0.466s steps_per_s=2.067 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] step=11400 loss=-3.04037 nmse_prop=0.01968 nmse_ls=0.06878 lr=5.026e-04 step_time=0.287s steps_per_s=2.070 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] step=11500 loss=-3.12567 nmse_prop=0.01934 nmse_ls=0.04106 lr=5.015e-04 step_time=0.465s steps_per_s=2.072 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] step=11600 loss=-2.43603 nmse_prop=0.03404 nmse_ls=0.14106 lr=5.003e-04 step_time=0.376s steps_per_s=2.075 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] step=11700 loss=-2.68387 nmse_prop=0.02661 nmse_ls=0.12553 lr=4.991e-04 step_time=0.289s steps_per_s=2.077 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] step=11800 loss=-2.26429 nmse_prop=0.03979 nmse_ls=0.20283 lr=4.979e-04 step_time=0.312s steps_per_s=2.080 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] step=11900 loss=-3.27657 nmse_prop=0.01652 nmse_ls=0.03702 lr=4.968e-04 step_time=0.378s steps_per_s=2.083 gpu_mem=0.19GiB peak=7.45GiB
+WARNING:tensorflow:Model's `__init__()` arguments contain non-serializable objects. Please implement a `get_config()` method in the subclassed Model for proper saving and loading. Defaulting to empty config.
+WARNING:tensorflow:Model's `__init__()` arguments contain non-serializable objects. Please implement a `get_config()` method in the subclassed Model for proper saving and loading. Defaulting to empty config.
+[TRAIN] saved new best weights at step=12000 val_nmse=0.0290549
+[TRAIN] step=12000 loss=-2.02098 nmse_prop=0.04934 nmse_ls=0.23539 lr=4.956e-04 step_time=165.679s steps_per_s=2.027 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] saved resumable state at step=12000 reason=periodic: /lustre10/scratch/rsadve1/Ablations_Wave3/TWC_plots_comprehensive/runs_rx16/seed7/1dmrs/main_dr_d256_b4_r2/checkpoints/training_state/ckpt-12000
+[TRAIN] step=12100 loss=-2.22520 nmse_prop=0.04174 nmse_ls=0.14478 lr=4.944e-04 step_time=0.478s steps_per_s=2.029 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] step=12200 loss=-1.76587 nmse_prop=0.06287 nmse_ls=0.24052 lr=4.931e-04 step_time=0.467s steps_per_s=2.032 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] step=12300 loss=-2.06028 nmse_prop=0.04798 nmse_ls=0.24168 lr=4.919e-04 step_time=0.377s steps_per_s=2.035 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] step=12400 loss=-2.20025 nmse_prop=0.04190 nmse_ls=0.15903 lr=4.907e-04 step_time=0.479s steps_per_s=2.038 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] step=12500 loss=-2.11073 nmse_prop=0.04550 nmse_ls=0.21939 lr=4.894e-04 step_time=0.466s steps_per_s=2.041 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] step=12600 loss=-2.94980 nmse_prop=0.02201 nmse_ls=0.05713 lr=4.882e-04 step_time=0.468s steps_per_s=2.044 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] step=12700 loss=-3.10385 nmse_prop=0.01874 nmse_ls=0.05723 lr=4.869e-04 step_time=0.376s steps_per_s=2.046 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] step=12800 loss=-2.22459 nmse_prop=0.04130 nmse_ls=0.17273 lr=4.857e-04 step_time=0.376s steps_per_s=2.048 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] step=12900 loss=-2.61590 nmse_prop=0.02932 nmse_ls=0.11865 lr=4.844e-04 step_time=0.379s steps_per_s=2.051 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] step=13000 loss=-2.83617 nmse_prop=0.02407 nmse_ls=0.06221 lr=4.831e-04 step_time=0.477s steps_per_s=2.054 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] saved resumable state at step=13000 reason=periodic: /lustre10/scratch/rsadve1/Ablations_Wave3/TWC_plots_comprehensive/runs_rx16/seed7/1dmrs/main_dr_d256_b4_r2/checkpoints/training_state/ckpt-13000
+[TRAIN] step=13100 loss=-2.46240 nmse_prop=0.03351 nmse_ls=0.12553 lr=4.819e-04 step_time=0.478s steps_per_s=2.056 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] step=13200 loss=-2.58754 nmse_prop=0.03014 nmse_ls=0.09025 lr=4.806e-04 step_time=0.466s steps_per_s=2.058 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] step=13300 loss=-2.47236 nmse_prop=0.03232 nmse_ls=0.13857 lr=4.793e-04 step_time=0.389s steps_per_s=2.061 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] step=13400 loss=-2.58438 nmse_prop=0.03039 nmse_ls=0.09675 lr=4.780e-04 step_time=0.465s steps_per_s=2.064 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] step=13500 loss=-2.47268 nmse_prop=0.03352 nmse_ls=0.11039 lr=4.766e-04 step_time=0.464s steps_per_s=2.067 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] step=13600 loss=-3.20766 nmse_prop=0.01804 nmse_ls=0.03771 lr=4.753e-04 step_time=0.467s steps_per_s=2.069 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] step=13700 loss=-2.66255 nmse_prop=0.02801 nmse_ls=0.10602 lr=4.740e-04 step_time=0.465s steps_per_s=2.072 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] step=13800 loss=-3.06792 nmse_prop=0.01954 nmse_ls=0.06007 lr=4.727e-04 step_time=0.376s steps_per_s=2.074 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] step=13900 loss=-2.48700 nmse_prop=0.03181 nmse_ls=0.15836 lr=4.713e-04 step_time=0.288s steps_per_s=2.077 gpu_mem=0.19GiB peak=7.45GiB
+WARNING:tensorflow:Model's `__init__()` arguments contain non-serializable objects. Please implement a `get_config()` method in the subclassed Model for proper saving and loading. Defaulting to empty config.
+WARNING:tensorflow:Model's `__init__()` arguments contain non-serializable objects. Please implement a `get_config()` method in the subclassed Model for proper saving and loading. Defaulting to empty config.
+[TRAIN] saved new best weights at step=14000 val_nmse=0.0275756
+[TRAIN] step=14000 loss=-3.07832 nmse_prop=0.02046 nmse_ls=0.04306 lr=4.700e-04 step_time=165.217s steps_per_s=2.029 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] saved resumable state at step=14000 reason=periodic: /lustre10/scratch/rsadve1/Ablations_Wave3/TWC_plots_comprehensive/runs_rx16/seed7/1dmrs/main_dr_d256_b4_r2/checkpoints/training_state/ckpt-14000
+[TRAIN] step=14100 loss=-2.09562 nmse_prop=0.04598 nmse_ls=0.24908 lr=4.686e-04 step_time=0.464s steps_per_s=2.031 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] step=14200 loss=-2.56763 nmse_prop=0.03059 nmse_ls=0.10544 lr=4.673e-04 step_time=0.464s steps_per_s=2.033 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] step=14300 loss=-2.89843 nmse_prop=0.02216 nmse_ls=0.08695 lr=4.659e-04 step_time=0.378s steps_per_s=2.036 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] step=14400 loss=-2.11152 nmse_prop=0.04616 nmse_ls=0.17784 lr=4.645e-04 step_time=0.465s steps_per_s=2.038 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] step=14500 loss=-2.07906 nmse_prop=0.04675 nmse_ls=0.21404 lr=4.631e-04 step_time=0.376s steps_per_s=2.040 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] step=14600 loss=-2.33520 nmse_prop=0.03720 nmse_ls=0.14260 lr=4.617e-04 step_time=0.466s steps_per_s=2.043 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] step=14700 loss=-3.00605 nmse_prop=0.02078 nmse_ls=0.05528 lr=4.603e-04 step_time=0.464s steps_per_s=2.045 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] step=14800 loss=-2.97374 nmse_prop=0.02112 nmse_ls=0.05603 lr=4.589e-04 step_time=0.464s steps_per_s=2.048 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] step=14900 loss=-2.65682 nmse_prop=0.02760 nmse_ls=0.09937 lr=4.575e-04 step_time=0.465s steps_per_s=2.050 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] step=15000 loss=-3.04560 nmse_prop=0.02022 nmse_ls=0.05168 lr=4.561e-04 step_time=0.489s steps_per_s=2.052 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] saved resumable state at step=15000 reason=periodic: /lustre10/scratch/rsadve1/Ablations_Wave3/TWC_plots_comprehensive/runs_rx16/seed7/1dmrs/main_dr_d256_b4_r2/checkpoints/training_state/ckpt-15000
+[TRAIN] step=15100 loss=-2.31888 nmse_prop=0.03773 nmse_ls=0.15776 lr=4.547e-04 step_time=0.477s steps_per_s=2.054 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] step=15200 loss=-3.26142 nmse_prop=0.01708 nmse_ls=0.03629 lr=4.532e-04 step_time=0.465s steps_per_s=2.056 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] step=15300 loss=-3.25110 nmse_prop=0.01727 nmse_ls=0.05066 lr=4.518e-04 step_time=0.288s steps_per_s=2.058 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] step=15400 loss=-3.19226 nmse_prop=0.01850 nmse_ls=0.03926 lr=4.504e-04 step_time=0.378s steps_per_s=2.060 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] step=15500 loss=-2.29695 nmse_prop=0.03788 nmse_ls=0.17488 lr=4.489e-04 step_time=0.378s steps_per_s=2.063 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] step=15600 loss=-3.00046 nmse_prop=0.02080 nmse_ls=0.05363 lr=4.475e-04 step_time=0.465s steps_per_s=2.065 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] step=15700 loss=-2.49343 nmse_prop=0.03181 nmse_ls=0.17412 lr=4.460e-04 step_time=0.293s steps_per_s=2.067 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] step=15800 loss=-3.38465 nmse_prop=0.01649 nmse_ls=0.03562 lr=4.445e-04 step_time=0.288s steps_per_s=2.070 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] step=15900 loss=-2.05807 nmse_prop=0.04765 nmse_ls=0.25549 lr=4.431e-04 step_time=0.467s steps_per_s=2.072 gpu_mem=0.19GiB peak=7.45GiB
+WARNING:tensorflow:Model's `__init__()` arguments contain non-serializable objects. Please implement a `get_config()` method in the subclassed Model for proper saving and loading. Defaulting to empty config.
+WARNING:tensorflow:Model's `__init__()` arguments contain non-serializable objects. Please implement a `get_config()` method in the subclassed Model for proper saving and loading. Defaulting to empty config.
+[TRAIN] saved new best weights at step=16000 val_nmse=0.0264944
+[TRAIN] step=16000 loss=-3.30718 nmse_prop=0.01613 nmse_ls=0.04110 lr=4.416e-04 step_time=166.389s steps_per_s=2.030 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] saved resumable state at step=16000 reason=periodic: /lustre10/scratch/rsadve1/Ablations_Wave3/TWC_plots_comprehensive/runs_rx16/seed7/1dmrs/main_dr_d256_b4_r2/checkpoints/training_state/ckpt-16000
+[TRAIN] step=16100 loss=-2.23789 nmse_prop=0.04025 nmse_ls=0.20582 lr=4.401e-04 step_time=0.479s steps_per_s=2.032 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] step=16200 loss=-2.90112 nmse_prop=0.02304 nmse_ls=0.07163 lr=4.386e-04 step_time=0.461s steps_per_s=2.034 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] step=16300 loss=-2.71624 nmse_prop=0.02647 nmse_ls=0.12819 lr=4.371e-04 step_time=0.287s steps_per_s=2.036 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] step=16400 loss=-2.43385 nmse_prop=0.03337 nmse_ls=0.21934 lr=4.356e-04 step_time=0.296s steps_per_s=2.038 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] step=16500 loss=-2.97228 nmse_prop=0.02196 nmse_ls=0.06164 lr=4.341e-04 step_time=0.376s steps_per_s=2.040 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] step=16600 loss=-2.88930 nmse_prop=0.02268 nmse_ls=0.09656 lr=4.326e-04 step_time=0.300s steps_per_s=2.042 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] step=16700 loss=-2.50099 nmse_prop=0.03278 nmse_ls=0.11744 lr=4.311e-04 step_time=0.466s steps_per_s=2.044 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] step=16800 loss=-2.86847 nmse_prop=0.02327 nmse_ls=0.08033 lr=4.295e-04 step_time=0.464s steps_per_s=2.046 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] step=16900 loss=-2.86102 nmse_prop=0.02339 nmse_ls=0.08231 lr=4.280e-04 step_time=0.466s steps_per_s=2.048 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] step=17000 loss=-2.59473 nmse_prop=0.02912 nmse_ls=0.14471 lr=4.265e-04 step_time=0.379s steps_per_s=2.050 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] saved resumable state at step=17000 reason=periodic: /lustre10/scratch/rsadve1/Ablations_Wave3/TWC_plots_comprehensive/runs_rx16/seed7/1dmrs/main_dr_d256_b4_r2/checkpoints/training_state/ckpt-17000
+[TRAIN] step=17100 loss=-2.14338 nmse_prop=0.04417 nmse_ls=0.19167 lr=4.249e-04 step_time=0.465s steps_per_s=2.051 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] step=17200 loss=-2.36833 nmse_prop=0.03598 nmse_ls=0.19289 lr=4.234e-04 step_time=0.288s steps_per_s=2.053 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] step=17300 loss=-1.90906 nmse_prop=0.05556 nmse_ls=0.24828 lr=4.218e-04 step_time=0.465s steps_per_s=2.055 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] step=17400 loss=-2.78678 nmse_prop=0.02524 nmse_ls=0.08548 lr=4.203e-04 step_time=0.463s steps_per_s=2.057 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] step=17500 loss=-2.45960 nmse_prop=0.03240 nmse_ls=0.21617 lr=4.187e-04 step_time=0.198s steps_per_s=2.058 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] step=17600 loss=-3.05988 nmse_prop=0.01963 nmse_ls=0.08592 lr=4.171e-04 step_time=0.288s steps_per_s=2.060 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] step=17700 loss=-2.86792 nmse_prop=0.02345 nmse_ls=0.06928 lr=4.156e-04 step_time=0.466s steps_per_s=2.062 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] step=17800 loss=-2.31314 nmse_prop=0.03783 nmse_ls=0.21920 lr=4.140e-04 step_time=0.377s steps_per_s=2.064 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] step=17900 loss=-2.33131 nmse_prop=0.03691 nmse_ls=0.16323 lr=4.124e-04 step_time=0.465s steps_per_s=2.066 gpu_mem=0.19GiB peak=7.45GiB
+WARNING:tensorflow:Model's `__init__()` arguments contain non-serializable objects. Please implement a `get_config()` method in the subclassed Model for proper saving and loading. Defaulting to empty config.
+WARNING:tensorflow:Model's `__init__()` arguments contain non-serializable objects. Please implement a `get_config()` method in the subclassed Model for proper saving and loading. Defaulting to empty config.
+[TRAIN] saved new best weights at step=18000 val_nmse=0.0262414
+[TRAIN] step=18000 loss=-2.45594 nmse_prop=0.03394 nmse_ls=0.13069 lr=4.108e-04 step_time=166.352s steps_per_s=2.029 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] saved resumable state at step=18000 reason=periodic: /lustre10/scratch/rsadve1/Ablations_Wave3/TWC_plots_comprehensive/runs_rx16/seed7/1dmrs/main_dr_d256_b4_r2/checkpoints/training_state/ckpt-18000
+[TRAIN] step=18100 loss=-3.56853 nmse_prop=0.01299 nmse_ls=0.03174 lr=4.092e-04 step_time=0.287s steps_per_s=2.030 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] step=18200 loss=-2.45219 nmse_prop=0.03316 nmse_ls=0.18882 lr=4.076e-04 step_time=0.377s steps_per_s=2.032 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] step=18300 loss=-2.40994 nmse_prop=0.03410 nmse_ls=0.20226 lr=4.060e-04 step_time=0.298s steps_per_s=2.034 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] step=18400 loss=-3.26600 nmse_prop=0.01702 nmse_ls=0.04412 lr=4.044e-04 step_time=0.288s steps_per_s=2.036 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] step=18500 loss=-1.96279 nmse_prop=0.05270 nmse_ls=0.23814 lr=4.028e-04 step_time=0.464s steps_per_s=2.037 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] step=18600 loss=-3.09335 nmse_prop=0.01951 nmse_ls=0.05338 lr=4.012e-04 step_time=0.480s steps_per_s=2.039 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] step=18700 loss=-3.05589 nmse_prop=0.01929 nmse_ls=0.06103 lr=3.996e-04 step_time=0.466s steps_per_s=2.041 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] step=18800 loss=-2.77757 nmse_prop=0.02542 nmse_ls=0.08247 lr=3.980e-04 step_time=0.468s steps_per_s=2.043 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] step=18900 loss=-3.04143 nmse_prop=0.01993 nmse_ls=0.06043 lr=3.963e-04 step_time=0.478s steps_per_s=2.044 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] step=19000 loss=-3.13386 nmse_prop=0.01832 nmse_ls=0.05185 lr=3.947e-04 step_time=0.465s steps_per_s=2.046 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] saved resumable state at step=19000 reason=periodic: /lustre10/scratch/rsadve1/Ablations_Wave3/TWC_plots_comprehensive/runs_rx16/seed7/1dmrs/main_dr_d256_b4_r2/checkpoints/training_state/ckpt-19000
+[TRAIN] step=19100 loss=-2.16605 nmse_prop=0.04371 nmse_ls=0.18105 lr=3.931e-04 step_time=0.493s steps_per_s=2.048 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] step=19200 loss=-3.07173 nmse_prop=0.02003 nmse_ls=0.05014 lr=3.914e-04 step_time=0.464s steps_per_s=2.049 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] step=19300 loss=-2.97553 nmse_prop=0.02124 nmse_ls=0.06995 lr=3.898e-04 step_time=0.466s steps_per_s=2.051 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] step=19400 loss=-2.51949 nmse_prop=0.03120 nmse_ls=0.15395 lr=3.882e-04 step_time=0.466s steps_per_s=2.053 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] step=19500 loss=-2.89304 nmse_prop=0.02294 nmse_ls=0.07875 lr=3.865e-04 step_time=0.466s steps_per_s=2.055 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] step=19600 loss=-2.06719 nmse_prop=0.04757 nmse_ls=0.23669 lr=3.848e-04 step_time=0.377s steps_per_s=2.057 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] step=19700 loss=-2.23977 nmse_prop=0.04067 nmse_ls=0.20093 lr=3.832e-04 step_time=0.374s steps_per_s=2.059 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] step=19800 loss=-2.47496 nmse_prop=0.03196 nmse_ls=0.20341 lr=3.815e-04 step_time=0.198s steps_per_s=2.060 gpu_mem=0.19GiB peak=7.45GiB
+[TRAIN] step=19900 loss=-3.02638 nmse_prop=0.01969 nmse_ls=0.08769 lr=3.799e-04 step_time=0.289s steps_per_s=2.062 gpu_mem=0.19GiB peak=7.45GiB
