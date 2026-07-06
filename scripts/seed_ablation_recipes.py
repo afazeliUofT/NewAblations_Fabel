@@ -40,6 +40,8 @@ DEFAULT_ARMS = [
     "oracle_prompt_d256_b4_r2",
     "constant_prompt_d256_b4_r2",
     "no_attn_no_film_d256_b4_r2",
+    "main_dr_d256_b4_r2",
+    "no_prompt_film_dr_d256_b4_r2",
     "dncnn_trunk_d256_l7",
     "prompt_mean_swap_d256_b4_r2",
     "prompt_wrong_swap_d256_b4_r2",

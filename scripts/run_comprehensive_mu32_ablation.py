@@ -215,6 +215,25 @@ VARIANTS: dict[str, dict[str, Any]] = {
             "evaluation.prompt_override_mode": "cell:4.0,1,8.33",
         },
     },
+    "main_dr_d256_b4_r2": {  # Route 2: M0 with delay-spread-randomized training
+        "label": "M0-DR (delay-spread randomized training)",
+        "overrides": {
+            "model.d_model": 256,
+            "model.num_blocks": 4,
+            "model.mlp_ratio": 2.0,
+            "training.ds_randomize": True,
+        },
+    },
+    "no_prompt_film_dr_d256_b4_r2": {  # Route 2: A3 with DS-randomized training
+        "label": "A3-DR (no prompt, DS-randomized training)",
+        "overrides": {
+            "model.d_model": 256,
+            "model.num_blocks": 4,
+            "model.mlp_ratio": 2.0,
+            "model.use_prompt_film": False,
+            "training.ds_randomize": True,
+        },
+    },
     "no_raw_y_d256_b4_r2": {  # A6: zero the 32 raw-Y channels, architecture untouched
         "label": "A6 no raw Y (LS-only input)",
         "overrides": {
@@ -364,6 +383,8 @@ RECIPE_FALLBACK: dict[str, str] = {
     "oracle_prompt_d256_b4_r2": "main_d256_b4_r2",
     "constant_prompt_d256_b4_r2": "main_d256_b4_r2",
     "no_attn_no_film_d256_b4_r2": "main_d256_b4_r2",
+    "main_dr_d256_b4_r2": "main_d256_b4_r2",
+    "no_prompt_film_dr_d256_b4_r2": "main_d256_b4_r2",
     "dncnn_trunk_d256_l7": "main_d256_b4_r2",
     "prompt_mean_swap_d256_b4_r2": "main_d256_b4_r2",
     "prompt_wrong_swap_d256_b4_r2": "main_d256_b4_r2",

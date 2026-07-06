@@ -115,6 +115,15 @@ def estimate_empirical_covariances(
     cfg: dict[str, Any],
     paths: dict[str, Path],
 ) -> dict[str, tf.Tensor]:
+    override_npz = str(get_cfg(cfg, "evaluation.covariance_override_npz", "") or "")
+    if override_npz:
+        # Route 1 (fixed-design 2D-LMMSE tiers): load a precomputed covariance
+        # instead of estimating from the evaluation channel. Mirrors robust /
+        # nominal fixed Wiener designs (Li-Cimini-Sollenberger style).
+        payload = np.load(override_npz)
+        print(f"[BASELINES] covariance override active: {override_npz}")
+        return {k: tf.convert_to_tensor(payload[k]) for k in payload.files if k != "meta"}
+
     cache_path = _covariance_cache_path(paths, cfg)
     reuse_cache = bool(get_cfg(cfg, "baselines.covariance_estimation.reuse_cache", True))
     if reuse_cache:

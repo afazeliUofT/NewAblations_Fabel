@@ -99,15 +99,37 @@ def _sample_train_num_users(cfg: dict[str, Any]) -> int:
     return int(np.random.choice(users, p=probs))
 
 
+def _pick_training_channel(system: dict[str, Any]) -> Any:
+    """Route 2 (domain randomization): sample one prebuilt channel instance
+    (one per delay-spread value) per batch; single-instance systems pass through."""
+    chs = system.get("channels") or [system["channel"]]
+    if len(chs) == 1:
+        return chs[0]
+    return chs[int(np.random.randint(len(chs)))]
+
+
 def _build_system_for_num_users(cfg: dict[str, Any], num_users: int) -> dict[str, Any]:
     tx, _ = build_pusch_transmitter(cfg, num_users=num_users)
     channel = build_channel(cfg, tx)
+    channels = [channel]
+    if bool(get_cfg(cfg, "training.ds_randomize", False)):
+        import copy as _copy
+
+        for ds_ns in get_cfg(cfg, "training.ds_values_ns", [100, 150, 300, 450, 600, 900]):
+            ds_s = float(ds_ns) * 1e-9
+            if abs(ds_s - float(cfg["channel"]["delay_spread_s"])) < 1e-12:
+                continue
+            cfg_ds = _copy.deepcopy(cfg)
+            cfg_ds["channel"]["delay_spread_s"] = ds_s
+            channels.append(build_channel(cfg_ds, tx))
+        print(f"[TRAIN] delay-spread randomization active: {len(channels)} channel instances U={num_users}")
     ls_estimator = build_ls_estimator(tx, cfg)
     resource_grid = get_resource_grid(tx)
     return {
         "num_users": num_users,
         "tx": tx,
         "channel": channel,
+        "channels": channels,
         "ls_estimator": ls_estimator,
         "resource_grid": resource_grid,
         "pilot_mask": extract_true_dmrs_mask_per_stream(tx, resource_grid),
@@ -411,7 +433,7 @@ def _validate(
         for current_batch_size in microbatch_sizes:
             batch = _make_batch(
                 tx=system["tx"],
-                channel=system["channel"],
+                channel=_pick_training_channel(system),
                 cfg=cfg,
                 batch_size=int(current_batch_size),
                 training=False,
@@ -470,7 +492,7 @@ def _warmup_estimator(
     eval_grid = list(get_cfg(cfg, "system.ebno_db_eval", [10]))
     batch = _make_batch(
         tx=system["tx"],
-        channel=system["channel"],
+        channel=_pick_training_channel(system),
         cfg=cfg,
         batch_size=max(1, min(2, int(cfg["system"]["batch_size_train"]))),
         training=False,
@@ -669,7 +691,7 @@ def train_model(
             system = systems[_sample_train_num_users(cfg)]
             batch = _make_batch(
                 tx=system["tx"],
-                channel=system["channel"],
+                channel=_pick_training_channel(system),
                 cfg=cfg,
                 batch_size=int(cfg["system"]["batch_size_train"]),
                 training=True,
