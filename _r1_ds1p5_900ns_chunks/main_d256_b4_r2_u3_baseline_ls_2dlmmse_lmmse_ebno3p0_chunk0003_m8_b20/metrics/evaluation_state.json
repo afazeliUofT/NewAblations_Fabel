@@ -1,29 +1,10 @@
 {
-  "active_receivers": [
-    "baseline_ls_2dlmmse_lmmse"
-  ],
   "checkpoint_path": "/lustre10/scratch/rsadve1/Ablations_Wave3/TWC_plots_comprehensive/runs_rx16/seed7/1dmrs/main_d256_b4_r2/checkpoints/best.weights.h5",
-  "completed_ebno_db": [],
-  "current_ebno_db": 3.0,
-  "current_frame_errors": {
-    "baseline_ls_2dlmmse_lmmse": 3
-  },
-  "current_num_frames": {
-    "baseline_ls_2dlmmse_lmmse": 1920
-  },
-  "current_receiver_metrics": {
-    "baseline_ls_2dlmmse_lmmse": {
-      "ber": 3.3427139336917564e-05,
-      "bit_errors": 191,
-      "bler": 0.0015625,
-      "frame_errors": 3,
-      "num_batches_run": 10,
-      "num_bits": 5713920,
-      "num_frames": 1920
-    }
-  },
+  "completed_ebno_db": [
+    3.0
+  ],
   "curves_csv": "/home/rsadve1/links/scratch/Ablations_Wave3/_r1_ds1p5_900ns_chunks/main_d256_b4_r2_u3_baseline_ls_2dlmmse_lmmse_ebno3p0_chunk0003_m8_b20/metrics/curves.csv",
-  "evaluation_complete": false,
+  "evaluation_complete": true,
   "evaluation_parameters": {
     "batch_size_eval": 64,
     "compiled_receiver_error_counts": false,
@@ -56,7 +37,6 @@
     "training_seed": 7
   },
   "num_users": 3,
-  "partial_batches_run": 10,
-  "receiver_stop_reasons": {},
-  "save_reason": "progress"
+  "save_reason": "final",
+  "summary_path": "/home/rsadve1/links/scratch/Ablations_Wave3/_r1_ds1p5_900ns_chunks/main_d256_b4_r2_u3_baseline_ls_2dlmmse_lmmse_ebno3p0_chunk0003_m8_b20/metrics/evaluation_summary.json"
 }
