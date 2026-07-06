@@ -40,6 +40,7 @@ DEFAULT_ARMS = [
     "oracle_prompt_d256_b4_r2",
     "constant_prompt_d256_b4_r2",
     "no_attn_no_film_d256_b4_r2",
+    "dncnn_trunk_d256_l7",
     "global_pool_prompt_d256_b4_r2",
     "local_only_no_axial_attn_d256_b4_r2",
     "main_full_d256_b4_r2",

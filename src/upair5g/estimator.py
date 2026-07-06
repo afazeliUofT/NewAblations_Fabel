@@ -159,6 +159,28 @@ class FiLMAxialBlock(tf.keras.layers.Layer):
         return x
 
 
+class DnCNNTrunk(tf.keras.layers.Layer):
+    """C2 baseline trunk: canonical DnCNN-style plain conv chain (no attention,
+    no FiLM, no internal residuals -- the global residual is the LS anchor)."""
+
+    def __init__(self, d_model: int, num_layers: int, dropout: float, **kwargs: Any) -> None:
+        super().__init__(**kwargs)
+        self.convs = [
+            tf.keras.layers.Conv2D(int(d_model), kernel_size=3, padding="same", name=f"dncnn_conv_{i}")
+            for i in range(int(num_layers))
+        ]
+        self.norms = [tf.keras.layers.LayerNormalization(epsilon=1e-5) for _ in range(int(num_layers))]
+        self.dropout = tf.keras.layers.Dropout(float(dropout))
+        self.activation = tf.keras.layers.Activation("gelu")
+
+    def call(self, x: tf.Tensor, prompt: tf.Tensor = None, training: bool = False) -> tf.Tensor:
+        del prompt  # conventional trunk: no conditioning
+        for conv, nrm in zip(self.convs, self.norms):
+            x = self.activation(nrm(conv(x)))
+            x = self.dropout(x, training=training)
+        return x
+
+
 class UPAIRChannelEstimator(tf.keras.Model):
     def __init__(
         self,
@@ -195,6 +217,10 @@ class UPAIRChannelEstimator(tf.keras.Model):
         # ------------------------------------------------------------------
         self.use_prompt_film = bool(model_cfg.get("use_prompt_film", True))
         self.block_type = str(model_cfg.get("block_type", "film_axial")).lower()
+        if self.block_type == "dncnn":
+            # C2: conventional-architecture baseline; conditioning is not part
+            # of a standard DnCNN trunk.
+            self.use_prompt_film = False
         self.prompt_source = str(model_cfg.get("prompt_source", "learned")).lower()
         if self.prompt_source not in {"learned", "oracle", "constant"}:
             raise ValueError(f"model.prompt_source must be learned|oracle|constant, got {self.prompt_source!r}.")
@@ -236,7 +262,17 @@ class UPAIRChannelEstimator(tf.keras.Model):
             if self.use_prompt_film
             else None
         )
-        self.blocks = [
+        if self.block_type == "dncnn":
+            self.blocks = [
+                DnCNNTrunk(
+                    d_model=self.d_model,
+                    num_layers=int(model_cfg.get("dncnn_layers", 7)),
+                    dropout=float(cfg["model"]["dropout"]),
+                    name="dncnn_trunk",
+                )
+            ]
+        else:
+            self.blocks = [
             FiLMAxialBlock(
                 d_model=self.d_model,
                 num_heads=int(cfg["model"]["num_heads"]),
@@ -249,7 +285,7 @@ class UPAIRChannelEstimator(tf.keras.Model):
                 name=f"axial_block_{i}",
             )
             for i in range(int(cfg["model"]["num_blocks"]))
-        ]
+            ]
 
         # With the LS anchor (default) the head starts exactly from LS and
         # learns only residual corrections (zero init). Without the anchor

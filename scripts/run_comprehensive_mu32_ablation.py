@@ -184,6 +184,17 @@ VARIANTS: dict[str, dict[str, Any]] = {
             "model.use_prompt_film": False,
         },
     },
+    "dncnn_trunk_d256_l7": {  # C2: conventional-architecture baseline trunk (DnCNN-style)
+        "label": "C2 DnCNN-style conv trunk (7x conv3x3, no attn, no FiLM)",
+        "overrides": {
+            "model.d_model": 256,
+            "model.num_blocks": 4,
+            "model.mlp_ratio": 2.0,
+            "model.block_type": "dncnn",
+            "model.dncnn_layers": 7,
+            "model.use_prompt_film": False,
+        },
+    },
     "no_raw_y_d256_b4_r2": {  # A6: zero the 32 raw-Y channels, architecture untouched
         "label": "A6 no raw Y (LS-only input)",
         "overrides": {
@@ -333,6 +344,7 @@ RECIPE_FALLBACK: dict[str, str] = {
     "oracle_prompt_d256_b4_r2": "main_d256_b4_r2",
     "constant_prompt_d256_b4_r2": "main_d256_b4_r2",
     "no_attn_no_film_d256_b4_r2": "main_d256_b4_r2",
+    "dncnn_trunk_d256_l7": "main_d256_b4_r2",
     "no_raw_y_d256_b4_r2": "main_d256_b4_r2",
     "no_ls_anchor_d256_b4_r2": "main_d256_b4_r2",
     "no_learned_errvar_d256_b4_r2": "main_d256_b4_r2",
