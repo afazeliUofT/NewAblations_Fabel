@@ -234,6 +234,16 @@ VARIANTS: dict[str, dict[str, Any]] = {
             "training.ds_randomize": True,
         },
     },
+    "dncnn_trunk_lr05_d256_l7": {  # C2 LR check (0.5x)
+        "label": "C2 DnCNN trunk, lr x0.5",
+        "overrides": {"model.d_model": 256, "model.num_blocks": 4, "model.mlp_ratio": 2.0,
+            "model.block_type": "dncnn", "model.dncnn_layers": 7, "model.use_prompt_film": False},
+    },
+    "dncnn_trunk_lr2x_d256_l7": {  # C2 LR check (2.0x)
+        "label": "C2 DnCNN trunk, lr x2.0",
+        "overrides": {"model.d_model": 256, "model.num_blocks": 4, "model.mlp_ratio": 2.0,
+            "model.block_type": "dncnn", "model.dncnn_layers": 7, "model.use_prompt_film": False},
+    },
     "no_raw_y_d256_b4_r2": {  # A6: zero the 32 raw-Y channels, architecture untouched
         "label": "A6 no raw Y (LS-only input)",
         "overrides": {

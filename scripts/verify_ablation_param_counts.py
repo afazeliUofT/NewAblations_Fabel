@@ -48,6 +48,8 @@ EXPECTED: dict[str, tuple[str, int]] = {
     "constant_prompt_d256_b4_r2": ("P2c", 4_189_376),
     "no_attn_no_film_d256_b4_r2": ("C1", 1_422_016),
     "dncnn_trunk_d256_l7": ("C2", 4_227_008),
+    "dncnn_trunk_lr05_d256_l7": ("C2a", 4_227_008),
+    "dncnn_trunk_lr2x_d256_l7": ("C2b", 4_227_008),
     "prompt_mean_swap_d256_b4_r2": ("P3m", 4_189_376),
     "prompt_wrong_swap_d256_b4_r2": ("P3w", 4_189_376),
     "main_dr_d256_b4_r2": ("R2m", 4_189_376),
