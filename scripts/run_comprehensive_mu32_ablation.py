@@ -184,6 +184,26 @@ VARIANTS: dict[str, dict[str, Any]] = {
             "model.use_prompt_film": False,
         },
     },
+    "upair_lite_d192_b2": {  # Lite: all proven-free cuts; keep freq-attn + prompt/FiLM + err head
+        "label": "UPAIR-Lite (d=192, B=2, no time-attn, no raw Y)",
+        "overrides": {
+            "model.d_model": 192,
+            "model.num_blocks": 2,
+            "model.mlp_ratio": 2.0,
+            "model.use_time_attn": False,
+            "model.use_raw_y": False,
+        },
+    },
+    "upair_lite_d128_b2": {  # Lite-128: width knee probe on the Lite skeleton
+        "label": "UPAIR-Lite (d=128, B=2, no time-attn, no raw Y)",
+        "overrides": {
+            "model.d_model": 128,
+            "model.num_blocks": 2,
+            "model.mlp_ratio": 2.0,
+            "model.use_time_attn": False,
+            "model.use_raw_y": False,
+        },
+    },
     "no_raw_y_d256_b4_r2": {  # A6: zero the 32 raw-Y channels, architecture untouched
         "label": "A6 no raw Y (LS-only input)",
         "overrides": {
@@ -333,6 +353,8 @@ RECIPE_FALLBACK: dict[str, str] = {
     "oracle_prompt_d256_b4_r2": "main_d256_b4_r2",
     "constant_prompt_d256_b4_r2": "main_d256_b4_r2",
     "no_attn_no_film_d256_b4_r2": "main_d256_b4_r2",
+    "upair_lite_d192_b2": "main_d256_b4_r2",
+    "upair_lite_d128_b2": "main_d256_b4_r2",
     "no_raw_y_d256_b4_r2": "main_d256_b4_r2",
     "no_ls_anchor_d256_b4_r2": "main_d256_b4_r2",
     "no_learned_errvar_d256_b4_r2": "main_d256_b4_r2",
