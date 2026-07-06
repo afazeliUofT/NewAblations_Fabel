@@ -1,0 +1,38 @@
+{
+  "input_root": "/home/rsadve1/links/scratch/NewAblations_Fabel/_gen_ds3x_chunks",
+  "num_input_chunks": 9,
+  "num_merged_rows": 1,
+  "output_csv": "/home/rsadve1/links/scratch/NewAblations_Fabel/_gen_ds3x_chunks/merged_main_d256_b4_r2_u3_baseline_ls_2dlmmse_lmmse_e2.csv",
+  "rows": [
+    {
+      "ber": 0.00023385385553564318,
+      "ber_zero_error_upper_bound": NaN,
+      "bit_errors": 24052,
+      "bler": 0.003096064814814815,
+      "bler_zero_error_upper_bound": NaN,
+      "block_errors": 107,
+      "chunk_indices": "0,1,2,3,4,5,6,7,8",
+      "data_elapsed_s": 427.78563455701806,
+      "dmrs_case": "1dmrs",
+      "ebno_db": 2.0,
+      "mc_stop_reason": "isolated_chunk_merge",
+      "nmse": NaN,
+      "num_batches_run": 180,
+      "num_bits": 102850560,
+      "num_blocks": 34560,
+      "num_chunks": 9,
+      "num_users": 3,
+      "point_elapsed_s": 1286.2901957996655,
+      "receiver": "baseline_ls_2dlmmse_lmmse",
+      "receiver_elapsed_s": 682.0657411050051,
+      "receiver_ms_per_batch": 3789.2541172500287,
+      "receiver_ms_per_frame": 19.7356985273439,
+      "reliable_ber": true,
+      "reliable_bler": true,
+      "seed": 7,
+      "target_bler_floor": NaN,
+      "training_seed": 7,
+      "variant": "main_d256_b4_r2"
+    }
+  ]
+}

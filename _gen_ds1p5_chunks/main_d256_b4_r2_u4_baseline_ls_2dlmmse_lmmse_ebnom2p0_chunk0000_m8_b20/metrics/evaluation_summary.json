@@ -1,0 +1,56 @@
+{
+  "batch_size_eval": 64,
+  "best_ber_classical": {
+    "receiver": "baseline_ls_2dlmmse_lmmse",
+    "value": 0.013800114457325268
+  },
+  "best_ber_classical_reliable_only": {
+    "receiver": "baseline_ls_2dlmmse_lmmse",
+    "value": 0.013800114457325268
+  },
+  "best_bler_classical": {
+    "receiver": "baseline_ls_2dlmmse_lmmse",
+    "value": 0.1833984375
+  },
+  "best_bler_classical_reliable_only": {
+    "receiver": "baseline_ls_2dlmmse_lmmse",
+    "value": 0.1833984375
+  },
+  "best_nmse_classical": null,
+  "checkpoint_path": "/lustre10/scratch/rsadve1/NewAblations_Fabel/TWC_plots_comprehensive/runs_rx16/seed7/1dmrs/main_d256_b4_r2/checkpoints/best.weights.h5",
+  "classical_receivers": [
+    "baseline_ls_2dlmmse_lmmse"
+  ],
+  "curves_csv": "/home/rsadve1/links/scratch/NewAblations_Fabel/_gen_ds1p5_chunks/main_d256_b4_r2_u4_baseline_ls_2dlmmse_lmmse_ebnom2p0_chunk0000_m8_b20/metrics/curves.csv",
+  "empirical_covariances": "/home/rsadve1/links/scratch/NewAblations_Fabel/_gen_ds1p5_chunks/main_d256_b4_r2_u4_baseline_ls_2dlmmse_lmmse_ebnom2p0_chunk0000_m8_b20/artifacts/empirical_covariances.npz",
+  "enabled_receivers": [
+    "baseline_ls_2dlmmse_lmmse"
+  ],
+  "evaluation_controls": {
+    "floor_confidence_factor": 3.0,
+    "floor_num_frames": 0,
+    "max_num_batches_per_point": 20,
+    "min_num_batches_per_point": 20,
+    "per_receiver_stopping": false,
+    "reliable_min_bit_errors": 1000,
+    "reliable_min_block_errors": 100,
+    "stopping_receivers": [
+      "baseline_ls_lmmse",
+      "baseline_ls_2dlmmse_lmmse",
+      "upair5g_lmmse",
+      "perfect_csi_lmmse"
+    ],
+    "target_bler_floor": 1e-05,
+    "target_block_errors_per_receiver": 0
+  },
+  "evaluation_elapsed_s": 185.79469530913047,
+  "evaluation_seed": 1671043,
+  "gpu_mem_gib": 0.1081085205078125,
+  "gpu_peak_gib": 2.4832282066345215,
+  "num_curve_rows": 1,
+  "num_users": 4,
+  "per_ebno_best_classical": [],
+  "receiver_microbatch_size": 8,
+  "seed": 1671043,
+  "training_seed": 7
+}

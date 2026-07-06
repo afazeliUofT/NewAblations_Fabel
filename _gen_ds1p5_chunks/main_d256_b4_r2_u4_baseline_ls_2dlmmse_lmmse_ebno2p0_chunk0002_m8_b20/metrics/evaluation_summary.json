@@ -1,0 +1,53 @@
+{
+  "batch_size_eval": 64,
+  "best_ber_classical": {
+    "receiver": "baseline_ls_2dlmmse_lmmse",
+    "value": 6.63511214717742e-05
+  },
+  "best_ber_classical_reliable_only": {
+    "receiver": "baseline_ls_2dlmmse_lmmse",
+    "value": 6.63511214717742e-05
+  },
+  "best_bler_classical": {
+    "receiver": "baseline_ls_2dlmmse_lmmse",
+    "value": 0.0017578125
+  },
+  "best_bler_classical_reliable_only": null,
+  "best_nmse_classical": null,
+  "checkpoint_path": "/lustre10/scratch/rsadve1/NewAblations_Fabel/TWC_plots_comprehensive/runs_rx16/seed7/1dmrs/main_d256_b4_r2/checkpoints/best.weights.h5",
+  "classical_receivers": [
+    "baseline_ls_2dlmmse_lmmse"
+  ],
+  "curves_csv": "/home/rsadve1/links/scratch/NewAblations_Fabel/_gen_ds1p5_chunks/main_d256_b4_r2_u4_baseline_ls_2dlmmse_lmmse_ebno2p0_chunk0002_m8_b20/metrics/curves.csv",
+  "empirical_covariances": "/home/rsadve1/links/scratch/NewAblations_Fabel/_gen_ds1p5_chunks/main_d256_b4_r2_u4_baseline_ls_2dlmmse_lmmse_ebno2p0_chunk0002_m8_b20/artifacts/empirical_covariances.npz",
+  "enabled_receivers": [
+    "baseline_ls_2dlmmse_lmmse"
+  ],
+  "evaluation_controls": {
+    "floor_confidence_factor": 3.0,
+    "floor_num_frames": 0,
+    "max_num_batches_per_point": 20,
+    "min_num_batches_per_point": 20,
+    "per_receiver_stopping": false,
+    "reliable_min_bit_errors": 1000,
+    "reliable_min_block_errors": 100,
+    "stopping_receivers": [
+      "baseline_ls_lmmse",
+      "baseline_ls_2dlmmse_lmmse",
+      "upair5g_lmmse",
+      "perfect_csi_lmmse"
+    ],
+    "target_bler_floor": 1e-05,
+    "target_block_errors_per_receiver": 0
+  },
+  "evaluation_elapsed_s": 186.85914190509357,
+  "evaluation_seed": 1939049,
+  "gpu_mem_gib": 0.10816192626953125,
+  "gpu_peak_gib": 2.4841647148132324,
+  "num_curve_rows": 1,
+  "num_users": 4,
+  "per_ebno_best_classical": [],
+  "receiver_microbatch_size": 8,
+  "seed": 1939049,
+  "training_seed": 7
+}
