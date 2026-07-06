@@ -195,6 +195,26 @@ VARIANTS: dict[str, dict[str, Any]] = {
             "model.use_prompt_film": False,
         },
     },
+    "prompt_mean_swap_d256_b4_r2": {  # P3m: frozen M0, prompt clamped to the P0 population mean
+        "label": "P3m mean-prompt transplant (eval-only on M0)",
+        "overrides": {
+            "model.d_model": 256,
+            "model.num_blocks": 4,
+            "model.mlp_ratio": 2.0,
+            "evaluation.prompt_override_npz": "prompt_probe_out/prompts.npz",
+            "evaluation.prompt_override_mode": "mean",
+        },
+    },
+    "prompt_wrong_swap_d256_b4_r2": {  # P3w: frozen M0, prompt from the wrong cell (+4 dB, U=1)
+        "label": "P3w wrong-cell prompt transplant (eval-only on M0)",
+        "overrides": {
+            "model.d_model": 256,
+            "model.num_blocks": 4,
+            "model.mlp_ratio": 2.0,
+            "evaluation.prompt_override_npz": "prompt_probe_out/prompts.npz",
+            "evaluation.prompt_override_mode": "cell:4.0,1,8.33",
+        },
+    },
     "no_raw_y_d256_b4_r2": {  # A6: zero the 32 raw-Y channels, architecture untouched
         "label": "A6 no raw Y (LS-only input)",
         "overrides": {
@@ -345,6 +365,8 @@ RECIPE_FALLBACK: dict[str, str] = {
     "constant_prompt_d256_b4_r2": "main_d256_b4_r2",
     "no_attn_no_film_d256_b4_r2": "main_d256_b4_r2",
     "dncnn_trunk_d256_l7": "main_d256_b4_r2",
+    "prompt_mean_swap_d256_b4_r2": "main_d256_b4_r2",
+    "prompt_wrong_swap_d256_b4_r2": "main_d256_b4_r2",
     "no_raw_y_d256_b4_r2": "main_d256_b4_r2",
     "no_ls_anchor_d256_b4_r2": "main_d256_b4_r2",
     "no_learned_errvar_d256_b4_r2": "main_d256_b4_r2",
@@ -354,10 +376,16 @@ RECIPE_FALLBACK: dict[str, str] = {
 
 # Variants that never train: they evaluate an existing checkpoint from the
 # aliased source variant (A8-dagger uses M0's weights verbatim).
-EVAL_ONLY_VARIANTS: set[str] = {"errvar_eval_swap_d256_b4_r2"}
+EVAL_ONLY_VARIANTS: set[str] = {
+    "errvar_eval_swap_d256_b4_r2",
+    "prompt_mean_swap_d256_b4_r2",
+    "prompt_wrong_swap_d256_b4_r2",
+}
 CHECKPOINT_ALIAS: dict[str, str] = {
     "errvar_eval_swap_d256_b4_r2": "main_d256_b4_r2",
     "main_full_d256_b4_r2": "main_d256_b4_r2",
+    "prompt_mean_swap_d256_b4_r2": "main_d256_b4_r2",
+    "prompt_wrong_swap_d256_b4_r2": "main_d256_b4_r2",
 }
 
 

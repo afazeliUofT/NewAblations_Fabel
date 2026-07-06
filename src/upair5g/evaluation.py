@@ -642,6 +642,31 @@ def evaluate_model(cfg: dict[str, Any], checkpoint_path: str | None = None, num_
         proposed_estimator = LSErrVarEvalView(estimator)
         print("[EVAL] errvar_source=ls -> detector receives UPAIR h_hat with LS err_var (A8-dagger swap)")
 
+    prompt_override_npz = str(get_cfg(cfg, "evaluation.prompt_override_npz", "") or "")
+    if prompt_override_npz:
+        # P3 (prompt transplant): frozen weights, foreign conditioning vector.
+        import numpy as _np
+
+        mode = str(get_cfg(cfg, "evaluation.prompt_override_mode", "mean"))
+        dat = _np.load(prompt_override_npz)
+        pv, lv = dat["prompts"], dat["labels"]
+        if mode == "mean":
+            vec = pv.mean(axis=0)
+        elif mode.startswith("cell:"):
+            e_, u_, s_ = [float(x) for x in mode[len("cell:"):].split(",")]
+            m = (
+                _np.isclose(lv[:, 0], e_)
+                & _np.isclose(lv[:, 1], u_)
+                & _np.isclose(lv[:, 2], s_, atol=1e-2)
+            )
+            if not m.any():
+                raise ValueError(f"P3: no P0 rows match cell {mode!r} in {prompt_override_npz}")
+            vec = pv[m].mean(axis=0)
+        else:
+            raise ValueError(f"evaluation.prompt_override_mode must be 'mean' or 'cell:e,u,s', got {mode!r}")
+        estimator.prompt_override = tf.constant(vec, dtype=tf.float32)
+        print(f"[EVAL] prompt transplant active (P3): mode={mode} source={prompt_override_npz}")
+
     proposed_rx = None
     if wants_receiver(cfg, PROPOSED_RECEIVER):
         proposed_rx = build_receiver(tx, cfg, channel_estimator=proposed_estimator, perfect_csi=False)

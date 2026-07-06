@@ -222,6 +222,9 @@ class UPAIRChannelEstimator(tf.keras.Model):
             # of a standard DnCNN trunk.
             self.use_prompt_film = False
         self.prompt_source = str(model_cfg.get("prompt_source", "learned")).lower()
+        # P3 (prompt transplant): eval-time override of the post-MLP prompt with
+        # a fixed foreign vector; set by evaluation.py, never during training.
+        self.prompt_override: tf.Tensor | None = None
         if self.prompt_source not in {"learned", "oracle", "constant"}:
             raise ValueError(f"model.prompt_source must be learned|oracle|constant, got {self.prompt_source!r}.")
         self.prompt_pool = str(model_cfg.get("prompt_pool", "pilot")).lower()
@@ -481,6 +484,10 @@ class UPAIRChannelEstimator(tf.keras.Model):
     ) -> tf.Tensor | None:
         if not self.use_prompt_film:
             return None
+        if self.prompt_override is not None:
+            b = tf.shape(z)[0]
+            vec = tf.cast(self.prompt_override, z.dtype)
+            return tf.broadcast_to(vec[tf.newaxis, :], [b, tf.shape(vec)[0]])
         if self.prompt_source == "constant":
             # P2 floor: context-independent (but learned, iso-parameter) FiLM.
             b = tf.shape(z)[0]
