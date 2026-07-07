@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #SBATCH --job-name=upairP-dncnn_trunk_l
-#SBATCH --time=12:00:00
+#SBATCH --time=09:00:00
 #SBATCH --cpus-per-task=8
 #SBATCH --mem=32G
 #SBATCH --output=/home/rsadve1/links/scratch/Ablations_Wave3/logs/pipeline/pipeline_dncnn_trunk_lr2x_d256_l7_%j.out
