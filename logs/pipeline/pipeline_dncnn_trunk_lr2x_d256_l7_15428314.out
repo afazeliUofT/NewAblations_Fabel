@@ -466,3 +466,10 @@ WARNING:tensorflow:Model's `__init__()` arguments contain non-serializable objec
 [TRAIN] step=35700 loss=-2.09377 nmse_prop=0.04798 nmse_ls=0.06116 lr=2.355e-04 step_time=0.407s steps_per_s=2.538 gpu_mem=0.19GiB peak=2.44GiB
 [TRAIN] step=35800 loss=-1.85446 nmse_prop=0.06057 nmse_ls=0.07613 lr=2.328e-04 step_time=0.398s steps_per_s=2.539 gpu_mem=0.19GiB peak=2.44GiB
 [TRAIN] step=35900 loss=-2.08851 nmse_prop=0.04825 nmse_ls=0.06074 lr=2.301e-04 step_time=0.402s steps_per_s=2.540 gpu_mem=0.19GiB peak=2.44GiB
+WARNING:tensorflow:Model's `__init__()` arguments contain non-serializable objects. Please implement a `get_config()` method in the subclassed Model for proper saving and loading. Defaulting to empty config.
+WARNING:tensorflow:Model's `__init__()` arguments contain non-serializable objects. Please implement a `get_config()` method in the subclassed Model for proper saving and loading. Defaulting to empty config.
+[TRAIN] saved new best weights at step=36000 val_nmse=0.0666354
+[TRAIN] step=36000 loss=-2.38816 nmse_prop=0.03620 nmse_ls=0.04877 lr=2.274e-04 step_time=112.146s steps_per_s=2.521 gpu_mem=0.20GiB peak=2.44GiB
+[TRAIN] saved resumable state at step=36000 reason=periodic: /lustre10/scratch/rsadve1/Ablations_Wave3/TWC_plots_comprehensive/runs_rx16/seed7/1dmrs/dncnn_trunk_lr2x_d256_l7/checkpoints/training_state/ckpt-36000
+[TRAIN] step=36100 loss=-0.99584 nmse_prop=0.13806 nmse_ls=0.17739 lr=2.247e-04 step_time=0.395s steps_per_s=2.522 gpu_mem=0.19GiB peak=2.44GiB
+[TRAIN] step=36200 loss=-1.89341 nmse_prop=0.05795 nmse_ls=0.07359 lr=2.220e-04 step_time=0.395s steps_per_s=2.523 gpu_mem=0.20GiB peak=2.44GiB
