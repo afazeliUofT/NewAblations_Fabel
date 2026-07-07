@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #SBATCH --job-name=upairP-main_d256_b4_
-#SBATCH --time=08:00:00
+#SBATCH --time=05:00:00
 #SBATCH --cpus-per-task=8
 #SBATCH --mem=32G
 #SBATCH --output=/home/rsadve1/links/scratch/NewAblations_Fabel/logs/pipeline/pipeline_main_d256_b4_r2_%j.out
