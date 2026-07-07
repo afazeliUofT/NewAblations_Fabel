@@ -21,7 +21,7 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt  # noqa: E402
 
 ROOT = Path(".")
-OUT = ROOT / "paper_figs"
+OUT = ROOT / "TWC_Figures_first_modification"
 OUT.mkdir(exist_ok=True)
 
 IN = "_isolated_eval_chunks"
@@ -116,10 +116,11 @@ def fig_r1():
     fig, axes = plt.subplots(1, 2, figsize=(7.16, 2.65))
     ax = axes[0]
     for key in ["ls", "2dl", "upair", "perfect"]:
-        plot_curve(ax, curve(IN, "main_d256_b4_r2", RX[key], 3), key)
+        plot_curve(ax, curve(IN, "main_d256_b4_r2", RX[key], 3), key,
+                   **({"label": "LS + 2D LMMSE"} if key == "2dl" else {}))
     bler_axes(ax)
     ax.legend(loc="lower left")
-    ax.text(0.03, 0.97, "(a)", transform=ax.transAxes, va="top", fontweight="bold")
+    ax.set_title("(a)", loc="left", fontweight="bold", pad=3)
 
     ax = axes[1]
     users = [1, 2, 3, 4]
@@ -137,7 +138,7 @@ def fig_r1():
     ax.set_xticks(users)
     ax.grid(True)
     ax.legend(loc="upper left")
-    ax.text(0.03, 0.97, "(b)", transform=ax.transAxes, va="top", fontweight="bold")
+    ax.set_title("(b)", loc="left", fontweight="bold", pad=3)
     fig.tight_layout()
     fig.savefig(OUT / "fig_r1_indist_scaling.pdf")
     plt.close(fig)
@@ -155,7 +156,7 @@ def fig_r2():
                    label=("UPAIR (full)" if key == "upair" else STY[key]["label"]))
     bler_axes(ax)
     ax.legend(loc="lower left")
-    ax.text(0.03, 0.97, "(a)", transform=ax.transAxes, va="top", fontweight="bold")
+    ax.set_title("(a)", loc="left", fontweight="bold", pad=3)
 
     ax = axes[1]
     ref = crossing(*curve(IN, "main_d256_b4_r2", RX["upair"], 3))
@@ -167,13 +168,19 @@ def fig_r2():
         d = c - ref
         note(f"R2b {lab}: params={mp}M delta={d:+.2f} dB")
         ax.plot(mp, d, "o", color="tab:red", ms=5)
-        ax.annotate(lab, (mp, d), textcoords="offset points", xytext=(5, 4), fontsize=7)
+        if lab == "full":
+            off, ha = (-6, 4), "right"
+        elif lab == "Lite-128":
+            off, ha = (6, -10), "left"
+        else:
+            off, ha = (5, 4), "left"
+        ax.annotate(lab, (mp, d), textcoords="offset points", xytext=off, ha=ha, fontsize=7)
     ax.set_xscale("log")
     ax.set_xlabel("trainable parameters (millions)")
     ax.set_ylabel("loss vs.\\ full UPAIR at BLER $10^{-2}$ (dB)")
     ax.grid(True, which="both")
     ax.axhline(0, color="0.6", lw=0.8)
-    ax.text(0.03, 0.97, "(b)", transform=ax.transAxes, va="top", fontweight="bold")
+    ax.set_title("(b)", loc="left", fontweight="bold", pad=3)
     fig.tight_layout()
     fig.savefig(OUT / "fig_r2_capacity_frontier.pdf")
     plt.close(fig)
@@ -181,36 +188,26 @@ def fig_r2():
 
 # ---------------------------------------------------------------- figure R3
 def fig_r3():
-    ref = crossing(*curve(IN, "main_d256_b4_r2", RX["upair"], 3))
+    """BLER curves: full UPAIR vs the five structural ablations (shared recipe)."""
+    fig, ax = plt.subplots(figsize=(3.5, 2.7))
     arms = [
-        ("freq_attn_only_d256_b4_r2", "frequency attention only"),
-        ("convnext_axial_d256_b4_r2", "axial conv.\\ instead of attention"),
-        ("time_attn_only_d256_b4_r2", "time attention only"),
-        ("local_only_no_axial_attn_d256_b4_r2", "no attention"),
-        ("no_attn_no_film_d256_b4_r2", "no attention, no conditioning"),
-        ("dncnn_trunk_d256_l7", "generic DnCNN trunk"),
+        ("main_d256_b4_r2",                    dict(color="tab:red",   ls="-",  marker="^", label="UPAIR (full)")),
+        ("freq_attn_only_d256_b4_r2",          dict(color="tab:green", ls="--", marker="p", label="frequency attention only")),
+        ("time_attn_only_d256_b4_r2",          dict(color="tab:blue",  ls="-.", marker="s", label="time attention only")),
+        ("local_only_no_axial_attn_d256_b4_r2",dict(color="tab:orange",ls=":",  marker="o", label="no attention")),
+        ("no_attn_no_film_d256_b4_r2",         dict(color="0.35",      ls="--", marker="x", label="no attention, no conditioning")),
+        ("dncnn_trunk_d256_l7",                dict(color="tab:brown", ls=":",  marker="v", label="generic DnCNN trunk")),
     ]
-    deltas, labels = [], []
-    for v, lab in arms:
-        c = crossing(*curve(IN, v, RX["upair"], 3))
-        deltas.append(c - ref)
-        labels.append(lab)
-        note(f"R3 {lab}: {c - ref:+.2f} dB")
-    order = np.argsort(deltas)
-    deltas = [deltas[i] for i in order]
-    labels = [labels[i] for i in order]
-    fig, ax = plt.subplots(figsize=(3.5, 2.35))
-    bars = ax.barh(range(len(deltas)), deltas, color="tab:red", alpha=0.85, height=0.62)
-    ax.set_yticks(range(len(labels)))
-    ax.set_yticklabels(labels, fontsize=7)
-    ax.set_xlabel("loss vs.\\ full UPAIR at BLER $10^{-2}$ (dB)")
-    ax.grid(True, axis="x")
-    for b, d in zip(bars, deltas):
-        ax.text(b.get_width() + 0.03, b.get_y() + b.get_height() / 2,
-                f"{d:+.2f}", va="center", fontsize=7)
-    ax.set_xlim(-0.12, max(deltas) * 1.18)
+    ref = crossing(*curve(IN, "main_d256_b4_r2", RX["upair"], 3))
+    for v, st in arms:
+        x, y = curve(IN, v, RX["upair"], 3)
+        ax.plot(x, y, **st)
+        c = crossing(x, y)
+        note(f"R3 {st['label']}: {(c - ref):+.2f} dB")
+    bler_axes(ax)
+    ax.legend(loc="lower left", fontsize=5.8)
     fig.tight_layout()
-    fig.savefig(OUT / "fig_r3_mechanism_bars.pdf")
+    fig.savefig(OUT / "fig_r3_mechanism_curves.pdf")
     plt.close(fig)
 
 
@@ -237,7 +234,7 @@ def fig_r4():
     leg = ax.legend(loc="upper left", ncol=2, columnspacing=0.8, handletextpad=0.2)
     for h in leg.legend_handles:
         h.set_color("0.3")
-    ax.text(0.03, 0.05, "(a)", transform=ax.transAxes, fontweight="bold")
+    ax.set_title("(a)", loc="left", fontweight="bold", pad=3)
 
     ax = axes[1]
     for v, key in [("main_d256_b4_r2", "upair"), ("prompt_mean_swap_d256_b4_r2", "p3m"),
@@ -246,7 +243,7 @@ def fig_r4():
                    label=("UPAIR (own prompt)" if key == "upair" else STY[key]["label"]))
     bler_axes(ax)
     ax.legend(loc="lower left")
-    ax.text(0.03, 0.97, "(b)", transform=ax.transAxes, va="top", fontweight="bold")
+    ax.set_title("(b)", loc="left", fontweight="bold", pad=3)
     x, y = curve(IN, "prompt_wrong_swap_d256_b4_r2", RX["upair"], 3)
     x0, y0 = curve(IN, "main_d256_b4_r2", RX["upair"], 3)
     r = point(x, y, -4) / point(x0, y0, -4)
@@ -260,9 +257,6 @@ def fig_r4():
 def fig_r5():
     fig, axes = plt.subplots(1, 3, figsize=(7.16, 2.45))
     ax = axes[0]
-    plot_curve(ax, curve("_gen_ds3x_chunks", "main_d256_b4_r2", RX["perfect"], 3), "perfect")
-    plot_curve(ax, curve("_gen_ds3x_chunks", "main_d256_b4_r2", RX["2dl"], 3), "2dl",
-               label="2D LMMSE (matched $\\mathbf{R}$)")
     plot_curve(ax, curve("_gen_ds3x_chunks", "main_d256_b4_r2", RX["upair"], 3), "upair",
                label="UPAIR (frozen)")
     plot_curve(ax, curve("_r1_ds3x_300ns_chunks", "main_d256_b4_r2", RX["2dl"], 3), "2dl_st",
@@ -271,8 +265,8 @@ def fig_r5():
     plot_curve(ax, curve("_gen_ds3x_chunks", "no_prompt_film_d256_b4_r2", RX["upair"], 3), "a3")
     plot_curve(ax, curve("_gen_ds3x_chunks", "main_d256_b4_r2", RX["ls"], 3), "ls")
     bler_axes(ax)
-    ax.legend(loc="lower left", fontsize=5.6)
-    ax.text(0.03, 0.97, "(a)", transform=ax.transAxes, va="top", fontweight="bold")
+    ax.legend(loc="lower left", fontsize=6.2)
+    ax.set_title("(a)", loc="left", fontweight="bold", pad=3)
     for name, root, v, rx in [("UPAIR", "_gen_ds3x_chunks", "main_d256_b4_r2", RX["upair"]),
                               ("A3", "_gen_ds3x_chunks", "no_prompt_film_d256_b4_r2", RX["upair"])]:
         x, y = curve(root, v, rx, 3)
@@ -282,18 +276,24 @@ def fig_r5():
     mults = [1.0, 1.5, 2.0, 3.0]
     genroot = {1.5: "_gen_ds1p5_chunks", 2.0: "_gen_ds2x_chunks", 3.0: "_gen_ds3x_chunks"}
     stroot = {1.5: "_r1_ds1p5_300ns_chunks", 2.0: "_r1_ds2x_300ns_chunks", 3.0: "_r1_ds3x_300ns_chunks"}
-    series = {"upair": [], "a3": [], "2dl_st": []}
+    wcroot = {1.0: "_r1_ds1x_900ns_chunks", 1.5: "_r1_ds1p5_900ns_chunks", 2.0: "_r1_ds2x_900ns_chunks"}
+    series = {"upair": [], "a3": [], "2dl_st": [], "2dl_wc": []}
     for m in mults:
         if m == 1.0:
             series["upair"].append(point(*curve(IN, "main_d256_b4_r2", RX["upair"], 3), 0))
             series["a3"].append(point(*curve(IN, "no_prompt_film_d256_b4_r2", RX["upair"], 3), 0))
             series["2dl_st"].append(point(*curve(IN, "main_d256_b4_r2", RX["2dl"], 3), 0))
+            series["2dl_wc"].append(point(*curve(wcroot[m], "main_d256_b4_r2", RX["2dl"], 3), 0))
         else:
             series["upair"].append(point(*curve(genroot[m], "main_d256_b4_r2", RX["upair"], 3), 0))
             series["a3"].append(point(*curve(genroot[m], "no_prompt_film_d256_b4_r2", RX["upair"], 3), 0))
             series["2dl_st"].append(point(*curve(stroot[m], "main_d256_b4_r2", RX["2dl"], 3), 0))
+            wc = (point(*curve(wcroot[m], "main_d256_b4_r2", RX["2dl"], 3), 0) if m in wcroot
+                  else point(*curve(genroot[m], "main_d256_b4_r2", RX["2dl"], 3), 0))
+            series["2dl_wc"].append(wc)
+    STY["2dl_wc"] = dict(color="darkgoldenrod", ls="-.", marker="P", label="2D LMMSE (worst-case $\\mathbf{R}$)")
     for key, lab in [("upair", "UPAIR (frozen)"), ("2dl_st", "2D LMMSE (stale $\\mathbf{R}$)"),
-                     ("a3", "UPAIR w/o prompt")]:
+                     ("2dl_wc", "2D LMMSE (worst-case $\\mathbf{R}$)"), ("a3", "UPAIR w/o prompt")]:
         st = dict(STY[key]); st["label"] = lab
         ax.plot(mults, series[key], **st)
         note(f"R5b {lab} BLER@0dB vs mult: " + ", ".join(f"{m}x:{v:.1e}" for m, v in zip(mults, series[key])))
@@ -303,7 +303,7 @@ def fig_r5():
     ax.set_xticks(mults)
     ax.grid(True, which="both")
     ax.legend(loc="upper left", fontsize=6.0)
-    ax.text(0.03, 0.05, "(b)", transform=ax.transAxes, fontweight="bold")
+    ax.set_title("(b)", loc="left", fontweight="bold", pad=3)
 
     ax = axes[2]
     plot_curve(ax, curve("_gen_ds1p5_chunks", "main_d256_b4_r2", RX["2dl"], 4), "2dl",
@@ -313,7 +313,7 @@ def fig_r5():
     plot_curve(ax, curve("_gen_ds1p5_chunks", "no_prompt_film_d256_b4_r2", RX["upair"], 4), "a3")
     bler_axes(ax)
     ax.legend(loc="lower left", fontsize=6.0)
-    ax.text(0.03, 0.97, "(c)", transform=ax.transAxes, va="top", fontweight="bold")
+    ax.set_title("(c)", loc="left", fontweight="bold", pad=3)
     fig.tight_layout()
     fig.savefig(OUT / "fig_r5_robustness.pdf")
     plt.close(fig)
@@ -321,7 +321,8 @@ def fig_r5():
 
 # ---------------------------------------------------------------- figure R6
 def fig_r6():
-    fig, ax = plt.subplots(figsize=(3.5, 2.5))
+    fig, axes = plt.subplots(1, 2, figsize=(7.16, 2.6))
+    ax = axes[0]
     conds = [(0.5, "_dr_ds0p5_chunks"), (1.0, IN), (1.5, "_dr_ds1p5_chunks"),
              (2.0, "_dr_ds2x_chunks"), (3.0, "_dr_ds3x_chunks")]
     cmap = plt.get_cmap("viridis")
@@ -329,13 +330,22 @@ def fig_r6():
         x, y = curve(root, "main_dr_d256_b4_r2", RX["upair"], 3)
         ax.plot(x, y, color=cmap(0.12 + 0.19 * i), ls="-", marker="o", ms=2.8,
                 label=f"UPAIR-DR, {m}$\\times$")
-    x, y = curve("_gen_ds3x_chunks", "main_d256_b4_r2", RX["upair"], 3)
-    ax.plot(x, y, color="black", ls="--", marker="^", ms=3.2,
-            label="UPAIR (fixed training), 3$\\times$")
     bler_axes(ax)
     ax.legend(loc="lower left", fontsize=5.8)
+    ax.set_title("(a)", loc="left", fontweight="bold", pad=3)
+
+    ax = axes[1]
+    plot_curve(ax, curve("_gen_ds3x_chunks", "main_d256_b4_r2", RX["perfect"], 3), "perfect")
     x, y = curve("_dr_ds3x_chunks", "main_dr_d256_b4_r2", RX["upair"], 3)
-    note(f"R6 UPAIR-DR at 3x, high-SNR tail: " + ", ".join(f"{xx:+.0f}:{yy:.1e}" for xx, yy in zip(x, y) if xx >= 1))
+    ax.plot(x, y, color=cmap(0.88), ls="-", marker="o", ms=2.8, label="UPAIR-DR")
+    plot_curve(ax, curve("_gen_ds3x_chunks", "main_d256_b4_r2", RX["2dl"], 3), "2dl",
+               label="2D LMMSE (matched $\\mathbf{R}$)")
+    plot_curve(ax, curve("_gen_ds3x_chunks", "main_d256_b4_r2", RX["upair"], 3), "upair",
+               label="UPAIR (fixed training)")
+    bler_axes(ax)
+    ax.legend(loc="lower left", fontsize=6.0)
+    ax.set_title("(b)", loc="left", fontweight="bold", pad=3)
+    note("R6b at 3x: DR vs matched-2DL vs perfect vs frozen (see curves)")
     fig.tight_layout()
     fig.savefig(OUT / "fig_r6_dr.pdf")
     plt.close(fig)
