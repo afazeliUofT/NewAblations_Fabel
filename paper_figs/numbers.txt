@@ -1,0 +1,21 @@
+R1b required-SNR@1e-2 ls: u1:-3.64, u2:-1.39, u3:0.24, u4:--
+R1b required-SNR@1e-2 2dl: u1:-4.84, u2:-2.84, u3:-1.24, u4:0.26
+R1b required-SNR@1e-2 upair: u1:-5.10, u2:-3.58, u3:-2.11, u4:-0.56
+R2b full: params=4.189M delta=+0.00 dB
+R2b $d{=}192$: params=2.38M delta=+0.01 dB
+R2b $L{=}2$: params=2.207M delta=+0.04 dB
+R2b Lite-192: params=0.965M delta=+0.18 dB
+R2b Lite-128: params=0.447M delta=+0.29 dB
+R3 frequency attention only: -0.00 dB
+R3 axial conv.\ instead of attention: +0.01 dB
+R3 time attention only: +0.36 dB
+R3 no attention: +0.45 dB
+R3 no attention, no conditioning: +0.57 dB
+R3 generic DnCNN trunk: +1.65 dB
+R4b wrong-prompt/own-prompt BLER ratio at -4 dB: 3.9x
+R5a UPAIR floor at +4..+6: 6.8e-03, 6.5e-03, 7.7e-03
+R5a A3 floor at +4..+6: 1.9e-01, 1.9e-01, 2.2e-01
+R5b UPAIR (frozen) BLER@0dB vs mult: 1.0x:2.9e-04, 1.5x:4.9e-04, 2.0x:1.9e-03, 3.0x:5.7e-02
+R5b 2D LMMSE (stale $\mathbf{R}$) BLER@0dB vs mult: 1.0x:1.5e-03, 1.5x:5.2e-03, 2.0x:1.1e-02, 3.0x:8.4e-02
+R5b UPAIR w/o prompt BLER@0dB vs mult: 1.0x:2.3e-04, 1.5x:9.3e-04, 2.0x:7.4e-03, 3.0x:4.2e-01
+R6 UPAIR-DR at 3x, high-SNR tail: +1:1.1e-04, +2:8.7e-06, +3:1.7e-05
