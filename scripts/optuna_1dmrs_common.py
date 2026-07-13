@@ -24,6 +24,7 @@ VARIANTS: dict[str, dict[str, Any]] = {
     "wide_d320_b4_r2": {"model.d_model": 320, "model.num_blocks": 4, "model.mlp_ratio": 2.0},
     "wide_deep_d320_b6_r2": {"model.d_model": 320, "model.num_blocks": 6, "model.mlp_ratio": 2.0},
     "mlpwide_d256_b4_r4": {"model.d_model": 256, "model.num_blocks": 4, "model.mlp_ratio": 4.0},
+    "dncnn_trunk_d256_l7": {"model.d_model": 256, "model.num_blocks": 4, "model.mlp_ratio": 2.0, "model.block_type": "dncnn", "model.dncnn_layers": 7, "model.use_prompt_film": False},
 }
 
 SUGGESTED_PARAM_NAMES = {
