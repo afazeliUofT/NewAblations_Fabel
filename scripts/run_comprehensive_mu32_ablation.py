@@ -184,6 +184,26 @@ VARIANTS: dict[str, dict[str, Any]] = {
             "model.use_prompt_film": False,
         },
     },
+    "upair_lite_d96_b2": {  # Lite-96: next width rung on the Lite skeleton
+        "label": "UPAIR-Lite (d=96, B=2, no time-attn, no raw Y)",
+        "overrides": {
+            "model.d_model": 96,
+            "model.num_blocks": 2,
+            "model.mlp_ratio": 2.0,
+            "model.use_time_attn": False,
+            "model.use_raw_y": False,
+        },
+    },
+    "upair_lite_d64_b2": {  # Lite-64: next width rung on the Lite skeleton
+        "label": "UPAIR-Lite (d=64, B=2, no time-attn, no raw Y)",
+        "overrides": {
+            "model.d_model": 64,
+            "model.num_blocks": 2,
+            "model.mlp_ratio": 2.0,
+            "model.use_time_attn": False,
+            "model.use_raw_y": False,
+        },
+    },
     "upair_lite_d192_b2": {  # Lite: all proven-free cuts; keep freq-attn + prompt/FiLM + err head
         "label": "UPAIR-Lite (d=192, B=2, no time-attn, no raw Y)",
         "overrides": {
@@ -355,6 +375,8 @@ RECIPE_FALLBACK: dict[str, str] = {
     "no_attn_no_film_d256_b4_r2": "main_d256_b4_r2",
     "upair_lite_d192_b2": "main_d256_b4_r2",
     "upair_lite_d128_b2": "main_d256_b4_r2",
+    "upair_lite_d96_b2": "main_d256_b4_r2",
+    "upair_lite_d64_b2": "main_d256_b4_r2",
     "no_raw_y_d256_b4_r2": "main_d256_b4_r2",
     "no_ls_anchor_d256_b4_r2": "main_d256_b4_r2",
     "no_learned_errvar_d256_b4_r2": "main_d256_b4_r2",

@@ -49,6 +49,8 @@ EXPECTED: dict[str, tuple[str, int]] = {
     "no_attn_no_film_d256_b4_r2": ("C1", 1_422_016),
     "upair_lite_d192_b2": ("Lite", 964_800),
     "upair_lite_d128_b2": ("Lite128", 446_656),
+    "upair_lite_d96_b2": ("Lite96", 261_312),
+    "upair_lite_d64_b2": ("Lite64", 125_120),
     "no_raw_y_d256_b4_r2": ("A6", 4_189_376),
     "no_ls_anchor_d256_b4_r2": ("A7", 4_189_376),
     "no_learned_errvar_d256_b4_r2": ("A8", 4_172_928),

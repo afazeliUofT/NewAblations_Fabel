@@ -42,6 +42,8 @@ DEFAULT_ARMS = [
     "no_attn_no_film_d256_b4_r2",
     "upair_lite_d192_b2",
     "upair_lite_d128_b2",
+    "upair_lite_d96_b2",
+    "upair_lite_d64_b2",
     "global_pool_prompt_d256_b4_r2",
     "local_only_no_axial_attn_d256_b4_r2",
     "main_full_d256_b4_r2",
