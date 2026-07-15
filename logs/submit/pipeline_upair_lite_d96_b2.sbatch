@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 #SBATCH --job-name=upairP-upair_lite_d9
-#SBATCH --time=09:00:00
+#SBATCH --time=11:00:00
 #SBATCH --cpus-per-task=8
 #SBATCH --mem=32G
 #SBATCH --output=/home/rsadve1/links/scratch/Ablations_S1P2/logs/pipeline/pipeline_upair_lite_d96_b2_%j.out
-#SBATCH --gres=gpu:h100:1
+#SBATCH --gres=gpu:1
 set -euo pipefail
 cd "/home/rsadve1/links/scratch/Ablations_S1P2"
 source "/home/rsadve1/links/scratch/Ablations_S1P2/upair_portable_env.sh"

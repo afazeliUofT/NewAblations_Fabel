@@ -1,0 +1,39 @@
+{
+  "batch_size_eval": 64,
+  "best_ber_upair5g": 0.0031768033154121866,
+  "best_bler_upair5g": 0.05130208333333333,
+  "best_nmse_upair5g": null,
+  "checkpoint_path": "/lustre07/scratch/rsadve1/Ablations_S1P2/TWC_plots_comprehensive/runs_rx16/seed7/1dmrs/upair_lite_d64_b2/checkpoints/best.weights.h5",
+  "classical_receivers": [],
+  "curves_csv": "/lustre07/scratch/rsadve1/Ablations_S1P2/_isolated_eval_chunks/upair_lite_d64_b2_u3_upair5g_lmmse_ebnom2p0_chunk0000_m8_b20/metrics/curves.csv",
+  "enabled_receivers": [
+    "upair5g_lmmse"
+  ],
+  "evaluation_controls": {
+    "floor_confidence_factor": 3.0,
+    "floor_num_frames": 0,
+    "max_num_batches_per_point": 20,
+    "min_num_batches_per_point": 20,
+    "per_receiver_stopping": false,
+    "reliable_min_bit_errors": 1000,
+    "reliable_min_block_errors": 100,
+    "stopping_receivers": [
+      "baseline_ls_lmmse",
+      "baseline_ls_2dlmmse_lmmse",
+      "upair5g_lmmse",
+      "perfect_csi_lmmse"
+    ],
+    "target_bler_floor": 1e-05,
+    "target_block_errors_per_receiver": 0
+  },
+  "evaluation_elapsed_s": 191.51492318324745,
+  "evaluation_seed": 1670034,
+  "gpu_mem_gib": 4.9758381843566895,
+  "gpu_peak_gib": 5.085093021392822,
+  "num_curve_rows": 1,
+  "num_users": 3,
+  "per_ebno_best_classical": [],
+  "receiver_microbatch_size": 8,
+  "seed": 1670034,
+  "training_seed": 7
+}

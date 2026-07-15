@@ -1,0 +1,38 @@
+{
+  "input_root": "_isolated_eval_chunks",
+  "num_input_chunks": 3,
+  "num_merged_rows": 1,
+  "output_csv": "_isolated_eval_chunks/merged_upair_lite_d64_b2_u3_upair5g_lmmse_em1.csv",
+  "rows": [
+    {
+      "ber": 0.0006374199615442055,
+      "ber_zero_error_upper_bound": NaN,
+      "bit_errors": 21853,
+      "bler": 0.012673611111111111,
+      "bler_zero_error_upper_bound": NaN,
+      "block_errors": 146,
+      "chunk_indices": "0,1,2",
+      "data_elapsed_s": 199.49167284090072,
+      "dmrs_case": "1dmrs",
+      "ebno_db": -1.0,
+      "mc_stop_reason": "isolated_chunk_merge",
+      "nmse": NaN,
+      "num_batches_run": 60,
+      "num_bits": 34283520,
+      "num_blocks": 11520,
+      "num_chunks": 3,
+      "num_users": 3,
+      "point_elapsed_s": 541.8332295045257,
+      "receiver": "upair5g_lmmse",
+      "receiver_elapsed_s": 288.3426062548533,
+      "receiver_ms_per_batch": 4805.710104247555,
+      "receiver_ms_per_frame": 25.02974012628935,
+      "reliable_ber": true,
+      "reliable_bler": true,
+      "seed": 7,
+      "target_bler_floor": NaN,
+      "training_seed": 7,
+      "variant": "upair_lite_d64_b2"
+    }
+  ]
+}
