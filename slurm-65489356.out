@@ -1,0 +1,30 @@
+[ENV] Reusing portable venv: /home/rsadve1/links/scratch/.vevn_upair_potable
+[ENV] Checking installed package metadata only; TensorFlow/Sionna are not imported here.
+[ENV] Python 3.11.5
+[ENV] numpy 1.26.4+computecanada
+[ENV] pandas 2.2.3+computecanada
+[ENV] matplotlib 3.10.0+computecanada
+[ENV] PyYAML 6.0.2+computecanada
+[ENV] scipy 1.15.1+computecanada
+[ENV] tensorflow 2.15.1+computecanada
+[ENV] sionna-no-rt 1.2.1
+[ENV] optuna 4.8.0+computecanada
+[ENV] Skipping TensorFlow/Sionna import check on this node. Set UPAIR_DEEP_IMPORT_CHECK=1 to test imports explicitly.
+[ENV] Ready: REPO=/home/rsadve1/links/scratch/Ablations_Wave3
+[ENV] Ready: VENV=/home/rsadve1/links/scratch/.vevn_upair_potable
+/home/rsadve1/links/scratch/.vevn_upair_potable/lib/python3.11/site-packages/optuna/_experimental.py:33: ExperimentalWarning: Argument ``multivariate`` is an experimental feature. The interface can change in the future.
+  optuna_warn(
+/home/rsadve1/links/scratch/.vevn_upair_potable/lib/python3.11/site-packages/optuna/_experimental.py:33: ExperimentalWarning: Argument ``group`` is an experimental feature. The interface can change in the future.
+  optuna_warn(
+[I 2026-07-14 12:53:15,949] Using an existing study with name 'clean_b32_prb8_d256_40k_smart_trueDMRS_u34610_1dmrs_stageB_dncnn_trunk_d256_l7' instead of creating a new one.
+Traceback (most recent call last):
+  File "/lustre07/scratch/rsadve1/Ablations_Wave3/scripts/run_optuna_1dmrs_structure_isolated.py", line 409, in <module>
+    main()
+  File "/lustre07/scratch/rsadve1/Ablations_Wave3/scripts/run_optuna_1dmrs_structure_isolated.py", line 346, in main
+    enqueue_stage_candidates(study, args)
+  File "/lustre07/scratch/rsadve1/Ablations_Wave3/scripts/optuna_1dmrs_common.py", line 454, in enqueue_stage_candidates
+    candidates = load_source_candidates(args)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/lustre07/scratch/rsadve1/Ablations_Wave3/scripts/optuna_1dmrs_common.py", line 419, in load_source_candidates
+    raise ValueError(f"Stage {args.stage} requires --source-study-name or OPTUNA_SOURCE_STUDY_NAME.")
+ValueError: Stage B requires --source-study-name or OPTUNA_SOURCE_STUDY_NAME.
