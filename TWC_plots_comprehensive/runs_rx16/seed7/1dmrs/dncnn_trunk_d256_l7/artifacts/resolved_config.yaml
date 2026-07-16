@@ -138,8 +138,8 @@ model:
   num_blocks: 4
   num_heads: 4
   mlp_ratio: 2.0
-  dropout: 0.02639429712150497
-  residual_scale: 0.18647863554958427
+  dropout: 0.03312588579968341
+  residual_scale: 0.4217057595278402
   use_noise_feature: true
   use_pilot_mask_feature: true
   pilot_mask_mode: per_stream
@@ -168,16 +168,16 @@ training:
   - 4
   log_every: 100
   eval_every: 2000
-  learning_rate: 0.0005712916127949584
+  learning_rate: 0.0002210893178410695
   learning_rate_schedule: cosine_decay
-  learning_rate_final_fraction: 0.02159904793462117
+  learning_rate_final_fraction: 0.036430683993363126
   learning_rate_decay_rate: 0.96
-  learning_rate_decay_steps: 50000
+  learning_rate_decay_steps: 40000
   learning_rate_restart_first_decay_steps: 2500
   learning_rate_restart_t_mul: 2.0
   learning_rate_restart_m_mul: 0.8
-  weight_decay: 9.654662480652895e-06
-  nmse_loss_weight: 0.4788048920718949
+  weight_decay: 1.613671536589336e-06
+  nmse_loss_weight: 0.3169058880316735
   loss_mode: nll_nmse
   grad_clip_norm: 0.5
   checkpoint_name: best.weights.h5
