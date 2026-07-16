@@ -304,26 +304,19 @@ def fig_r5():
                4.0: "_gen_ds4x_chunks", 5.0: "_gen_ds5x_chunks"}
     stroot = {1.5: "_r1_ds1p5_300ns_chunks", 2.0: "_r1_ds2x_300ns_chunks", 3.0: "_r1_ds3x_300ns_chunks",
               4.0: "_r1_ds4x_300ns_chunks", 5.0: "_r1_ds5x_300ns_chunks"}
-    wcroot = {1.0: "_r1_ds1x_900ns_chunks", 1.5: "_r1_ds1p5_900ns_chunks", 2.0: "_r1_ds2x_900ns_chunks"}
-    series = {"upair": [], "a3": [], "2dl_st": [], "2dl_wc": [], "2dl": []}
+    series = {"upair": [], "a3": [], "2dl_st": [], "2dl": []}
     for m in mults:
         if m == 1.0:
             series["upair"].append(point(try_curve(IN, "main_d256_b4_r2", RX["upair"], 3), 0))
             series["a3"].append(point(try_curve(IN, "no_prompt_film_d256_b4_r2", RX["upair"], 3), 0))
             series["2dl_st"].append(point(try_curve(IN, "main_d256_b4_r2", RX["2dl"], 3), 0))
-            series["2dl_wc"].append(point(try_curve(wcroot[m], "main_d256_b4_r2", RX["2dl"], 3), 0))
             series["2dl"].append(point(try_curve(IN, "main_d256_b4_r2", RX["2dl"], 3), 0))
         else:
             series["upair"].append(point(try_curve(genroot[m], "main_d256_b4_r2", RX["upair"], 3, f"upair@{m}x"), 0))
             series["a3"].append(point(try_curve(genroot[m], "no_prompt_film_d256_b4_r2", RX["upair"], 3, f"a3@{m}x"), 0))
             series["2dl_st"].append(point(try_curve(stroot[m], "main_d256_b4_r2", RX["2dl"], 3, f"stale@{m}x"), 0))
-            wc = (point(try_curve(wcroot[m], "main_d256_b4_r2", RX["2dl"], 3), 0) if m in wcroot
-                  else (point(try_curve(genroot[m], "main_d256_b4_r2", RX["2dl"], 3), 0) if m == 3.0 else None))
-            series["2dl_wc"].append(wc)
-            series["2dl"].append(point(try_curve(genroot[m], "main_d256_b4_r2", RX["2dl"], 3, f"matched@{m}x"), 0)
-                                 if m == 3.0 else None)
+            series["2dl"].append(point(try_curve(genroot[m], "main_d256_b4_r2", RX["2dl"], 3, f"matched@{m}x"), 0))
     for key, lab in [("upair", "UPAIR (frozen)"), ("2dl_st", "2D LMMSE (stale $\\mathbf{R}$)"),
-                     ("2dl_wc", "2D LMMSE (worst-case $\\mathbf{R}$)"),
                      ("2dl", "2D LMMSE (matched $\\mathbf{R}$)"), ("a3", "UPAIR w/o prompt")]:
         xs = [m for m, v in zip(mults, series[key]) if v is not None]
         ys = [v for v in series[key] if v is not None]
