@@ -1,0 +1,38 @@
+{
+  "input_root": "_isolated_eval_chunks",
+  "num_input_chunks": 1,
+  "num_merged_rows": 1,
+  "output_csv": "_isolated_eval_chunks/merged_dncnn_trunk_d256_l7_u3_upair5g_lmmse_em3.csv",
+  "rows": [
+    {
+      "ber": 0.01389877702172939,
+      "ber_zero_error_upper_bound": NaN,
+      "bit_errors": 158833,
+      "bler": 0.1921875,
+      "bler_zero_error_upper_bound": NaN,
+      "block_errors": 738,
+      "chunk_indices": "0",
+      "data_elapsed_s": 68.03047019708902,
+      "dmrs_case": "1dmrs",
+      "ebno_db": -3.0,
+      "mc_stop_reason": "isolated_chunk_merge",
+      "nmse": NaN,
+      "num_batches_run": 20,
+      "num_bits": 11427840,
+      "num_blocks": 3840,
+      "num_chunks": 1,
+      "num_users": 3,
+      "point_elapsed_s": 184.25338943395764,
+      "receiver": "upair5g_lmmse",
+      "receiver_elapsed_s": 95.39568989817052,
+      "receiver_ms_per_batch": 4769.784494908526,
+      "receiver_ms_per_frame": 24.84262757764857,
+      "reliable_ber": true,
+      "reliable_bler": true,
+      "seed": 7,
+      "target_bler_floor": NaN,
+      "training_seed": 7,
+      "variant": "dncnn_trunk_d256_l7"
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "message": "RuntimeError('No validation metrics found in /lustre07/scratch/rsadve1/Ablations_Wave3/optuna/runs_1dmrs/clean_b32_prb8_d256_40k_smart_trueDMRS_u34610_1dmrs_stageB_dncnn_trunk_d256_l7_gate/dncnn_trunk_d256_l7_trial_0000/metrics/history.json')",
+  "status": "failed",
+  "traceback": "Traceback (most recent call last):\n  File \"/lustre07/scratch/rsadve1/Ablations_Wave3/scripts/run_optuna_1dmrs_trial_worker.py\", line 158, in main\n    value = validation_history_score(\n            ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/lustre07/scratch/rsadve1/Ablations_Wave3/scripts/optuna_1dmrs_common.py\", line 306, in validation_history_score\n    raise RuntimeError(f\"No validation metrics found in {history_path}\")\nRuntimeError: No validation metrics found in /lustre07/scratch/rsadve1/Ablations_Wave3/optuna/runs_1dmrs/clean_b32_prb8_d256_40k_smart_trueDMRS_u34610_1dmrs_stageB_dncnn_trunk_d256_l7_gate/dncnn_trunk_d256_l7_trial_0000/metrics/history.json\n",
+  "trial_number": 0
+}

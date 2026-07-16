@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 #SBATCH --job-name=upairP-dncnn_trunk_d
-#SBATCH --time=12:00:00
+#SBATCH --time=11:00:00
 #SBATCH --cpus-per-task=8
 #SBATCH --mem=32G
 #SBATCH --output=/home/rsadve1/links/scratch/Ablations_Wave3/logs/pipeline/pipeline_dncnn_trunk_d256_l7_%j.out
-#SBATCH --gres=gpu:h100:1
+#SBATCH --gres=gpu:1
 set -euo pipefail
 cd "/home/rsadve1/links/scratch/Ablations_Wave3"
 source "/home/rsadve1/links/scratch/Ablations_Wave3/upair_portable_env.sh"
