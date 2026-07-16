@@ -49,6 +49,8 @@ STY = {
     "a2":      dict(color="tab:olive",  ls="-.", marker="D", label="depth $L{=}2$"),
     "l192":    dict(color="tab:pink",   ls="--", marker="v", label="UPAIR-Lite ($d{=}192$)"),
     "l128":    dict(color="m",          ls=":",  marker="<", label="UPAIR-Lite ($d{=}128$)"),
+    "l96":     dict(color="indigo",     ls=(0, (5, 1)), marker=">", label="UPAIR-Lite ($d{=}96$)"),
+    "l64":     dict(color="darkgoldenrod", ls=":", marker="P", label="UPAIR-Lite ($d{=}64$)"),
 }
 RX = {"upair": "upair5g_lmmse", "ls": "baseline_ls_lmmse",
       "2dl": "baseline_ls_2dlmmse_lmmse", "perfect": "perfect_csi_lmmse"}
@@ -171,12 +173,13 @@ def fig_r2():
     plot_curve(ax, curve(IN, "main_d256_b4_r2", RX["2dl"], 3), "2dl")
     arms = [("main_d256_b4_r2", "upair"), ("width_light_d192_b4_r2", "a1"),
             ("shallow_light_d256_b2_r2", "a2"), ("upair_lite_d192_b2", "l192"),
-            ("upair_lite_d128_b2", "l128")]
+            ("upair_lite_d128_b2", "l128"), ("upair_lite_d96_b2", "l96"),
+            ("upair_lite_d64_b2", "l64")]
     for v, key in arms:
         plot_curve(ax, curve(IN, v, RX["upair"], 3), key,
                    label=("UPAIR (full)" if key == "upair" else STY[key]["label"]))
     bler_axes(ax)
-    ax.legend(loc="lower left", fontsize=5.8)
+    ax.legend(loc="lower left", fontsize=5.2)
     ax.set_title("(a)", loc="left", fontweight="bold", pad=3)
 
     ax = axes[1]
