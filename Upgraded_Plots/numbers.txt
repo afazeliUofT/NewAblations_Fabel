@@ -1,0 +1,21 @@
+R1b required-SNR@1e-2 ls: u1:-3.64, u2:-1.39, u3:0.24, u4:--
+R1b required-SNR@1e-2 2dl: u1:-4.84, u2:-2.84, u3:-1.24, u4:0.26
+R1b required-SNR@1e-2 upair: u1:-5.10, u2:-3.58, u3:-2.11, u4:-0.56
+R2b full: params=4.189M delta=+0.00 dB
+R2b $d{=}192$: params=2.38M delta=+0.01 dB
+R2b $L{=}2$: params=2.207M delta=+0.04 dB
+R2b Lite-192: params=0.965M delta=+0.18 dB
+R2b Lite-128: params=0.447M delta=+0.29 dB
+R2b Lite-96: params=0.261M delta=+0.67 dB
+R2b Lite-64: params=0.125M delta=+1.26 dB
+R3 UPAIR (full): +0.00 dB
+R3 frequency attention only: -0.00 dB
+R3 time attention only: +0.36 dB
+R3 no attention: +0.45 dB
+R3 no attention, no conditioning: +0.57 dB
+R3 generic DnCNN trunk (tuned): +1.37 dB
+R5b UPAIR (frozen) BLER@0dB: 1.0x:2.9e-04, 1.5x:4.9e-04, 2.0x:1.9e-03, 3.0x:5.7e-02, 4.0x:1.7e-01, 5.0x:3.5e-01
+R5b 2D LMMSE (stale $\mathbf{R}$) BLER@0dB: 1.0x:1.5e-03, 1.5x:5.2e-03, 2.0x:1.1e-02, 3.0x:8.4e-02, 4.0x:1.5e-01, 5.0x:5.0e-01
+R5b 2D LMMSE (worst-case $\mathbf{R}$) BLER@0dB: 1.0x:7.4e-03, 1.5x:9.2e-03, 2.0x:2.0e-02, 3.0x:1.9e-02
+R5b 2D LMMSE (matched $\mathbf{R}$) BLER@0dB: 1.0x:1.5e-03, 3.0x:1.9e-02
+R5b UPAIR w/o prompt BLER@0dB: 1.0x:2.3e-04, 1.5x:9.3e-04, 2.0x:7.4e-03, 3.0x:4.2e-01, 4.0x:8.0e-01, 5.0x:9.2e-01
