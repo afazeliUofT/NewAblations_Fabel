@@ -330,7 +330,7 @@ def fig_r5():
     ax.set_ylabel("BLER at $E_b/N_0=0$ dB")
     ax.set_xticks(mults)
     ax.grid(True, which="both")
-    ax.legend(loc="upper left", fontsize=5.6)
+    ax.legend(loc="lower right", fontsize=5.6)
     ax.set_title("(b)", loc="left", fontweight="bold", pad=3)
 
     ax = axes[2]
